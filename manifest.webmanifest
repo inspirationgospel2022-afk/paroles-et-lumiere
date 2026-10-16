@@ -1,0 +1,11 @@
+{
+  "name": "Paroles et Lumière",
+  "short_name": "Paroles",
+  "description": "Enseignements bibliques et méditations chrétiennes",
+  "lang": "fr",
+  "start_url": "/paroles-et-lumiere/",
+  "scope": "/paroles-et-lumiere/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#102b54"
+}
