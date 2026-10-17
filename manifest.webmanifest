@@ -7,5 +7,17 @@
   "scope": "/paroles-et-lumiere/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#102b54"
+  "theme_color": "#102b54",
+"icons": [
+  {
+    "src": "paroles-et-lumiere-icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "paroles-et-lumiere-icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]
 }
