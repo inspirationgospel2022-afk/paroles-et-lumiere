@@ -43,11 +43,12 @@
     <div class="card">
       <h2>Bienvenue</h2>
       <p>Grandissez chaque jour dans la connaissance de la Parole de Dieu.</p>
+   
     </div>
 
     <div class="card">
       <h2>Enseignements bibliques</h2>
-      <p>Découvrez nos études et méditations bibliques.</p>
+      <div id="liste-enseignements"></div>
     </div>
 
     <div class="card">
@@ -68,6 +69,47 @@ if ('serviceWorker' in navigator) {
 const SUPABASE_URL = "https://xczqlgazsyplaigfnnmq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_0wXQkcUKWw8IXxkmzUz53Q_dsV1F_we";
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+  <script>
+async function afficherEnseignements() {
+  const zone = document.getElementById("liste-enseignements");
+  if (!zone) return;
+
+  const { data, error } = await db
+    .from("enseignements")
+    .select("titre, passage_biblique, contenu")
+    .order("date_publication", { ascending: false });
+
+  if (error) {
+    zone.textContent = "Impossible de charger les enseignements.";
+    console.error(error);
+    return;
+  }
+
+  zone.replaceChildren();
+
+  if (!data.length) {
+    zone.textContent = "Aucun enseignement publié pour le moment.";
+    return;
+  }
+
+  data.forEach(item => {
+    const article = document.createElement("article");
+    const titre = document.createElement("h3");
+    const passage = document.createElement("p");
+    const contenu = document.createElement("p");
+
+    titre.textContent = item.titre || "";
+    passage.textContent = item.passage_biblique || "";
+    contenu.textContent = item.contenu || "";
+
+    article.append(titre, passage, contenu);
+    article.style.marginTop = "20px";
+    zone.appendChild(article);
+  });
+}
+
+afficherEnseignements();
   </script>
 </body>
 </html>
