@@ -105,7 +105,28 @@ async function afficherEnseignements() {
     passage.textContent = item.passage_biblique || "";
     contenu.textContent = item.contenu || "";
 
-    article.append(titre, passage, contenu);
+    const bouton = document.createElement("button");
+bouton.textContent = "Lire l'enseignement complet";
+bouton.style.marginTop = "10px";
+bouton.style.padding = "12px";
+bouton.style.backgroundColor = "#102b54";
+bouton.style.color = "white";
+bouton.style.border = "none";
+bouton.style.borderRadius = "6px";
+
+contenu.style.display = "none";
+
+bouton.onclick = function() {
+  if (contenu.style.display === "none") {
+    contenu.style.display = "block";
+    bouton.textContent = "Fermer l'enseignement";
+  } else {
+    contenu.style.display = "none";
+    bouton.textContent = "Lire l'enseignement complet";
+  }
+};
+
+article.append(titre, passage, bouton, contenu);
     article.style.marginTop = "20px";
     zone.appendChild(article);
   });
