@@ -72,7 +72,11 @@
     <a href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#16834a;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:10px;">Rejoindre notre groupe WhatsApp</a>
     <div class="card">
       <h2>Enseignements de 14h et 23h GMT</h2>
-      <div id="liste-enseignements"></div>
+      <h3>14h GMT — Commentaires bibliques</h3>
+<div id="liste-14h"></div>
+
+<h3>23h GMT — Enseignements thématiques</h3>
+<div id="liste-23h"></div>
     </div>
 
   <div class="card">
@@ -97,7 +101,9 @@ const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   </script>
   <script>
 async function afficherEnseignements() {
-  const zone = document.getElementById("liste-enseignements");
+  const zone14h = document.getElementById("liste-14h");
+const zone23h = document.getElementById("liste-23h");
+const zone = zone14h;
   if (!zone) return;
 
   const { data, error } = await db
@@ -111,7 +117,8 @@ async function afficherEnseignements() {
     return;
   }
 
-  zone.replaceChildren();
+  zone14h.replaceChildren();
+zone23h.replaceChildren();
 
   if (!data.length) {
     zone.textContent = "Aucun enseignement publié pour le moment.";
@@ -151,7 +158,12 @@ bouton.onclick = function() {
 
 article.append(titre, passage, bouton, contenu);
     article.style.marginTop = "20px";
-    zone.appendChild(article);
+    if ((item.titre || "").toLowerCase().includes("exode") ||
+    (item.titre || "").toLowerCase().includes("commentaire biblique")) {
+  zone14h.appendChild(article);
+} else {
+  zone23h.appendChild(article);
+}
   });
 }
 
