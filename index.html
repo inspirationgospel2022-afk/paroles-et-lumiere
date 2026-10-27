@@ -149,7 +149,8 @@ const zone = zone14h;
 zone23h.replaceChildren();
 
   if (!data.length) {
-    zone.textContent = "Aucun enseignement publié pour le moment.";
+  zone14h.textContent = "Aucun enseignement publié";
+zone23h.textContent = "Aucun enseignement publié";
     return;
   }
 
@@ -162,7 +163,7 @@ const date = document.createElement("p");
     titre.textContent = item.titre || "";
     passage.textContent = item.passage_biblique || "";
     contenu.textContent = item.contenu || "";
-date.textContent = item.date_publication ? "Publié le " + new Date(item.date_publication).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }) : "";
+date.textContent = item.date_publication ? new Date(item.date_publication).toLocaleDateString("fr-FR") : "";
     const bouton = document.createElement("button");
 bouton.textContent = "Lire l'enseignement complet";
 bouton.style.marginTop = "10px";
