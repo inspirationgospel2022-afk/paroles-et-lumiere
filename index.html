@@ -135,7 +135,8 @@ const zone = zone14h;
 
   const { data, error } = await db
     .from("enseignements")
-    .select("titre, passage_biblique, contenu")
+    .s
+    .select("titre, passage_biblique, contenu, date_publication")
     .order("date_publication", { ascending: false });
 
   if (error) {
