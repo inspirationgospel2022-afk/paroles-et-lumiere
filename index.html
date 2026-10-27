@@ -149,5 +149,33 @@ article.append(titre, passage, bouton, contenu);
 
 afficherEnseignements();
   </script>
+  <script>
+  const zoneAudios = document.getElementById("liste-audios");
+
+if (zoneAudios) {
+  const lectures = [
+    {
+      titre: "Exode 31",
+      url: "https://xczqlgazsyplaigfnnmq.supabase.co/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%2031"
+    },
+    {
+      titre: "Exode 32",
+      url: "https://xczqlgazsyplaigfnnmq.supabase.co/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%2032"
+    }
+  ];
+
+  lectures.forEach(lecture => {
+    const titre = document.createElement("h3");
+    titre.textContent = lecture.titre;
+
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.src = lecture.url;
+    audio.style.width = "100%";
+
+    zoneAudios.append(titre, audio);
+  });
+}
+  </script>
 </body>
 </html>
