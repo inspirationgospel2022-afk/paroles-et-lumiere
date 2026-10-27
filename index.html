@@ -157,11 +157,11 @@ zone23h.replaceChildren();
     const titre = document.createElement("h3");
     const passage = document.createElement("p");
     const contenu = document.createElement("p");
-
+const date = document.createElement("p");
     titre.textContent = item.titre || "";
     passage.textContent = item.passage_biblique || "";
     contenu.textContent = item.contenu || "";
-
+date.textContent = item.date_publication ? "Publié le " + new Date(item.date_publication).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }) : "";
     const bouton = document.createElement("button");
 bouton.textContent = "Lire l'enseignement complet";
 bouton.style.marginTop = "10px";
