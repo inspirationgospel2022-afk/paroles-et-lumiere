@@ -191,7 +191,7 @@ const zone = zone14h;
 
   const { data, error } = await db
     .from("enseignements")
-    .select("titre, passage_biblique, contenu, date_publication")
+    .select("id, titre, passage_biblique, contenu, date_publication, nombre_lectures")
     .order("date_publication", { ascending: false });
 
   if (error) {
@@ -216,6 +216,8 @@ zone23h.textContent = "Aucun enseignement publié";
     const passage = document.createElement("p");
     const contenu = document.createElement("p");
 const date = document.createElement("p");
+    const compteur = document.createElement("p");
+    compteur.textContent = "Lectures : " + (item.nombre_lectures ?? 0);
     titre.textContent = item.titre || "";
     passage.textContent = item.passage_biblique || "";
     contenu.textContent = item.contenu || "";
@@ -252,7 +254,7 @@ partage.onclick = function() {
   window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank");
 };
 
-article.append(titre, passage, date , bouton, contenu, partage);
+ article.append(titre, passage, date, compteur, bouton, contenu, partage);
     article.style.marginTop = "20px";
     if ((item.titre || "").toLowerCase().includes("exode") ||
     (item.titre || "").toLowerCase().includes("commentaire biblique")) {
