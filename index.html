@@ -150,16 +150,16 @@ async function afficherEnseignements() {
   const zone14h = document.getElementById("liste-14h");
 const zone23h = document.getElementById("liste-23h");
 const zone = zone14h;
-  if (!zone) return;
+  if (!zone14h || !zone23h) return;
 
   const { data, error } = await db
     .from("enseignements")
-    .s
     .select("titre, passage_biblique, contenu, date_publication")
     .order("date_publication", { ascending: false });
 
   if (error) {
-    zone.textContent = "Impossible de charger les enseignements.";
+    zone14h.textContent = "Impossible de charger les enseignements.";
+zone23h.textContent = "Impossible de charger les enseignements.";
     console.error(error);
     return;
   }
