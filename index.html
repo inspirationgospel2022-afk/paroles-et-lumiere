@@ -95,6 +95,43 @@
   <p>Avec nos bénédictions,<br>
   <strong>Pasteur Gilles Landry LOGON et son épouse</strong></p>
 </section>
+  <section style="text-align:center;background:#ffffff;padding:22px;margin:15px;border-radius:14px;">
+  <h2>Installer PAROLES ET LUMIÈRE</h2>
+  <p>Retrouvez facilement vos enseignements bibliques depuis votre téléphone.</p>
+
+  <button id="installerApp" type="button"
+    style="background:#102b54;color:white;padding:15px 22px;border:0;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;">
+    Installer l'application
+  </button>
+
+  <p id="aideInstallation" style="margin-top:15px;line-height:1.6;" hidden></p>
+</section>
+
+<script>
+(function () {
+  let invitationInstallation = null;
+  const bouton = document.getElementById("installerApp");
+  const aide = document.getElementById("aideInstallation");
+
+  window.addEventListener("beforeinstallprompt", function (event) {
+    event.preventDefault();
+    invitationInstallation = event;
+  });
+
+  bouton.addEventListener("click", async function () {
+    if (invitationInstallation) {
+      invitationInstallation.prompt();
+      invitationInstallation = null;
+      return;
+    }
+
+    aide.hidden = false;
+    aide.textContent = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+      ? "Sur iPhone : ouvrez ce site dans Safari, appuyez sur Partager, puis sur Sur l'écran d'accueil et Ajouter."
+      : "Sur Android : ouvrez ce site dans Chrome, appuyez sur les trois points, puis sur Installer l'application ou Ajouter à l'écran d'accueil. Si elle est déjà installée, ouvrez-la depuis votre téléphone.";
+  });
+})();
+</script>
   <main>
     <div class="card">
       <h2>Bienvenue</h2>
