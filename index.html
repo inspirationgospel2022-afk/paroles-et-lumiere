@@ -233,10 +233,11 @@ bouton.style.borderRadius = "6px";
 
 contenu.style.display = "none";
 contenu.style.whiteSpace = "pre-line";
-bouton.onclick = function() {
+bouton.onclick = async function() {
   if (contenu.style.display === "none") {
     contenu.style.display = "block";
-    item.nombre_lectures = (item.nombre_lectures || 0) + 1;
+    const { data: total, error: erreurLecture } = await db.rpc("incrementer_lecture", { p_id: item.id });
+    if (!erreurLecture) item.nombre_lectures = total;
 compteur.textContent = "Lectures : " + item.nombre_lectures;
     bouton.textContent = "Fermer l'enseignement";
   } else {
