@@ -240,8 +240,19 @@ bouton.onclick = function() {
     bouton.textContent = "Lire l'enseignement complet";
   }
 };
+const partage = document.createElement("button");
+partage.textContent = "Partager sur WhatsApp";
+partage.style.cssText = "display:block;margin-top:12px;padding:12px;background:#25D366;color:white;border:none;border-radius:6px;cursor:pointer;";
+partage.onclick = function() {
+  const message = "PAROLES ET LUMIÈRE\n\n" +
+    (item.titre || "") + "\n" +
+    (item.passage_biblique || "") + "\n\n" +
+    "Découvrez cet enseignement :\n" +
+    "https://inspirationgospel2022-afk.github.io/paroles-et-lumiere/";
+  window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank");
+};
 
-article.append(titre, passage, date , bouton, contenu);
+article.append(titre, passage, date , bouton, contenu, partage);
     article.style.marginTop = "20px";
     if ((item.titre || "").toLowerCase().includes("exode") ||
     (item.titre || "").toLowerCase().includes("commentaire biblique")) {
