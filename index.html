@@ -236,6 +236,8 @@ contenu.style.whiteSpace = "pre-line";
 bouton.onclick = function() {
   if (contenu.style.display === "none") {
     contenu.style.display = "block";
+    item.nombre_lectures = (item.nombre_lectures || 0) + 1;
+compteur.textContent = "Lectures : " + item.nombre_lectures;
     bouton.textContent = "Fermer l'enseignement";
   } else {
     contenu.style.display = "none";
