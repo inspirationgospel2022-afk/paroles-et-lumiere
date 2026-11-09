@@ -96,9 +96,7 @@ h3{color:var(--navy)}
  margin:20px auto;border-radius:15px;
  box-shadow:0 12px 35px #0b23471c;
 }
-.welcome p{
- max-width:660px;margin:15px auto;
-}
+.welcome p{max-width:660px;margin:15px auto}
 .welcome-signature{
  color:var(--navy);font-weight:800;
  margin-top:22px!important;
@@ -223,9 +221,7 @@ footer{
  <div class="eyebrow" style="color:var(--gold)">
   Bienvenue dans notre univers biblique
  </div>
-
  <h2>Bienvenue sur Paroles et Lumière</h2>
-
  <div class="goldline" style="margin:14px auto 20px"></div>
 
  <img
@@ -241,18 +237,15 @@ footer{
   consacré à l'étude, à la méditation et à la
   compréhension de la Parole de Dieu.
  </p>
-
  <p>
   Notre mission est de vous accompagner dans
   votre croissance spirituelle, afin que la
   Parole de Dieu éclaire vos décisions,
   fortifie votre foi et transforme votre vie.
  </p>
-
  <p class="welcome-signature">
   Pasteur Gilles Landry LOGON et son épouse
  </p>
-
  <p style="color:var(--gold);font-weight:700">
   Lire • Comprendre • Grandir • Impacter
  </p>
@@ -266,14 +259,12 @@ footer{
  </div>
  <h2>Grandir dans la Parole</h2>
  <div class="goldline"></div>
-
  <p>
   Commentaires bibliques à <strong>14h GMT</strong>
   et enseignements thématiques à
   <strong>23h GMT</strong>, chaque lundi,
   mercredi et vendredi.
  </p>
-
  <p class="sub">Semaine du 9 au 13 novembre 2026</p>
 
  <div class="week">
@@ -284,7 +275,6 @@ footer{
    <span class="time">23h GMT</span>
    <p>Comment utiliser de petites ressources pour devenir prospère — Partie 1</p>
   </div>
-
   <div class="day">
    <h3>Mercredi 11 novembre</h3>
    <span class="time">14h GMT</span>
@@ -292,7 +282,6 @@ footer{
    <span class="time">23h GMT</span>
    <p>Comment utiliser de petites ressources pour devenir prospère — Partie 2</p>
   </div>
-
   <div class="day">
    <h3>Vendredi 13 novembre</h3>
    <span class="time">14h GMT</span>
@@ -307,8 +296,7 @@ footer{
    Consulter les enseignements
   </a>
   <a class="button green"
-   target="_blank"
-   rel="noopener noreferrer"
+   target="_blank" rel="noopener noreferrer"
    href="https://wa.me/?text=Découvrez%20Paroles%20et%20Lumière%20https%3A%2F%2Finspirationgospel2022-afk.github.io%2Fparoles-et-lumiere%2F">
    Partager l'application
   </a>
@@ -334,9 +322,7 @@ footer{
  </div>
  <h2>14h GMT — Commentaires bibliques</h2>
  <div class="goldline"></div>
- <p id="statut14" class="status">
-  Chargement des commentaires…
- </p>
+ <p id="statut14" class="status">Chargement des commentaires…</p>
  <div id="liste-14h" class="teach-grid"></div>
 </section>
 
@@ -348,9 +334,7 @@ footer{
  </div>
  <h2>23h GMT — Enseignements thématiques</h2>
  <div class="goldline"></div>
- <p id="statut23" class="status">
-  Chargement des enseignements…
- </p>
+ <p id="statut23" class="status">Chargement des enseignements…</p>
  <div id="liste-23h" class="teach-grid"></div>
 </section>
 
@@ -362,25 +346,14 @@ footer{
  </div>
  <h2>Bibliothèque audio biblique</h2>
  <div class="goldline"></div>
-
  <p class="sub">
-  Écoutez les Saintes Écritures chapitre par chapitre,
-  depuis votre téléphone.
+  Écoutez les Saintes Écritures chapitre par chapitre.
  </p>
 
  <div class="audio-summary">
-  <div class="stat">
-   <strong>2</strong>
-   <span>Livres bibliques</span>
-  </div>
-  <div class="stat">
-   <strong>16</strong>
-   <span>Chapitres audio</span>
-  </div>
-  <div class="stat">
-   <strong>24h/24</strong>
-   <span>Écoute accessible</span>
-  </div>
+  <div class="stat"><strong>2</strong><span>Livres bibliques</span></div>
+  <div class="stat"><strong>16</strong><span>Chapitres audio</span></div>
+  <div class="stat"><strong>24h/24</strong><span>Écoute accessible</span></div>
  </div>
 
  <div class="book-head">
@@ -431,7 +404,7 @@ const db=window.supabase
  ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
  : null;
 
-/* ENSEIGNEMENTS */
+/* ENSEIGNEMENTS ET COMPTEURS */
 
 let enseignements=[];
 
@@ -498,7 +471,16 @@ function afficherEnseignements(){
 
   const meta=document.createElement('p');
   meta.className='meta';
-  meta.textContent=formatDate(item.date_publication);
+
+  function actualiserCompteur(){
+   meta.textContent=
+    formatDate(item.date_publication)+
+    '  •  👁 '+
+    (item.nombre_lectures||0)+
+    ' lectures';
+  }
+
+  actualiserCompteur();
 
   const actions=document.createElement('div');
   actions.className='actions';
@@ -513,11 +495,34 @@ function afficherEnseignements(){
   contenu.textContent=item.contenu||
    'Contenu en cours de publication.';
 
-  lire.onclick=()=>{
+  let lectureComptee=false;
+
+  lire.onclick=async()=>{
    contenu.hidden=!contenu.hidden;
    lire.textContent=contenu.hidden
     ? 'Lire le message'
     : 'Fermer le message';
+
+   if(!contenu.hidden&&!lectureComptee&&db&&item.id){
+    lectureComptee=true;
+
+    try{
+     const {data,error}=await db.rpc(
+      'incrementer_lecture',
+      {p_id:item.id}
+     );
+
+     if(error)throw error;
+
+     if(data!=null){
+      item.nombre_lectures=data;
+     }
+
+     actualiserCompteur();
+    }catch(error){
+     console.error('Compteur de lectures :',error);
+    }
+   }
   };
 
   const partager=document.createElement('button');
@@ -565,7 +570,9 @@ async function chargerEnseignements(){
  try{
   const {data,error}=await db
    .from('enseignements')
-   .select('id,titre,passage_biblique,contenu,date_publication')
+   .select(
+    'id,titre,passage_biblique,contenu,date_publication,nombre_lectures'
+   )
    .order('date_publication',{ascending:false});
 
   if(error)throw error;
