@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +7,7 @@
 <meta name="theme-color" content="#0b2347">
 <meta name="description" content="Paroles et Lumière — Lire, comprendre, grandir, impacter.">
 <title>Paroles et Lumière</title>
-<link rel="manifest" href="manifest.webmanifest">
+<link rel="manifest" href="./manifest.webmanifest">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMYCB66BJ0"></script>
 <script>
@@ -18,213 +19,231 @@ gtag('config','G-CMYCB66BJ0');
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-:root{
+:root {
   --navy:#0b2347;
   --blue:#143a69;
-  --gold:#c5a05c;
+  --gold:#b58a3d;
   --ink:#172942;
   --muted:#66758b;
   --line:#e6ebf2;
   --bg:#f4f7fb;
-  --green:#168252;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
   margin:0;
-  font:16px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial,sans-serif;
   background:var(--bg);
   color:var(--ink);
 }
-button,input{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.wrap{max-width:1080px;margin:auto}
-.hero{
-  background:
-    radial-gradient(circle at 90% 10%,#315b86 0%,transparent 40%),
-    linear-gradient(135deg,#081b37,#153d6d);
+button,input {font:inherit}
+a {color:inherit}
+.hero {
+  background:linear-gradient(135deg,#081b37,#153d6d);
   color:white;
-  padding:55px 18px;
+  padding:36px 18px 32px;
 }
-.eyebrow{
+.wrap {max-width:1020px;margin:auto}
+.eyebrow {
   font-size:11px;
-  letter-spacing:2px;
-  color:var(--gold);
+  letter-spacing:2.5px;
+  color:#dfc58b;
   font-weight:800;
   text-transform:uppercase;
 }
-.hero .eyebrow{color:#e7ca91}
-.hero h1{
+.hero h1 {
   font-family:Georgia,serif;
-  font-size:clamp(36px,7vw,62px);
+  font-size:clamp(29px,6vw,48px);
   line-height:1.1;
-  margin:15px 0;
+  margin:12px 0;
 }
-.hero p{max-width:600px;color:#d6e1f2}
-.actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-.button,.teach button{
-  display:inline-block;
-  border:0;
-  border-radius:11px;
-  padding:12px 17px;
-  background:var(--navy);
-  color:white;
-  font-weight:750;
-  text-decoration:none;
-  font-size:14px;
-  min-height:44px;
-}
-.button.gold{background:var(--gold);color:var(--navy)}
-.button.green,.teach button.green{background:var(--green)}
-.button.outline{border:1px solid #ffffff70;background:transparent}
-.nav{
+.hero p {margin:0;color:#d6e1f2}
+.nav {
   position:sticky;
   top:0;
-  z-index:20;
-  background:#ffffffef;
-  backdrop-filter:blur(12px);
+  z-index:10;
+  background:white;
   border-bottom:1px solid var(--line);
   overflow-x:auto;
   display:flex;
-  gap:8px;
-  padding:11px max(14px,calc((100vw - 1080px)/2));
+  gap:7px;
+  padding:11px max(14px,calc((100vw - 1020px)/2));
 }
-.nav a{
+.nav a {
   white-space:nowrap;
   text-decoration:none;
-  padding:9px 13px;
-  border-radius:10px;
+  border:1px solid #dce3ed;
+  padding:9px 14px;
+  border-radius:24px;
   font-size:13px;
   font-weight:750;
   color:var(--navy);
 }
-.nav a:hover{background:#edf2f8}
-main{max-width:1080px;margin:auto;padding:28px 14px}
-.section{margin-bottom:28px}
-.panel{
+main {
+  max-width:1020px;
+  margin:0 auto;
+  padding:20px 14px 40px;
+}
+.panel {
   background:white;
   border:1px solid var(--line);
   border-radius:18px;
-  padding:clamp(18px,3vw,28px);
+  padding:clamp(17px,3vw,26px);
   box-shadow:0 8px 30px #0b234708;
+  margin:0 0 18px;
 }
-.section-head{margin-bottom:17px}
-.section-head h2,.panel h2{
-  margin:7px 0;
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:14px;
+}
+.section-head h2 {
+  margin:0;
   color:var(--navy);
-  font:700 clamp(24px,4vw,33px)/1.2 Georgia,serif;
+  font:700 clamp(23px,4vw,30px)/1.2 Georgia,serif;
 }
-.sub{font-size:14px;color:var(--muted);margin:5px 0}
-.feature{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  align-items:center;
+.sub {
+  font-size:13px;
+  color:var(--muted);
+  margin:5px 0 0;
 }
-.poster{width:100%;height:auto;display:block;border-radius:13px}
-.week{
+.poster {
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+}
+.button,.teach button {
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  background:var(--navy);
+  color:white;
+  font-weight:750;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:14px;
+}
+.button.green,.teach button.green {background:#15834d}
+.actions {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+.week {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
+  gap:10px;
 }
-.day{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:19px;
-}
-.day h3{color:var(--navy);font-size:17px;margin:0 0 12px}
-.slot{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
-.slot p{font-size:14px;margin:4px 0}
-.time{color:#946b26;font-size:12px;font-weight:800}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.teach{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:20px;
-  min-width:0;
-  box-shadow:0 5px 18px #0b234707;
-}
-.teach h3{
-  color:var(--navy);
-  font-size:19px;
-  line-height:1.35;
-  margin:11px 0 7px;
-}
-.meta,.status{font-size:13px;color:var(--muted)}
-.passage{font-size:14px;color:#926a2d}
-.tag{
-  display:inline-block;
-  background:#f8f1e4;
-  color:#846020;
-  padding:5px 9px;
-  border-radius:6px;
-  font-size:11px;
-  font-weight:800;
-}
-.full{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  border-top:1px solid var(--line);
-  margin-top:16px;
-  padding-top:16px;
-  font-size:14px;
-  line-height:1.8;
-}
-[hidden]{display:none!important}
-.search{
-  width:100%;
+.day {
+  border:1px solid #e7e0d4;
+  border-radius:13px;
+  background:#fffdfa;
   padding:15px;
-  border:1px solid #ccd5e3;
-  border-radius:12px;
-  outline-color:var(--gold);
 }
-.audio-grid{
+.day h3 {
+  font-size:15px;
+  color:var(--navy);
+  margin:0 0 10px;
+}
+.day p {margin:5px 0 10px;font-size:13px}
+.time {color:#946b26;font-size:12px;font-weight:800}
+.grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
 }
-.audio{
+.teach {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  min-width:0;
+}
+.teach h3 {
+  color:var(--navy);
+  font-size:17px;
+  line-height:1.3;
+  margin:8px 0;
+}
+.meta {font-size:12px;color:var(--muted);margin:0}
+.teach .passage {font-size:13px;color:#916a2d}
+.teach .full {
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  margin-top:14px;
+  padding:14px 0 0;
+  border-top:1px solid var(--line);
+  font-size:14px;
+}
+.teach .full[hidden] {display:none}
+.teach .actions {margin-top:12px}
+.teach button {font-size:13px}
+.tag {
+  display:inline-block;
+  background:#f8f1e4;
+  color:#846020;
+  padding:4px 9px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:800;
+}
+.search {
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #ccd5e3;
+  border-radius:11px;
+  margin:0 0 14px;
+}
+.audio-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.audio {
   background:#f8fafc;
   border:1px solid var(--line);
-  border-radius:13px;
+  border-radius:12px;
   padding:16px;
 }
-.audio strong{display:block;color:var(--navy);margin-bottom:8px}
-audio{width:100%}
-.welcome{
-  display:grid;
-  grid-template-columns:210px 1fr;
-  gap:24px;
-  align-items:center;
+.audio strong {
+  display:block;
+  margin-bottom:10px;
+  color:var(--navy);
 }
-.welcome img{width:100%;height:auto;border-radius:13px}
-footer{
-  background:var(--navy);
-  color:#c5d4e8;
-  text-align:center;
-  padding:30px 12px;
+.audio a {
+  display:inline-block;
+  margin-top:10px;
   font-size:13px;
+  font-weight:700;
+  color:var(--blue);
 }
-footer strong{color:white}
-@media(max-width:760px){
-  .feature,.week,.grid,.audio-grid,.welcome{grid-template-columns:1fr}
-  .hero{padding:43px 16px}
-  .panel{padding:18px}
-  .nav{padding:10px 12px}
-  .teach{padding:17px}
-  .welcome img{max-width:260px;margin:auto}
+audio {width:100%}
+.welcome {
+  max-width:380px;
+  width:100%;
+  height:auto;
+  border-radius:13px;
+  display:block;
+  margin:14px auto;
+}
+footer {
+  text-align:center;
+  color:var(--muted);
+  padding:26px 12px;
+}
+.status {color:var(--muted);font-size:14px}
+[hidden] {display:none!important}
+@media(max-width:690px) {
+  .grid,.week,.audio-grid {grid-template-columns:1fr}
+  .hero {padding:28px 16px}
+  .panel {padding:16px}
+  .nav {padding:10px 12px}
+  .teach {padding:15px}
 }
 </style>
 </head>
@@ -234,18 +253,13 @@ footer strong{color:white}
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">Lire • Comprendre • Grandir • Impacter</div>
-    <h1>PAROLES<br>ET LUMIÈRE</h1>
-    <p>La Parole de Dieu pour éclairer nos vies. Découvrez nos commentaires bibliques, enseignements pratiques et lectures audio.</p>
-    <div class="actions">
-      <a class="button gold" href="#programme">Voir le programme</a>
-      <a class="button outline" href="#enseignements14">Lire les enseignements</a>
-    </div>
+    <h1>PAROLES ET LUMIÈRE</h1>
+    <p>La Parole de Dieu pour éclairer nos vies</p>
   </div>
 </header>
 
 <nav class="nav" aria-label="Navigation">
   <a href="#programme">Programme</a>
-  <a href="#rendezvous">Rendez-vous</a>
   <a href="#enseignements14">14h GMT</a>
   <a href="#enseignements23">23h GMT</a>
   <a href="#audios">Audios</a>
@@ -254,153 +268,142 @@ footer strong{color:white}
 
 <main>
 
-<section class="section" id="programme">
+<section class="panel" id="programme">
   <div class="section-head">
-    <div class="eyebrow">9 au 13 novembre 2026</div>
-    <h2>À la une cette semaine</h2>
-    <p class="sub">Lundi • Mercredi • Vendredi — 14h et 23h GMT</p>
-  </div>
-  <div class="panel feature">
     <div>
-      <div class="eyebrow">Notre rendez-vous biblique</div>
-      <h2>Grandir ensemble dans la Parole</h2>
-      <p>Après la Genèse et l'Exode, nous poursuivons notre parcours avec le Lévitique.</p>
-      <p>À 23h GMT, découvrez notre série : <strong>Comment utiliser de petites ressources pour devenir prospère</strong>.</p>
-      <p class="sub">Avec le Pasteur Gilles Landry LOGON</p>
-      <div class="actions">
-        <a class="button" href="#enseignements14">Commentaires de 14h</a>
-        <a class="button green" target="_blank" rel="noopener noreferrer"
-          href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4">
-          Groupe WhatsApp
-        </a>
+      <div class="eyebrow" style="color:var(--gold)">
+        Semaine du 9 au 13 novembre 2026
       </div>
+      <h2>Programme de la semaine</h2>
+      <p class="sub">Lundi • Mercredi • Vendredi — 14h et 23h GMT</p>
     </div>
-    <img class="poster"
-      src="https://xczqlgazsyplaigfnnmq.supabase.co/storage/v1/object/public/audios-enseignements/Programmes/IMG_20261109_173930_026.jpg"
-      alt="Programme officiel du 9 au 13 novembre 2026">
+  </div>
+
+  <img class="poster"
+    src="https://xczqlgazsyplaigfnnmq.supabase.co/storage/v1/object/public/audios-enseignements/Programmes/IMG_20261109_173930_026.jpg"
+    alt="Programme du 9 au 13 novembre 2026">
+
+  <div class="actions">
+    <a class="button" href="#enseignements14">
+      Lire les enseignements
+    </a>
+    <a class="button green"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4">
+      Rejoindre le groupe WhatsApp
+    </a>
   </div>
 </section>
 
-<section class="section" id="rendezvous">
+<section class="panel">
   <div class="section-head">
-    <div class="eyebrow">Agenda hebdomadaire</div>
-    <h2>Les rendez-vous de la semaine</h2>
-    <p class="sub">Deux enseignements chaque lundi, mercredi et vendredi.</p>
+    <div>
+      <h2>Les rendez-vous</h2>
+      <p class="sub">Orateur : Pasteur Gilles Landry LOGON</p>
+    </div>
   </div>
+
   <div class="week">
-    <article class="day">
+    <div class="day">
       <h3>Lundi 9 novembre</h3>
-      <div class="slot">
-        <span class="time">14h GMT</span>
-        <p>Lévitique 1 et 2 — Consécration et reconnaissance</p>
-      </div>
-      <div class="slot">
-        <span class="time">23h GMT</span>
-        <p>Petites ressources — 1ère partie</p>
-      </div>
-    </article>
-    <article class="day">
+      <span class="time">14h GMT</span>
+      <p>Lévitique 1 et 2 — Consécration et reconnaissance</p>
+      <span class="time">23h GMT</span>
+      <p>Petites ressources — 1ère partie</p>
+    </div>
+    <div class="day">
       <h3>Mercredi 11 novembre</h3>
-      <div class="slot">
-        <span class="time">14h GMT</span>
-        <p>Lévitique 3 et 4 — Communion et péché</p>
-      </div>
-      <div class="slot">
-        <span class="time">23h GMT</span>
-        <p>Petites ressources — 2ème partie</p>
-      </div>
-    </article>
-    <article class="day">
+      <span class="time">14h GMT</span>
+      <p>Lévitique 3 et 4 — Communion et péché</p>
+      <span class="time">23h GMT</span>
+      <p>Petites ressources — 2ème partie</p>
+    </div>
+    <div class="day">
       <h3>Vendredi 13 novembre</h3>
-      <div class="slot">
-        <span class="time">14h GMT</span>
-        <p>Lévitique 5 et 6 — Réparation et fidélité</p>
-      </div>
-      <div class="slot">
-        <span class="time">23h GMT</span>
-        <p>Petites ressources — 3ème partie</p>
-      </div>
-    </article>
+      <span class="time">14h GMT</span>
+      <p>Lévitique 5 et 6 — Réparation et fidélité</p>
+      <span class="time">23h GMT</span>
+      <p>Petites ressources — 3ème partie</p>
+    </div>
   </div>
 </section>
 
-<section class="section" id="bibliotheque">
+<section class="panel">
   <div class="section-head">
-    <div class="eyebrow">Bibliothèque numérique</div>
-    <h2>Tous les enseignements</h2>
-    <p class="sub">Les publications les plus récentes apparaissent en premier.</p>
+    <div>
+      <h2>Bibliothèque des enseignements</h2>
+      <p class="sub">Les publications les plus récentes apparaissent en premier.</p>
+    </div>
   </div>
   <input id="recherche" class="search" type="search"
-    placeholder="Rechercher un titre, un passage ou un enseignement…"
+    placeholder="Rechercher un titre ou un passage biblique…"
     aria-label="Rechercher un enseignement">
 </section>
 
-<section class="section" id="enseignements14">
+<section class="panel" id="enseignements14">
   <div class="section-head">
-    <div class="eyebrow">Parcours biblique</div>
-    <h2>14h GMT — Commentaires bibliques</h2>
-    <p class="sub">Explorer et comprendre les livres de la Bible.</p>
+    <div>
+      <div class="eyebrow" style="color:var(--gold)">Parcours biblique</div>
+      <h2>14h GMT — Commentaires bibliques</h2>
+    </div>
   </div>
-  <p id="statut14" class="status">Chargement des commentaires…</p>
+  <p id="statut14" class="status">Chargement des enseignements…</p>
   <div class="grid" id="liste-14h"></div>
 </section>
 
-<section class="section" id="enseignements23">
+<section class="panel" id="enseignements23">
   <div class="section-head">
-    <div class="eyebrow">Vie et édification</div>
-    <h2>23h GMT — Enseignements thématiques</h2>
-    <p class="sub">Des messages pratiques pour progresser chaque jour.</p>
+    <div>
+      <div class="eyebrow" style="color:var(--gold)">Vie et édification</div>
+      <h2>23h GMT — Enseignements thématiques</h2>
+    </div>
   </div>
   <p id="statut23" class="status">Chargement des enseignements…</p>
   <div class="grid" id="liste-23h"></div>
 </section>
 
-<section class="section" id="audios">
+<section class="panel" id="audios">
   <div class="section-head">
-    <div class="eyebrow">Écouter la Parole</div>
-    <h2>Lectures bibliques audio</h2>
-    <p class="sub">Exode 31 à 36 — écoute directe lorsque les fichiers sont disponibles.</p>
-  </div>
-  <div id="liste-audios" class="audio-grid"></div>
-  <p id="statutAudio" class="status"></p>
-</section>
-
-<section class="section" id="installer">
-  <div class="panel">
-    <div class="eyebrow">Sur votre téléphone</div>
-    <h2>Installer Paroles et Lumière</h2>
-    <p>Retrouvez nos enseignements directement depuis l'écran d'accueil de votre téléphone Android ou iPhone.</p>
-    <button class="button" id="installerApp" type="button">
-      Installer l'application
-    </button>
-    <p id="aideInstallation" class="status" hidden></p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="panel welcome">
-    <img src="IMG_20261028_044943_995.jpg"
-      alt="Pasteur Gilles Landry LOGON et son épouse"
-      loading="lazy">
     <div>
-      <div class="eyebrow">Bienvenue</div>
-      <h2>Une lumière pour chaque jour</h2>
-      <p>Notre désir est de vous accompagner dans la découverte des Saintes Écritures afin de grandir dans la foi, de mieux connaître Jésus-Christ et de marcher chaque jour dans sa lumière.</p>
-      <p><strong>Pasteur Gilles Landry LOGON et son épouse</strong></p>
+      <div class="eyebrow" style="color:var(--gold)">Écouter la Parole</div>
+      <h2>Lectures bibliques audio</h2>
+      <p class="sub">Exode 31 à 36 — Écoute directe</p>
     </div>
   </div>
+  <div id="liste-audios" class="audio-grid"></div>
+</section>
+
+<section class="panel" id="installer">
+  <h2>Installer l'application</h2>
+  <p>Retrouvez Paroles et Lumière depuis votre écran d'accueil.</p>
+  <button class="button" id="installerApp" type="button">
+    Installer Paroles et Lumière
+  </button>
+  <p class="status" id="aideInstallation" hidden></p>
+</section>
+
+<section class="panel" style="text-align:center">
+  <h2>Bienvenue sur Paroles et Lumière</h2>
+  <img class="welcome"
+    src="IMG_20261028_044943_995.jpg"
+    alt="Pasteur Gilles Landry LOGON et son épouse"
+    loading="lazy">
+  <p>
+    Notre désir est de vous accompagner dans la découverte des
+    Saintes Écritures afin de grandir dans la foi, de mieux connaître
+    Jésus-Christ et de marcher chaque jour dans sa lumière.
+  </p>
+  <p><strong>Pasteur Gilles Landry LOGON et son épouse</strong></p>
 </section>
 
 </main>
 
 <footer>
-  <strong>PAROLES ET LUMIÈRE</strong>
-  <div>Lire • Comprendre • Grandir • Impacter</div>
+  PAROLES ET LUMIÈRE — Lire • Comprendre • Grandir • Impacter
 </footer>
 
 <script>
-'use strict';
-
 const SUPABASE_URL =
   'https://xczqlgazsyplaigfnnmq.supabase.co';
 
@@ -414,124 +417,120 @@ const db = window.supabase
   ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
   : null;
 
-const el = id => document.getElementById(id);
+const formatDate = s => {
+  if(!s) return '';
+  const a = String(s).slice(0,10).split('-');
+  return a.length===3 ? `${a[2]}/${a[1]}/${a[0]}` : s;
+};
 
-function formatDate(s){
-  if(!s)return '';
-  const a=String(s).slice(0,10).split('-');
-  return a.length===3?`${a[2]}/${a[1]}/${a[0]}`:s;
-}
-
-function categorie(item){
-  const t=(item.titre||'').toLowerCase();
-  const p=(item.passage_biblique||'').toLowerCase();
+const categorie = item => {
+  const t = (item.titre||'').toLowerCase();
+  const p = (item.passage_biblique||'').toLowerCase();
 
   return /commentaire biblique|parcours biblique|lévitique|levitique|exode|genèse|genese/.test(t)
     || (/lévitique|levitique|exode/.test(p)
       && /étude|commentaire/.test(t))
-    ? '14h':'23h';
-}
+    ? '14h'
+    : '23h';
+};
 
-let enseignements=[];
+let enseignements = [];
 
-function afficherCartes(){
-  const filtre=el('recherche').value.trim().toLocaleLowerCase('fr');
+function afficherCartes() {
+  const filtre = document.getElementById('recherche')
+    .value.trim().toLocaleLowerCase('fr');
 
-  const zones={
-    '14h':el('liste-14h'),
-    '23h':el('liste-23h')
+  const zones = {
+    '14h':document.getElementById('liste-14h'),
+    '23h':document.getElementById('liste-23h')
   };
 
   Object.values(zones).forEach(z=>z.replaceChildren());
 
-  const compte={'14h':0,'23h':0};
+  const compte = {'14h':0,'23h':0};
 
-  for(const item of enseignements){
-    const texte=[
-      item.titre,
-      item.passage_biblique,
-      item.contenu
-    ].filter(Boolean).join(' ').toLocaleLowerCase('fr');
+  for(const item of enseignements) {
+    const texte = [item.titre,item.passage_biblique]
+      .join(' ').toLocaleLowerCase('fr');
 
-    if(filtre&&!texte.includes(filtre))continue;
+    if(filtre && !texte.includes(filtre)) continue;
 
-    const type=categorie(item);
+    const type = categorie(item);
     compte[type]++;
 
-    const article=document.createElement('article');
-    article.className='teach';
+    const article = document.createElement('article');
+    article.className = 'teach';
 
-    const tag=document.createElement('span');
-    tag.className='tag';
-    tag.textContent=type==='14h'
-      ? 'COMMENTAIRE BIBLIQUE':'ENSEIGNEMENT';
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent = type==='14h'
+      ? 'COMMENTAIRE BIBLIQUE'
+      : 'ENSEIGNEMENT';
 
-    const titre=document.createElement('h3');
-    titre.textContent=item.titre||'Sans titre';
+    const titre = document.createElement('h3');
+    titre.textContent = item.titre||'Sans titre';
 
-    const passage=document.createElement('p');
-    passage.className='passage';
-    passage.textContent=item.passage_biblique||'';
+    const passage = document.createElement('p');
+    passage.className = 'passage';
+    passage.textContent = item.passage_biblique||'';
 
-    const meta=document.createElement('p');
-    meta.className='meta';
+    const meta = document.createElement('p');
+    meta.className = 'meta';
+    meta.textContent = formatDate(item.date_publication)
+      + ' • Lectures : ' + (item.nombre_lectures||0);
 
-    const actualiserMeta=()=>{
-      meta.textContent=formatDate(item.date_publication)
-        +' • Lectures : '+(item.nombre_lectures??0);
-    };
-    actualiserMeta();
+    const actions = document.createElement('div');
+    actions.className = 'actions';
 
-    const actions=document.createElement('div');
-    actions.className='actions';
+    const lire = document.createElement('button');
+    lire.textContent = 'Lire le message';
 
-    const lire=document.createElement('button');
-    lire.type='button';
-    lire.textContent='Lire le message';
-    lire.setAttribute('aria-expanded','false');
+    const contenu = document.createElement('div');
+    contenu.className = 'full';
+    contenu.hidden = true;
+    contenu.textContent = item.contenu
+      || 'Le texte de cet enseignement sera ajouté prochainement.';
 
-    const contenu=document.createElement('div');
-    contenu.className='full';
-    contenu.hidden=true;
-    contenu.textContent=item.contenu
-      ||'Le texte de cet enseignement sera ajouté prochainement.';
+    let compteLecture = false;
 
-    let compteLecture=false;
+    lire.onclick = async () => {
+      contenu.hidden = !contenu.hidden;
+      lire.textContent = contenu.hidden
+        ? 'Lire le message'
+        : 'Fermer le message';
 
-    lire.onclick=async()=>{
-      contenu.hidden=!contenu.hidden;
-      lire.textContent=contenu.hidden
-        ?'Lire le message':'Fermer le message';
-      lire.setAttribute('aria-expanded',String(!contenu.hidden));
-
-      if(!contenu.hidden&&!compteLecture&&db&&item.id!=null){
-        compteLecture=true;
-        try{
-          const r=await db.rpc('incrementer_lecture',{p_id:item.id});
-          if(!r.error&&r.data!=null){
-            item.nombre_lectures=r.data;
-            actualiserMeta();
+      if(!contenu.hidden && !compteLecture && db && item.id) {
+        compteLecture = true;
+        try {
+          const r = await db.rpc(
+            'incrementer_lecture',
+            {p_id:item.id}
+          );
+          if(!r.error && r.data!=null) {
+            item.nombre_lectures = r.data;
+            meta.textContent = formatDate(item.date_publication)
+              + ' • Lectures : ' + item.nombre_lectures;
           }
-        }catch(e){
+        } catch(e) {
           console.warn(e);
         }
       }
     };
 
-    const partager=document.createElement('button');
-    partager.type='button';
-    partager.className='green';
-    partager.textContent='Partager sur WhatsApp';
+    const partager = document.createElement('button');
+    partager.className = 'green';
+    partager.textContent = 'Partager sur WhatsApp';
 
-    partager.onclick=()=>{
-      const msg='PAROLES ET LUMIÈRE\n\n'
-        +(item.titre||'')+'\n'
-        +(item.passage_biblique||'')+'\n\n'
-        +APP_URL;
+    partager.onclick = () => {
+      const msg = 'PAROLES ET LUMIÈRE\n\n'
+        + (item.titre||'') + '\n'
+        + (item.passage_biblique||'') + '\n\n'
+        + APP_URL;
 
       window.open(
         'https://wa.me/?text='+encodeURIComponent(msg),
-        '_blank','noopener,noreferrer'
+        '_blank',
+        'noopener'
       );
     };
 
@@ -540,142 +539,117 @@ function afficherCartes(){
     zones[type].appendChild(article);
   }
 
-  for(const type of ['14h','23h']){
-    const statut=el(type==='14h'?'statut14':'statut23');
-    statut.textContent=compte[type]?'':filtre
-      ?'Aucun résultat pour cette recherche.'
-      :'Aucun enseignement publié dans cette rubrique.';
+  for(const type of ['14h','23h']) {
+    const el = document.getElementById(
+      type==='14h' ? 'statut14' : 'statut23'
+    );
+    el.textContent = compte[type]
+      ? ''
+      : (filtre
+        ? 'Aucun résultat pour cette recherche.'
+        : 'Aucun enseignement publié dans cette rubrique.');
   }
 }
 
-async function chargerEnseignements(){
-  if(!db){
-    el('statut14').textContent='Connexion Supabase indisponible.';
-    el('statut23').textContent='Connexion Supabase indisponible.';
+async function chargerEnseignements() {
+  if(!db) {
+    document.getElementById('statut14').textContent =
+      'Connexion Supabase indisponible.';
+    document.getElementById('statut23').textContent =
+      'Connexion Supabase indisponible.';
     return;
   }
 
-  try{
-    const {data,error}=await db
+  try {
+    const {data,error} = await db
       .from('enseignements')
       .select('id,titre,passage_biblique,contenu,date_publication,nombre_lectures')
-      .order('date_publication',{ascending:false})
-      .limit(1000);
+      .order('date_publication',{ascending:false});
 
-    if(error)throw error;
+    if(error) throw error;
 
-    enseignements=(data||[]).sort((a,b)=>
+    enseignements = (data||[]).sort((a,b) =>
       String(b.date_publication||'')
         .localeCompare(String(a.date_publication||''))
-      ||(Number(b.id)||0)-(Number(a.id)||0)
+      || (Number(b.id)||0)-(Number(a.id)||0)
     );
 
     afficherCartes();
-
-  }catch(e){
+  } catch(e) {
     console.error(e);
-    el('statut14').textContent=
+    document.getElementById('statut14').textContent =
       'Impossible de charger les enseignements. Vérifiez Supabase.';
-    el('statut23').textContent=
+    document.getElementById('statut23').textContent =
       'Impossible de charger les enseignements. Vérifiez Supabase.';
   }
 }
 
-async function chargerAudios(){
-  const zone=el('liste-audios');
+document.getElementById('recherche')
+  .addEventListener('input',afficherCartes);
 
-  if(!db){
-    el('statutAudio').textContent='Connexion audio indisponible.';
-    return;
-  }
+chargerEnseignements();
 
-  try{
-    const {data,error}=await db.storage
-      .from('audios-enseignements')
-      .list('lectures-bibliques',{limit:100});
+/* LECTURES AUDIO EXODE 31 À 36 */
 
-    if(error)throw error;
+const dossierAudios =
+  SUPABASE_URL +
+  '/storage/v1/object/public/audios-enseignements/lectures-bibliques/';
 
-    const fichiers=(data||[]).filter(f=>
-      f.name&&/\.(mp3|m4a|ogg|wav|aac|opus)$/i.test(f.name)
-    );
+const listeAudios = document.getElementById('liste-audios');
 
-    let total=0;
+listeAudios.replaceChildren();
 
-    for(const n of [31,32,33,34,35,36]){
-      const fichier=fichiers.find(f=>
-        new RegExp('(?:^|[^0-9])'+n+'(?:[^0-9]|$)').test(f.name)
-        &&/exode/i.test(f.name)
-      );
+for(const n of [31,32,33,34,35,36]) {
+  const carte = document.createElement('div');
+  carte.className = 'audio';
 
-      if(!fichier)continue;
+  const titre = document.createElement('strong');
+  titre.textContent = 'Exode ' + n;
 
-      const box=document.createElement('div');
-      box.className='audio';
+  const lecteur = document.createElement('audio');
+  lecteur.controls = true;
+  lecteur.preload = 'none';
+  lecteur.src = dossierAudios + encodeURIComponent('Exode ' + n);
 
-      const titre=document.createElement('strong');
-      titre.textContent='Exode '+n;
+  const lien = document.createElement('a');
+  lien.href = lecteur.src;
+  lien.target = '_blank';
+  lien.rel = 'noopener noreferrer';
+  lien.textContent = 'Écouter directement';
 
-      const audio=document.createElement('audio');
-      audio.controls=true;
-      audio.preload='none';
-
-      const chemin='lectures-bibliques/'+fichier.name;
-
-      audio.src=db.storage
-        .from('audios-enseignements')
-        .getPublicUrl(chemin).data.publicUrl;
-
-      box.append(titre,audio);
-      zone.appendChild(box);
-      total++;
-    }
-
-    if(!total){
-      el('statutAudio').textContent=
-        'Aucun fichier audio correspondant trouvé dans le dossier public.';
-    }
-
-  }catch(e){
-    console.warn(e);
-    el('statutAudio').textContent=
-      'Les audios sont temporairement indisponibles.';
-  }
+  carte.append(titre,lecteur,lien);
+  listeAudios.appendChild(carte);
 }
 
-el('recherche').addEventListener('input',afficherCartes);
+/* INSTALLATION MOBILE */
 
-let invite=null;
+let invite = null;
 
 window.addEventListener('beforeinstallprompt',e=>{
   e.preventDefault();
   invite=e;
 });
 
-el('installerApp').onclick=async()=>{
-  if(invite){
+document.getElementById('installerApp').onclick = async () => {
+  if(invite) {
     await invite.prompt();
     invite=null;
     return;
   }
 
-  const aide=el('aideInstallation');
-  aide.hidden=false;
-
-  aide.textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)
-    ?'Sur iPhone : ouvrez le site dans Safari, puis Partager > Sur l’écran d’accueil > Ajouter.'
-    :'Sur Android : ouvrez le site dans Chrome, puis menu ⋮ > Installer l’application ou Ajouter à l’écran d’accueil.';
+  const a = document.getElementById('aideInstallation');
+  a.hidden=false;
+  a.textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)
+    ? 'Sur iPhone : ouvrez le site dans Safari, puis Partager > Sur l’écran d’accueil > Ajouter.'
+    : 'Sur Android : ouvrez le site dans Chrome, puis menu ⋮ > Installer l’application ou Ajouter à l’écran d’accueil.';
 };
 
-window.addEventListener('load',()=>{
-  chargerEnseignements();
-  chargerAudios();
-
-  if('serviceWorker' in navigator){
+if('serviceWorker' in navigator) {
+  window.addEventListener('load',()=>
     navigator.serviceWorker.register('./sw.js')
-      .catch(console.warn);
-  }
-});
+      .catch(console.warn)
+  );
+}
 </script>
 
 </body>
