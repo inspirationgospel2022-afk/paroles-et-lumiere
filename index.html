@@ -3,9 +3,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b2347">
-<meta name="description" content="Paroles et Lumière — Lire, comprendre, grandir, impacter.">
+<meta name="description" content="Paroles et Lumière : lectures bibliques audio, commentaires et enseignements chrétiens.">
 <title>Paroles et Lumière</title>
 <link rel="manifest" href="./manifest.webmanifest">
 
@@ -16,234 +16,265 @@ function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
 gtag('config','G-CMYCB66BJ0');
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-:root {
+:root{
   --navy:#0b2347;
-  --blue:#143a69;
-  --gold:#b58a3d;
-  --ink:#172942;
-  --muted:#66758b;
-  --line:#e6ebf2;
+  --blue:#16416f;
+  --gold:#b68b43;
+  --ink:#192b43;
+  --muted:#69798d;
+  --line:#e5eaf1;
   --bg:#f4f7fb;
 }
-* {box-sizing:border-box}
-html {scroll-behavior:smooth}
-body {
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
   margin:0;
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Arial,sans-serif;
   background:var(--bg);
   color:var(--ink);
+  font:15px/1.6 system-ui,-apple-system,Arial,sans-serif;
 }
-button,input {font:inherit}
-a {color:inherit}
-.hero {
-  background:linear-gradient(135deg,#081b37,#153d6d);
-  color:white;
-  padding:36px 18px 32px;
+a{color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.hero{
+  background:linear-gradient(135deg,#071a34,#123c6c);
+  color:#fff;
+  padding:44px 18px;
+  text-align:center;
 }
-.wrap {max-width:1020px;margin:auto}
-.eyebrow {
-  font-size:11px;
-  letter-spacing:2.5px;
-  color:#dfc58b;
-  font-weight:800;
-  text-transform:uppercase;
-}
-.hero h1 {
-  font-family:Georgia,serif;
-  font-size:clamp(29px,6vw,48px);
-  line-height:1.1;
+.hero h1{
+  font:700 clamp(30px,6vw,50px)/1.15 Georgia,serif;
   margin:12px 0;
 }
-.hero p {margin:0;color:#d6e1f2}
-.nav {
+.hero p{margin:0;color:#dce7f5}
+.eyebrow{
+  color:#e3c78c;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+nav{
+  display:flex;
+  gap:8px;
+  padding:11px 14px;
+  overflow-x:auto;
   position:sticky;
   top:0;
   z-index:10;
-  background:white;
+  background:#fff;
   border-bottom:1px solid var(--line);
-  overflow-x:auto;
-  display:flex;
-  gap:7px;
-  padding:11px max(14px,calc((100vw - 1020px)/2));
 }
-.nav a {
+nav a{
   white-space:nowrap;
   text-decoration:none;
   border:1px solid #dce3ed;
-  padding:9px 14px;
-  border-radius:24px;
-  font-size:13px;
-  font-weight:750;
+  border-radius:25px;
+  padding:8px 13px;
   color:var(--navy);
+  font-size:12px;
+  font-weight:750;
 }
-main {
-  max-width:1020px;
-  margin:0 auto;
+main{
+  max-width:1050px;
+  margin:auto;
   padding:20px 14px 40px;
 }
-.panel {
-  background:white;
+.panel{
+  background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
-  padding:clamp(17px,3vw,26px);
-  box-shadow:0 8px 30px #0b234708;
-  margin:0 0 18px;
+  padding:clamp(17px,3vw,27px);
+  margin-bottom:18px;
+  box-shadow:0 8px 28px #0b234708;
+  scroll-margin-top:80px;
 }
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:10px;
-  margin-bottom:14px;
-}
-.section-head h2 {
-  margin:0;
+h2{
   color:var(--navy);
-  font:700 clamp(23px,4vw,30px)/1.2 Georgia,serif;
+  font:700 clamp(23px,4vw,30px)/1.25 Georgia,serif;
+  margin:0 0 8px;
 }
-.sub {
-  font-size:13px;
-  color:var(--muted);
-  margin:5px 0 0;
+h3{color:var(--navy)}
+.sub{font-size:13px;color:var(--muted)}
+.goldline{
+  width:48px;
+  height:3px;
+  border-radius:4px;
+  background:var(--gold);
+  margin:12px 0 20px;
 }
-.poster {
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;
-}
-.button,.teach button {
+.button{
   display:inline-block;
+  background:var(--navy);
+  color:#fff;
   border:0;
   border-radius:10px;
   padding:11px 15px;
-  background:var(--navy);
-  color:white;
-  font-weight:750;
-  cursor:pointer;
   text-decoration:none;
-  font-size:14px;
+  font-weight:750;
+  font-size:13px;
 }
-.button.green,.teach button.green {background:#15834d}
-.actions {
+.button.green{background:#16824f}
+.actions{
   display:flex;
-  gap:9px;
   flex-wrap:wrap;
-  margin-top:16px;
+  gap:9px;
+  margin-top:15px;
 }
-.week {
+.week{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
+  gap:12px;
 }
-.day {
-  border:1px solid #e7e0d4;
-  border-radius:13px;
+.day{
   background:#fffdfa;
-  padding:15px;
+  border:1px solid #e8dfcf;
+  border-radius:13px;
+  padding:16px;
 }
-.day h3 {
-  font-size:15px;
-  color:var(--navy);
-  margin:0 0 10px;
+.day h3{margin:0 0 10px;font-size:16px}
+.day p{font-size:13px;margin:5px 0 12px}
+.time{
+  color:#98702d;
+  font-size:12px;
+  font-weight:800;
 }
-.day p {margin:5px 0 10px;font-size:13px}
-.time {color:#946b26;font-size:12px;font-weight:800}
-.grid {
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #ccd5e3;
+  border-radius:11px;
+  margin:10px 0;
+}
+.teach-grid,.audio-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
 }
-.teach {
-  background:white;
+.teach{
+  padding:18px;
   border:1px solid var(--line);
   border-radius:14px;
-  padding:18px;
   min-width:0;
 }
-.teach h3 {
-  color:var(--navy);
+.teach h3{
   font-size:17px;
-  line-height:1.3;
-  margin:8px 0;
+  line-height:1.35;
+  margin:9px 0;
 }
-.meta {font-size:12px;color:var(--muted);margin:0}
-.teach .passage {font-size:13px;color:#916a2d}
-.teach .full {
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  margin-top:14px;
-  padding:14px 0 0;
-  border-top:1px solid var(--line);
-  font-size:14px;
+.meta,.passage{
+  font-size:12px;
+  color:var(--muted);
 }
-.teach .full[hidden] {display:none}
-.teach .actions {margin-top:12px}
-.teach button {font-size:13px}
-.tag {
+.passage{color:#916c2e}
+.tag{
   display:inline-block;
-  background:#f8f1e4;
-  color:#846020;
+  background:#f7efdf;
+  color:#876326;
   padding:4px 9px;
   border-radius:6px;
   font-size:11px;
   font-weight:800;
 }
-.search {
-  width:100%;
-  padding:13px 14px;
-  border:1px solid #ccd5e3;
-  border-radius:11px;
-  margin:0 0 14px;
+.full{
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  border-top:1px solid var(--line);
+  padding-top:14px;
+  margin-top:14px;
+  font-size:14px;
 }
-.audio-grid {
+[hidden]{display:none!important}
+.status{font-size:13px;color:var(--muted)}
+.audio-summary{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin:20px 0;
 }
-.audio {
-  background:#f8fafc;
+.stat{
+  background:#f6f8fc;
   border:1px solid var(--line);
   border-radius:12px;
-  padding:16px;
+  text-align:center;
+  padding:15px 8px;
 }
-.audio strong {
+.stat strong{
   display:block;
-  margin-bottom:10px;
   color:var(--navy);
+  font-size:25px;
 }
-.audio a {
+.stat span{font-size:11px;color:var(--muted)}
+.book-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:26px 0 13px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.book-head h3{
+  font:700 23px Georgia,serif;
+  margin:0;
+}
+.book-count{
+  background:#f8f1e4;
+  color:#8d6829;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+.audio{
+  background:#fafbfd;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  min-width:0;
+}
+.audio-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:13px;
+}
+.audio strong{color:var(--navy);font-size:16px}
+.audio-number{font-size:11px;color:var(--muted)}
+audio{width:100%;height:42px}
+.audio a{
   display:inline-block;
-  margin-top:10px;
-  font-size:13px;
-  font-weight:700;
+  margin-top:12px;
+  font-size:12px;
+  font-weight:800;
   color:var(--blue);
+  text-decoration:none;
 }
-audio {width:100%}
-.welcome {
-  max-width:380px;
-  width:100%;
-  height:auto;
-  border-radius:13px;
+.audio-error{font-size:12px;color:#a33c31}
+.welcome-photo{
   display:block;
-  margin:14px auto;
+  max-width:350px;
+  width:100%;
+  margin:15px auto;
+  border-radius:14px;
 }
-footer {
+footer{
   text-align:center;
   color:var(--muted);
-  padding:26px 12px;
+  font-size:12px;
+  padding:25px 15px 35px;
 }
-.status {color:var(--muted);font-size:14px}
-[hidden] {display:none!important}
-@media(max-width:690px) {
-  .grid,.week,.audio-grid {grid-template-columns:1fr}
-  .hero {padding:28px 16px}
-  .panel {padding:16px}
-  .nav {padding:10px 12px}
-  .teach {padding:15px}
+@media(max-width:700px){
+  .week,.teach-grid,.audio-grid{grid-template-columns:1fr}
+  .hero{padding:32px 15px}
+  .panel{padding:17px}
+  .audio-summary{gap:7px}
+  .stat strong{font-size:22px}
 }
 </style>
 </head>
@@ -251,156 +282,181 @@ footer {
 <body>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Lire • Comprendre • Grandir • Impacter</div>
-    <h1>PAROLES ET LUMIÈRE</h1>
-    <p>La Parole de Dieu pour éclairer nos vies</p>
+  <div class="eyebrow">
+    Lire • Comprendre • Grandir • Impacter
   </div>
+  <h1>PAROLES ET LUMIÈRE</h1>
+  <p>La Parole de Dieu pour éclairer nos vies</p>
 </header>
 
-<nav class="nav" aria-label="Navigation">
+<nav>
   <a href="#programme">Programme</a>
   <a href="#enseignements14">14h GMT</a>
   <a href="#enseignements23">23h GMT</a>
-  <a href="#audios">Audios</a>
+  <a href="#audios">Audios bibliques</a>
   <a href="#installer">Installer</a>
 </nav>
 
 <main>
 
 <section class="panel" id="programme">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow" style="color:var(--gold)">
-        Semaine du 9 au 13 novembre 2026
-      </div>
-      <h2>Programme de la semaine</h2>
-      <p class="sub">Lundi • Mercredi • Vendredi — 14h et 23h GMT</p>
-    </div>
+  <div class="eyebrow" style="color:var(--gold)">
+    Programme hebdomadaire
   </div>
-
-  <img class="poster"
-    src="https://xczqlgazsyplaigfnnmq.supabase.co/storage/v1/object/public/audios-enseignements/Programmes/IMG_20261109_173930_026.jpg"
-    alt="Programme du 9 au 13 novembre 2026">
-
-  <div class="actions">
-    <a class="button" href="#enseignements14">
-      Lire les enseignements
-    </a>
-    <a class="button green"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4">
-      Rejoindre le groupe WhatsApp
-    </a>
-  </div>
-</section>
-
-<section class="panel">
-  <div class="section-head">
-    <div>
-      <h2>Les rendez-vous</h2>
-      <p class="sub">Orateur : Pasteur Gilles Landry LOGON</p>
-    </div>
-  </div>
+  <h2>Grandir dans la Parole</h2>
+  <div class="goldline"></div>
+  <p>
+    Commentaires bibliques à <strong>14h GMT</strong>
+    et enseignements thématiques à
+    <strong>23h GMT</strong>, chaque lundi,
+    mercredi et vendredi.
+  </p>
+  <p class="sub">Semaine du 9 au 13 novembre 2026</p>
 
   <div class="week">
     <div class="day">
       <h3>Lundi 9 novembre</h3>
       <span class="time">14h GMT</span>
-      <p>Lévitique 1 et 2 — Consécration et reconnaissance</p>
+      <p>Lévitique 1 et 2</p>
       <span class="time">23h GMT</span>
-      <p>Petites ressources — 1ère partie</p>
+      <p>Comment utiliser de petites ressources pour devenir prospère — Partie 1</p>
     </div>
     <div class="day">
       <h3>Mercredi 11 novembre</h3>
       <span class="time">14h GMT</span>
-      <p>Lévitique 3 et 4 — Communion et péché</p>
+      <p>Lévitique 3 et 4</p>
       <span class="time">23h GMT</span>
-      <p>Petites ressources — 2ème partie</p>
+      <p>Comment utiliser de petites ressources pour devenir prospère — Partie 2</p>
     </div>
     <div class="day">
       <h3>Vendredi 13 novembre</h3>
       <span class="time">14h GMT</span>
-      <p>Lévitique 5 et 6 — Réparation et fidélité</p>
+      <p>Lévitique 5 et 6</p>
       <span class="time">23h GMT</span>
-      <p>Petites ressources — 3ème partie</p>
+      <p>Comment utiliser de petites ressources pour devenir prospère — Partie 3</p>
     </div>
+  </div>
+
+  <div class="actions">
+    <a class="button" href="#enseignements14">
+      Consulter les enseignements
+    </a>
+    <a class="button green"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://wa.me/?text=Découvrez%20Paroles%20et%20Lumière%20https%3A%2F%2Finspirationgospel2022-afk.github.io%2Fparoles-et-lumiere%2F">
+      Partager l'application
+    </a>
   </div>
 </section>
 
 <section class="panel">
-  <div class="section-head">
-    <div>
-      <h2>Bibliothèque des enseignements</h2>
-      <p class="sub">Les publications les plus récentes apparaissent en premier.</p>
-    </div>
-  </div>
-  <input id="recherche" class="search" type="search"
-    placeholder="Rechercher un titre ou un passage biblique…"
-    aria-label="Rechercher un enseignement">
+  <h2>Bibliothèque des enseignements</h2>
+  <p class="sub">
+    Les publications les plus récentes apparaissent en premier.
+  </p>
+  <input class="search" id="recherche" type="search"
+    placeholder="Rechercher un enseignement ou un passage biblique…">
 </section>
 
 <section class="panel" id="enseignements14">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow" style="color:var(--gold)">Parcours biblique</div>
-      <h2>14h GMT — Commentaires bibliques</h2>
-    </div>
+  <div class="eyebrow" style="color:var(--gold)">
+    Étude de la Bible
   </div>
-  <p id="statut14" class="status">Chargement des enseignements…</p>
-  <div class="grid" id="liste-14h"></div>
+  <h2>14h GMT — Commentaires bibliques</h2>
+  <div class="goldline"></div>
+  <p id="statut14" class="status">
+    Chargement des commentaires…
+  </p>
+  <div id="liste-14h" class="teach-grid"></div>
 </section>
 
 <section class="panel" id="enseignements23">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow" style="color:var(--gold)">Vie et édification</div>
-      <h2>23h GMT — Enseignements thématiques</h2>
-    </div>
+  <div class="eyebrow" style="color:var(--gold)">
+    Formation et édification
   </div>
-  <p id="statut23" class="status">Chargement des enseignements…</p>
-  <div class="grid" id="liste-23h"></div>
+  <h2>23h GMT — Enseignements thématiques</h2>
+  <div class="goldline"></div>
+  <p id="statut23" class="status">
+    Chargement des enseignements…
+  </p>
+  <div id="liste-23h" class="teach-grid"></div>
 </section>
 
 <section class="panel" id="audios">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow" style="color:var(--gold)">Écouter la Parole</div>
-      <h2>Lectures bibliques audio</h2>
-      <p class="sub">Exode 31 à 36 — Écoute directe</p>
+  <div class="eyebrow" style="color:var(--gold)">
+    Écouter la Parole de Dieu
+  </div>
+  <h2>Bibliothèque audio biblique</h2>
+  <div class="goldline"></div>
+  <p class="sub">
+    Écoutez les Saintes Écritures chapitre par chapitre,
+    depuis votre téléphone.
+  </p>
+
+  <div class="audio-summary">
+    <div class="stat">
+      <strong>2</strong>
+      <span>Livres bibliques</span>
+    </div>
+    <div class="stat">
+      <strong>16</strong>
+      <span>Chapitres audio</span>
+    </div>
+    <div class="stat">
+      <strong>24h/24</strong>
+      <span>Écoute accessible</span>
     </div>
   </div>
-  <div id="liste-audios" class="audio-grid"></div>
+
+  <div class="book-head">
+    <h3>Livre de l'Exode</h3>
+    <span class="book-count">10 chapitres</span>
+  </div>
+  <div id="audios-exode" class="audio-grid"></div>
+
+  <div class="book-head">
+    <h3>Livre du Lévitique</h3>
+    <span class="book-count">6 chapitres</span>
+  </div>
+  <div id="audios-levitique" class="audio-grid"></div>
 </section>
 
 <section class="panel" id="installer">
-  <h2>Installer l'application</h2>
-  <p>Retrouvez Paroles et Lumière depuis votre écran d'accueil.</p>
+  <h2>Installer Paroles et Lumière</h2>
+  <p>
+    Ajoutez l'application à l'écran d'accueil de votre
+    téléphone Android ou iPhone.
+  </p>
   <button class="button" id="installerApp" type="button">
-    Installer Paroles et Lumière
+    Installer l'application
   </button>
-  <p class="status" id="aideInstallation" hidden></p>
+  <p id="aideInstallation" class="status" hidden></p>
 </section>
 
 <section class="panel" style="text-align:center">
   <h2>Bienvenue sur Paroles et Lumière</h2>
-  <img class="welcome"
+  <img
+    class="welcome-photo"
     src="IMG_20261028_044943_995.jpg"
     alt="Pasteur Gilles Landry LOGON et son épouse"
     loading="lazy">
   <p>
-    Notre désir est de vous accompagner dans la découverte des
-    Saintes Écritures afin de grandir dans la foi, de mieux connaître
-    Jésus-Christ et de marcher chaque jour dans sa lumière.
+    Notre désir est de vous accompagner dans la
+    découverte des Saintes Écritures, afin de grandir
+    dans la foi et de marcher chaque jour dans la lumière
+    de Jésus-Christ.
   </p>
-  <p><strong>Pasteur Gilles Landry LOGON et son épouse</strong></p>
+  <p>
+    <strong>Pasteur Gilles Landry LOGON et son épouse</strong>
+  </p>
 </section>
 
 </main>
 
 <footer>
-  PAROLES ET LUMIÈRE — Lire • Comprendre • Grandir • Impacter
+  PAROLES ET LUMIÈRE<br>
+  Lire • Comprendre • Grandir • Impacter
 </footer>
 
 <script>
@@ -414,118 +470,115 @@ const APP_URL =
   'https://inspirationgospel2022-afk.github.io/paroles-et-lumiere/';
 
 const db = window.supabase
-  ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
+  ? window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    )
   : null;
 
-const formatDate = s => {
-  if(!s) return '';
-  const a = String(s).slice(0,10).split('-');
-  return a.length===3 ? `${a[2]}/${a[1]}/${a[0]}` : s;
-};
-
-const categorie = item => {
-  const t = (item.titre||'').toLowerCase();
-  const p = (item.passage_biblique||'').toLowerCase();
-
-  return /commentaire biblique|parcours biblique|lévitique|levitique|exode|genèse|genese/.test(t)
-    || (/lévitique|levitique|exode/.test(p)
-      && /étude|commentaire/.test(t))
-    ? '14h'
-    : '23h';
-};
+/* ENSEIGNEMENTS SUPABASE */
 
 let enseignements = [];
 
-function afficherCartes() {
-  const filtre = document.getElementById('recherche')
+function formatDate(s){
+  if(!s)return '';
+  const a=String(s).slice(0,10).split('-');
+  return a.length===3
+    ? `${a[2]}/${a[1]}/${a[0]}`
+    : s;
+}
+
+function categorie(item){
+  const titre=(item.titre||'').toLowerCase();
+  const passage=(item.passage_biblique||'').toLowerCase();
+
+  if(
+    /commentaire biblique|parcours biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
+    || (/lévitique|levitique|exode/.test(passage)
+        && /étude|commentaire/.test(titre))
+  ){
+    return '14h';
+  }
+  return '23h';
+}
+
+function afficherEnseignements(){
+  const filtre=document.getElementById('recherche')
     .value.trim().toLocaleLowerCase('fr');
 
-  const zones = {
+  const zones={
     '14h':document.getElementById('liste-14h'),
     '23h':document.getElementById('liste-23h')
   };
 
-  Object.values(zones).forEach(z=>z.replaceChildren());
+  Object.values(zones).forEach(
+    zone=>zone.replaceChildren()
+  );
 
-  const compte = {'14h':0,'23h':0};
+  const compte={'14h':0,'23h':0};
 
-  for(const item of enseignements) {
-    const texte = [item.titre,item.passage_biblique]
-      .join(' ').toLocaleLowerCase('fr');
+  for(const item of enseignements){
+    const texte=[
+      item.titre,
+      item.passage_biblique,
+      item.contenu
+    ].join(' ').toLocaleLowerCase('fr');
 
-    if(filtre && !texte.includes(filtre)) continue;
+    if(filtre&&!texte.includes(filtre))continue;
 
-    const type = categorie(item);
+    const type=categorie(item);
     compte[type]++;
 
-    const article = document.createElement('article');
-    article.className = 'teach';
+    const carte=document.createElement('article');
+    carte.className='teach';
 
-    const tag = document.createElement('span');
-    tag.className = 'tag';
-    tag.textContent = type==='14h'
+    const tag=document.createElement('span');
+    tag.className='tag';
+    tag.textContent=type==='14h'
       ? 'COMMENTAIRE BIBLIQUE'
       : 'ENSEIGNEMENT';
 
-    const titre = document.createElement('h3');
-    titre.textContent = item.titre||'Sans titre';
+    const titre=document.createElement('h3');
+    titre.textContent=item.titre||'Sans titre';
 
-    const passage = document.createElement('p');
-    passage.className = 'passage';
-    passage.textContent = item.passage_biblique||'';
+    const passage=document.createElement('p');
+    passage.className='passage';
+    passage.textContent=item.passage_biblique||'';
 
-    const meta = document.createElement('p');
-    meta.className = 'meta';
-    meta.textContent = formatDate(item.date_publication)
-      + ' • Lectures : ' + (item.nombre_lectures||0);
+    const meta=document.createElement('p');
+    meta.className='meta';
+    meta.textContent=formatDate(item.date_publication);
 
-    const actions = document.createElement('div');
-    actions.className = 'actions';
+    const actions=document.createElement('div');
+    actions.className='actions';
 
-    const lire = document.createElement('button');
-    lire.textContent = 'Lire le message';
+    const lire=document.createElement('button');
+    lire.className='button';
+    lire.textContent='Lire le message';
 
-    const contenu = document.createElement('div');
-    contenu.className = 'full';
-    contenu.hidden = true;
-    contenu.textContent = item.contenu
-      || 'Le texte de cet enseignement sera ajouté prochainement.';
+    const contenu=document.createElement('div');
+    contenu.className='full';
+    contenu.hidden=true;
+    contenu.textContent=item.contenu||
+      'Contenu en cours de publication.';
 
-    let compteLecture = false;
-
-    lire.onclick = async () => {
-      contenu.hidden = !contenu.hidden;
-      lire.textContent = contenu.hidden
+    lire.onclick=()=>{
+      contenu.hidden=!contenu.hidden;
+      lire.textContent=contenu.hidden
         ? 'Lire le message'
         : 'Fermer le message';
-
-      if(!contenu.hidden && !compteLecture && db && item.id) {
-        compteLecture = true;
-        try {
-          const r = await db.rpc(
-            'incrementer_lecture',
-            {p_id:item.id}
-          );
-          if(!r.error && r.data!=null) {
-            item.nombre_lectures = r.data;
-            meta.textContent = formatDate(item.date_publication)
-              + ' • Lectures : ' + item.nombre_lectures;
-          }
-        } catch(e) {
-          console.warn(e);
-        }
-      }
     };
 
-    const partager = document.createElement('button');
-    partager.className = 'green';
-    partager.textContent = 'Partager sur WhatsApp';
+    const partager=document.createElement('button');
+    partager.className='button green';
+    partager.textContent='Partager WhatsApp';
 
-    partager.onclick = () => {
-      const msg = 'PAROLES ET LUMIÈRE\n\n'
-        + (item.titre||'') + '\n'
-        + (item.passage_biblique||'') + '\n\n'
-        + APP_URL;
+    partager.onclick=()=>{
+      const msg=
+        'PAROLES ET LUMIÈRE\n\n'+
+        (item.titre||'')+'\n'+
+        (item.passage_biblique||'')+'\n\n'+
+        APP_URL;
 
       window.open(
         'https://wa.me/?text='+encodeURIComponent(msg),
@@ -535,120 +588,189 @@ function afficherCartes() {
     };
 
     actions.append(lire,partager);
-    article.append(tag,titre,passage,meta,actions,contenu);
-    zones[type].appendChild(article);
+    carte.append(
+      tag,titre,passage,meta,actions,contenu
+    );
+    zones[type].appendChild(carte);
   }
 
-  for(const type of ['14h','23h']) {
-    const el = document.getElementById(
-      type==='14h' ? 'statut14' : 'statut23'
+  for(const type of ['14h','23h']){
+    const statut=document.getElementById(
+      type==='14h'?'statut14':'statut23'
     );
-    el.textContent = compte[type]
+    statut.textContent=compte[type]
       ? ''
-      : (filtre
+      : filtre
         ? 'Aucun résultat pour cette recherche.'
-        : 'Aucun enseignement publié dans cette rubrique.');
+        : 'Aucun enseignement disponible.';
   }
 }
 
-async function chargerEnseignements() {
-  if(!db) {
-    document.getElementById('statut14').textContent =
+async function chargerEnseignements(){
+  if(!db){
+    document.getElementById('statut14').textContent=
       'Connexion Supabase indisponible.';
-    document.getElementById('statut23').textContent =
+    document.getElementById('statut23').textContent=
       'Connexion Supabase indisponible.';
     return;
   }
 
-  try {
-    const {data,error} = await db
+  try{
+    const {data,error}=await db
       .from('enseignements')
-      .select('id,titre,passage_biblique,contenu,date_publication,nombre_lectures')
+      .select(
+        'id,titre,passage_biblique,contenu,date_publication'
+      )
       .order('date_publication',{ascending:false});
 
-    if(error) throw error;
+    if(error)throw error;
 
-    enseignements = (data||[]).sort((a,b) =>
+    enseignements=(data||[]).sort((a,b)=>
       String(b.date_publication||'')
         .localeCompare(String(a.date_publication||''))
       || (Number(b.id)||0)-(Number(a.id)||0)
     );
 
-    afficherCartes();
-  } catch(e) {
-    console.error(e);
-    document.getElementById('statut14').textContent =
-      'Impossible de charger les enseignements. Vérifiez Supabase.';
-    document.getElementById('statut23').textContent =
-      'Impossible de charger les enseignements. Vérifiez Supabase.';
+    afficherEnseignements();
+  }catch(error){
+    console.error(error);
+    document.getElementById('statut14').textContent=
+      'Impossible de charger les enseignements.';
+    document.getElementById('statut23').textContent=
+      'Impossible de charger les enseignements.';
   }
 }
 
 document.getElementById('recherche')
-  .addEventListener('input',afficherCartes);
+  .addEventListener('input',afficherEnseignements);
 
 chargerEnseignements();
 
-/* LECTURES AUDIO EXODE 31 À 36 */
+/* BIBLIOTHÈQUE AUDIO — 16 CHAPITRES */
 
-const dossierAudios =
-  SUPABASE_URL +
+const dossierAudios=
+  SUPABASE_URL+
   '/storage/v1/object/public/audios-enseignements/lectures-bibliques/';
 
-const listeAudios = document.getElementById('liste-audios');
+const livres=[
+  {
+    nom:'Exode',
+    cible:'audios-exode',
+    debut:31,
+    fin:40
+  },
+  {
+    nom:'Levitique',
+    cible:'audios-levitique',
+    debut:1,
+    fin:6
+  }
+];
 
-listeAudios.replaceChildren();
+function creerLecteurAudio(nomFichier,nomAffiche,index){
+  const carte=document.createElement('article');
+  carte.className='audio';
 
-for(const n of [31,32,33,34,35,36]) {
-  const carte = document.createElement('div');
-  carte.className = 'audio';
+  const haut=document.createElement('div');
+  haut.className='audio-top';
 
-  const titre = document.createElement('strong');
-  titre.textContent = 'Exode ' + n;
+  const titre=document.createElement('strong');
+  titre.textContent=nomAffiche;
 
-  const lecteur = document.createElement('audio');
-  lecteur.controls = true;
-  lecteur.preload = 'none';
-  lecteur.src = dossierAudios + encodeURIComponent('Exode ' + n);
+  const numero=document.createElement('span');
+  numero.className='audio-number';
+  numero.textContent='CHAPITRE '+index;
 
-  const lien = document.createElement('a');
-  lien.href = lecteur.src;
-  lien.target = '_blank';
-  lien.rel = 'noopener noreferrer';
-  lien.textContent = 'Écouter directement';
+  haut.append(titre,numero);
 
-  carte.append(titre,lecteur,lien);
-  listeAudios.appendChild(carte);
+  const lecteur=document.createElement('audio');
+  lecteur.controls=true;
+  lecteur.preload='none';
+
+  const url=dossierAudios+
+    encodeURIComponent(nomFichier);
+
+  lecteur.src=url;
+
+  const lien=document.createElement('a');
+  lien.href=url;
+  lien.target='_blank';
+  lien.rel='noopener noreferrer';
+  lien.textContent='Écouter directement';
+
+  const erreur=document.createElement('p');
+  erreur.className='audio-error';
+  erreur.hidden=true;
+  erreur.textContent=
+    'Lecture impossible. Vérifiez le fichier audio dans Supabase.';
+
+  lecteur.addEventListener('error',()=>{
+    erreur.hidden=false;
+  });
+
+  carte.append(haut,lecteur,lien,erreur);
+
+  return carte;
+}
+
+for(const livre of livres){
+  const zone=document.getElementById(livre.cible);
+  zone.replaceChildren();
+
+  for(let n=livre.debut;n<=livre.fin;n++){
+    const nomFichier=livre.nom+' '+n;
+
+    const nomAffiche=livre.nom==='Levitique'
+      ? 'Lévitique '+n
+      : 'Exode '+n;
+
+    zone.appendChild(
+      creerLecteurAudio(
+        nomFichier,
+        nomAffiche,
+        n
+      )
+    );
+  }
 }
 
 /* INSTALLATION MOBILE */
 
-let invite = null;
+let invitationInstallation=null;
 
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();
-  invite=e;
-});
-
-document.getElementById('installerApp').onclick = async () => {
-  if(invite) {
-    await invite.prompt();
-    invite=null;
-    return;
+window.addEventListener(
+  'beforeinstallprompt',
+  event=>{
+    event.preventDefault();
+    invitationInstallation=event;
   }
+);
 
-  const a = document.getElementById('aideInstallation');
-  a.hidden=false;
-  a.textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)
-    ? 'Sur iPhone : ouvrez le site dans Safari, puis Partager > Sur l’écran d’accueil > Ajouter.'
-    : 'Sur Android : ouvrez le site dans Chrome, puis menu ⋮ > Installer l’application ou Ajouter à l’écran d’accueil.';
-};
+document.getElementById('installerApp')
+  .addEventListener('click',async()=>{
+    if(invitationInstallation){
+      await invitationInstallation.prompt();
+      invitationInstallation=null;
+      return;
+    }
 
-if('serviceWorker' in navigator) {
-  window.addEventListener('load',()=>
-    navigator.serviceWorker.register('./sw.js')
-      .catch(console.warn)
-  );
+    const aide=document.getElementById(
+      'aideInstallation'
+    );
+    aide.hidden=false;
+
+    aide.textContent=
+      /iPhone|iPad|iPod/i.test(navigator.userAgent)
+      ? 'Sur iPhone : ouvrez Safari, appuyez sur Partager, puis Sur l’écran d’accueil.'
+      : 'Sur Android : ouvrez Chrome, appuyez sur les trois points, puis Installer l’application ou Ajouter à l’écran d’accueil.';
+  });
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker
+      .register('./sw.js')
+      .catch(console.warn);
+  });
 }
 </script>
 
