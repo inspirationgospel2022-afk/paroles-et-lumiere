@@ -3,9 +3,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#081e3d">
-<meta name="description" content="Paroles et Lumière - Enseignements bibliques, méditations et lectures audio.">
+<meta name="description" content="Paroles et Lumière - Bibliothèque chrétienne, enseignements bibliques et lectures audio.">
 <title>Paroles et Lumière</title>
 <link rel="manifest" href="./manifest.webmanifest">
 
@@ -16,276 +16,393 @@ function gtag(){dataLayer.push(arguments)}
 gtag("js",new Date());
 gtag("config","G-CMYCB66BJ0");
 </script>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
-  --navy:#081e3d;
-  --blue:#123b6d;
-  --gold:#c79a42;
-  --burgundy:#8c2542;
-  --white:#ffffff;
-  --bg:#f4f6fa;
-  --text:#1d2c40;
-  --muted:#64748b;
-  --border:#e3e8ef;
+ --navy:#081e3d;
+ --blue:#16416e;
+ --gold:#bd9141;
+ --bg:#f4f6fa;
+ --text:#213047;
+ --muted:#68778b;
+ --border:#e2e8f0;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font:15px/1.65 Arial,Helvetica,sans-serif;
 }
 button,input{font:inherit}
 button{cursor:pointer}
-a{text-decoration:none}
-.container{max-width:1080px;margin:auto}
+a{text-decoration:none;color:inherit}
+[hidden]{display:none!important}
+button:focus-visible,a:focus-visible,input:focus-visible{
+ outline:3px solid var(--gold);
+ outline-offset:3px;
+}
 .hero{
-  background:linear-gradient(135deg,#06162e,#123e72);
-  color:white;
-  padding:38px 18px;
-  text-align:center;
-  border-bottom:4px solid var(--gold);
+ background:linear-gradient(135deg,#06162e,#16416e);
+ color:#fff;
+ text-align:center;
+ padding:36px 16px;
+ border-bottom:4px solid var(--gold);
 }
 .hero h1{
-  font-family:Georgia,serif;
-  font-size:clamp(29px,6vw,48px);
-  line-height:1.15;
-  margin:8px 0;
+ font:700 clamp(29px,6vw,48px)/1.15 Georgia,serif;
+ margin:10px 0;
 }
-.hero p{color:#e0e8f3;margin:5px 0}
-.small-title{
-  font-size:12px;
-  letter-spacing:2px;
-  color:#eacb85;
-  font-weight:bold;
+.hero p{margin:5px;color:#e2e9f3}
+.overline{
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:2px;
+ color:#e7c783;
+ text-transform:uppercase;
 }
 nav{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:white;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:12px;
+ position:sticky;
+ top:0;
+ z-index:20;
+ background:white;
+ border-bottom:1px solid var(--border);
+ display:flex;
+ gap:8px;
+ overflow-x:auto;
+ padding:11px 13px;
+ scrollbar-width:thin;
 }
 nav a{
-  flex-shrink:0;
-  font-size:13px;
-  font-weight:bold;
-  color:var(--navy);
-  background:#f3f6fa;
-  padding:9px 13px;
-  border-radius:25px;
+ flex-shrink:0;
+ border-radius:25px;
+ background:#f0f3f8;
+ color:var(--navy);
+ padding:9px 14px;
+ font-size:13px;
+ font-weight:bold;
 }
 main{
-  max-width:1080px;
-  margin:auto;
-  padding:20px 14px;
+ max-width:1080px;
+ margin:auto;
+ padding:18px 13px 40px;
 }
-section.card{
-  background:white;
-  padding:24px;
-  margin-bottom:20px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  box-shadow:0 6px 25px rgba(0,0,0,.035);
-  scroll-margin-top:78px;
+section.panel{
+ background:white;
+ border:1px solid var(--border);
+ border-radius:18px;
+ padding:clamp(17px,3vw,27px);
+ margin-bottom:19px;
+ box-shadow:0 7px 24px #081e3d08;
+ scroll-margin-top:80px;
 }
 h2{
-  color:var(--navy);
-  font-family:Georgia,serif;
-  font-size:clamp(23px,4vw,31px);
-  line-height:1.25;
-  margin:0 0 12px;
+ font:700 clamp(23px,4vw,31px)/1.25 Georgia,serif;
+ color:var(--navy);
+ margin:0 0 10px;
 }
-h3{color:var(--navy);line-height:1.35}
-.subtitle{font-size:14px;color:var(--muted)}
+h3{color:var(--navy)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
 .gold-line{
-  width:65px;
-  height:3px;
-  background:var(--gold);
-  margin:12px 0 20px;
-}
-.poster{
-  display:block;
-  width:100%;
-  max-width:850px;
-  height:auto;
-  margin:20px auto;
-  border-radius:13px;
-  border:1px solid #e7dfcd;
+ width:65px;
+ height:3px;
+ background:var(--gold);
+ margin:12px 0 19px;
 }
 .btn{
-  background:var(--navy);
-  color:white;
-  border:0;
-  border-radius:10px;
-  padding:12px 17px;
-  display:inline-block;
-  font-size:14px;
-  font-weight:bold;
-  text-align:center;
+ border:0;
+ border-radius:10px;
+ background:var(--navy);
+ color:white;
+ padding:11px 15px;
+ font-size:13px;
+ font-weight:700;
+ display:inline-block;
+ text-align:center;
 }
-.btn.gold{background:#a7782d}
-.btn.green{background:#15804b}
-.btn.light{
-  background:#edf2f8;
-  color:var(--navy);
-}
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:14px;
+.btn.gold{background:#a57b33}
+.btn.green{background:#16804d}
+.btn.light{background:#edf2f8;color:var(--navy)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.poster{
+ width:100%;
+ max-width:900px;
+ height:auto;
+ display:block;
+ margin:18px auto;
+ border-radius:12px;
+ border:1px solid var(--border);
 }
 .program-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;
 }
 .program-day{
-  background:#fbfcfe;
-  border:1px solid var(--border);
-  border-radius:13px;
-  overflow:hidden;
+ border:1px solid var(--border);
+ border-radius:13px;
+ overflow:hidden;
+ background:#fbfcfe;
 }
-.day-header{
-  background:var(--navy);
-  color:white;
-  padding:13px;
-  text-align:center;
-  font-weight:bold;
+.day-head{
+ background:var(--navy);
+ color:white;
+ text-align:center;
+ padding:12px;
+ font-size:14px;
+ font-weight:bold;
 }
-.day-content{padding:15px}
-.hour{
-  color:#9a6e2a;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-.program-day h3{
-  font-size:15px;
-  margin:5px 0;
-}
-.program-day p{
-  font-size:13px;
-  margin:5px 0 14px;
-}
-.separator{
-  height:1px;
-  background:var(--border);
-  margin:13px 0;
-}
-.thought{
-  margin-top:20px;
-  padding:16px;
-  border-left:4px solid var(--gold);
-  background:#fbf4e7;
-  border-radius:0 10px 10px 0;
-  font-family:Georgia,serif;
-  font-style:italic;
+.day-body{padding:15px}
+.day-body h3{font-size:15px;margin:5px 0}
+.day-body p{font-size:13px;margin:5px 0 11px}
+.hour{color:#946a2c;font-size:12px;font-weight:800}
+.separator{height:1px;background:var(--border);margin:13px 0}
+.quote{
+ margin-top:18px;
+ background:#faf3e5;
+ border-left:4px solid var(--gold);
+ padding:15px;
+ border-radius:0 10px 10px 0;
+ font:italic 15px/1.7 Georgia,serif;
 }
 .search{
-  display:block;
-  width:100%;
-  padding:14px;
-  border:1px solid #cad4e1;
-  border-radius:10px;
-  margin:15px 0;
-  outline-color:var(--gold);
+ width:100%;
+ border:1px solid #cbd5e1;
+ border-radius:11px;
+ padding:14px;
+ margin:10px 0 15px;
+ outline-color:var(--gold);
 }
-.teaching-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
+.filters{
+ display:flex;
+ gap:8px;
+ overflow-x:auto;
+ padding-bottom:8px;
+ margin:8px 0 15px;
 }
-.teaching{
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:18px;
-  background:#fff;
-  min-width:0;
+.filter{
+ border:1px solid var(--border);
+ background:#f4f6fa;
+ color:var(--navy);
+ border-radius:25px;
+ padding:9px 13px;
+ white-space:nowrap;
+ font-size:12px;
+ font-weight:bold;
 }
-.teaching h3{margin:10px 0;font-size:18px}
-.tag{
-  display:inline-block;
-  background:#f7efdf;
-  color:#88601e;
-  border-radius:6px;
-  font-size:11px;
-  font-weight:bold;
-  padding:5px 9px;
+.filter.active{
+ background:var(--navy);
+ color:#fff;
+ border-color:var(--navy);
 }
-.meta{
-  font-size:12px;
-  color:var(--muted);
+.group-title{
+ font-size:15px;
+ font-weight:bold;
+ color:var(--navy);
+ margin:23px 0 10px;
+ padding-bottom:7px;
+ border-bottom:1px solid var(--border);
 }
-.passage{
-  font-size:13px;
-  color:#8a672e;
+.library-list{display:grid;gap:10px}
+.lesson{
+ border:1px solid var(--border);
+ border-radius:13px;
+ padding:15px;
+ background:#fff;
 }
-.full-text{
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  border-top:1px solid var(--border);
-  padding-top:15px;
-  margin-top:15px;
-  font-size:14px;
+.lesson-top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
 }
-.full-text[hidden]{display:none}
+.lesson-date{
+ color:var(--muted);
+ font-size:11px;
+ font-weight:bold;
+}
+.lesson-hour{
+ background:#f8efdc;
+ color:#896020;
+ font-size:11px;
+ font-weight:bold;
+ padding:4px 8px;
+ border-radius:6px;
+ white-space:nowrap;
+}
+.lesson h3{
+ font-size:16px;
+ margin:9px 0 5px;
+ line-height:1.4;
+}
+.lesson .passage{
+ font-size:12px;
+ color:#916d35;
+ margin:5px 0;
+}
+.lesson .meta{
+ color:var(--muted);
+ font-size:12px;
+ margin:6px 0;
+}
+.lesson .btn{
+ margin-top:8px;
+}
+.empty{
+ color:var(--muted);
+ font-size:13px;
+}
 .audio-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;
 }
 .audio-title{
-  grid-column:1/-1;
-  color:var(--navy);
-  font-size:18px;
-  margin:12px 0 0;
+ grid-column:1/-1;
+ color:var(--navy);
+ margin:10px 0 0;
+ font-size:17px;
 }
 .audio-item{
-  background:#f8fafc;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid var(--border);
+ border:1px solid var(--border);
+ border-radius:12px;
+ padding:14px;
+ background:#f8fafc;
 }
 .audio-item strong{
-  display:block;
-  margin-bottom:10px;
-  color:var(--navy);
+ display:block;
+ color:var(--navy);
+ margin-bottom:8px;
 }
 audio{width:100%}
 .welcome-photo{
-  width:100%;
-  max-width:370px;
-  height:auto;
-  display:block;
-  margin:20px auto;
-  border-radius:13px;
+ width:100%;
+ max-width:360px;
+ border-radius:13px;
+ margin:17px auto;
+ display:block;
 }
+.center{text-align:center}
 footer{
-  background:var(--navy);
-  color:#d9e3ef;
-  text-align:center;
-  padding:25px 15px;
-  font-size:13px;
+ background:var(--navy);
+ color:#e0e8f3;
+ text-align:center;
+ padding:27px 15px;
+ font-size:13px;
 }
-.status{font-size:14px;color:var(--muted)}
+
+/* MODE LECTURE */
+
+.reader{
+ position:fixed;
+ inset:0;
+ z-index:100;
+ background:#f9fafc;
+ overflow-y:auto;
+ overscroll-behavior:contain;
+}
+body.reading{overflow:hidden}
+.reader-bar{
+ position:sticky;
+ top:0;
+ z-index:5;
+ background:#fff;
+ border-bottom:1px solid var(--border);
+ padding:10px 13px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
+}
+.reader-bar .btn{padding:9px 11px}
+.reader-tools{display:flex;gap:5px}
+.reader-tools button{
+ background:#edf2f8;
+ border:0;
+ border-radius:8px;
+ padding:8px 12px;
+ font-weight:bold;
+ color:var(--navy);
+}
+.reader-content{
+ max-width:780px;
+ margin:auto;
+ padding:25px 19px 55px;
+}
+.reader-label{
+ font-size:11px;
+ font-weight:800;
+ color:#a47a34;
+ letter-spacing:1.5px;
+}
+.reader-content h1{
+ font:700 clamp(25px,5vw,38px)/1.3 Georgia,serif;
+ color:var(--navy);
+ margin:13px 0;
+}
+.reader-info{
+ font-size:13px;
+ color:var(--muted);
+ border-bottom:1px solid var(--border);
+ padding-bottom:18px;
+}
+.reader-text{
+ font:400 18px/1.9 Georgia,serif;
+ color:#243044;
+ overflow-wrap:anywhere;
+}
+.reader-text p{margin:0 0 19px}
+.reader-text h2{
+ font:700 1.12em/1.5 Georgia,serif;
+ margin:29px 0 12px;
+ padding-bottom:7px;
+ border-bottom:1px solid #e6e1d6;
+}
+.reader-text .reader-heading{
+ font-weight:bold;
+ color:var(--navy);
+}
+.reader-toc{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:12px;
+ padding:15px;
+ margin:20px 0;
+}
+.reader-toc strong{color:var(--navy)}
+.reader-toc a{
+ display:block;
+ color:#24517d;
+ padding:7px 0;
+ border-bottom:1px solid #edf0f4;
+ font-size:13px;
+}
+.reader-bottom{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:30px;
+ padding-top:20px;
+ border-top:1px solid var(--border);
+}
+.reader-bottom button{flex:1;min-width:130px}
+.reader-progress{
+ height:3px;
+ background:#e4eaf1;
+}
+.reader-progress div{
+ height:100%;
+ background:var(--gold);
+ width:0%;
+ transition:width .1s;
+}
 @media(max-width:720px){
-  .program-grid,
-  .teaching-grid,
-  .audio-grid{grid-template-columns:1fr}
-  section.card{padding:17px}
-  .hero{padding:30px 15px}
-  .teaching{padding:15px}
+ .program-grid,.audio-grid{grid-template-columns:1fr}
+ .hero{padding:30px 14px}
+ .reader-content{padding:22px 17px 45px}
 }
 </style>
 </head>
@@ -293,652 +410,947 @@ footer{
 <body>
 
 <header class="hero">
-  <div class="container">
-    <div class="small-title">
-      LIRE • COMPRENDRE • GRANDIR • IMPACTER
-    </div>
-    <h1>PAROLES ET LUMIÈRE</h1>
-    <p>La Parole de Dieu pour éclairer nos vies</p>
-    <p>Avec le Pasteur Gilles Landry LOGON</p>
-  </div>
+ <div class="overline">
+  LIRE • COMPRENDRE • GRANDIR • IMPACTER
+ </div>
+ <h1>PAROLES ET LUMIÈRE</h1>
+ <p>La Parole de Dieu pour éclairer nos vies</p>
+ <p>Avec le Pasteur Gilles Landry LOGON</p>
 </header>
 
 <nav aria-label="Navigation principale">
-  <a href="#programme">Programme</a>
-  <a href="#recents">Nouveautés</a>
-  <a href="#biblique">14h GMT</a>
-  <a href="#thematique">23h GMT</a>
-  <a href="#audios">Audios</a>
-  <a href="#installation">Installer</a>
+ <a href="#programme">Programme</a>
+ <a href="#nouveautes">Nouveautés</a>
+ <a href="#bibliotheque">Bibliothèque</a>
+ <a href="#audios">Audios</a>
+ <a href="#installation">Installer</a>
 </nav>
 
 <main>
 
-<!-- PROGRAMME DU 23 AU 27 NOVEMBRE -->
+<!-- PROGRAMME -->
 
-<section class="card" id="programme">
-  <p class="small-title" style="color:#a7782d">
-    DU 23 AU 27 NOVEMBRE 2026
-  </p>
+<section class="panel" id="programme">
+ <div class="overline" style="color:#a57b33">
+  DU 23 AU 27 NOVEMBRE 2026
+ </div>
+ <h2>Programme de la semaine</h2>
+ <div class="gold-line"></div>
+ <p class="muted small">
+  Lundi 23 • Mercredi 25 • Vendredi 27
+  — 14h et 23h GMT
+ </p>
 
-  <h2>Programme de la semaine</h2>
-  <div class="gold-line"></div>
+ <img
+  class="poster"
+  src="./programme-23-27-novembre-2026.jpg"
+  alt="Programme officiel du 23 au 27 novembre 2026"
+  onerror="this.hidden=true;document.getElementById('posterInfo').hidden=false"
+ >
+ <p id="posterInfo" class="empty" hidden>
+  Ajoutez programme-23-27-novembre-2026.jpg
+  à la racine de votre dépôt GitHub.
+ </p>
 
-  <p class="subtitle">
-    Lundi 23 • Mercredi 25 • Vendredi 27 novembre
-    — 14h et 23h GMT
-  </p>
+ <div class="program-grid">
+  <article class="program-day">
+   <div class="day-head">LUNDI 23 NOVEMBRE</div>
+   <div class="day-body">
+    <span class="hour">14H GMT</span>
+    <h3>Lévitique 13 et 14</h3>
+    <p>La lèpre, le diagnostic et le processus de restauration.</p>
+    <div class="separator"></div>
+    <span class="hour">23H GMT — PARTIE 1/3</span>
+    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+    <p>Apprendre à discerner avant de décider.</p>
+    <p>Proverbes 3:5-6 ; Jacques 1:5 ; Luc 14:28</p>
+   </div>
+  </article>
 
-  <img
-    src="./programme-23-27-novembre-2026.jpg"
-    alt="Programme officiel du 23 au 27 novembre 2026"
-    class="poster"
-    onerror="this.hidden=true;document.getElementById('posterInfo').hidden=false"
-  >
+  <article class="program-day">
+   <div class="day-head">MERCREDI 25 NOVEMBRE</div>
+   <div class="day-body">
+    <span class="hour">14H GMT</span>
+    <h3>Lévitique 15 et 16</h3>
+    <p>Purification, expiation et restauration de la communion avec Dieu.</p>
+    <div class="separator"></div>
+    <span class="hour">23H GMT — PARTIE 2/3</span>
+    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+    <p>Les erreurs à éviter avant une grande décision.</p>
+    <p>Proverbes 15:22 ; Proverbes 19:2 ; 1 Corinthiens 15:33</p>
+   </div>
+  </article>
 
-  <p id="posterInfo" class="status" hidden>
-    Affiche indisponible. Ajoutez le fichier
-    programme-23-27-novembre-2026.jpg
-    à la racine du dépôt GitHub.
-  </p>
+  <article class="program-day">
+   <div class="day-head">VENDREDI 27 NOVEMBRE</div>
+   <div class="day-body">
+    <span class="hour">14H GMT</span>
+    <h3>Lévitique 17 et 18</h3>
+    <p>La valeur de la vie, la sainteté et les limites établies par Dieu.</p>
+    <div class="separator"></div>
+    <span class="hour">23H GMT — PARTIE 3/3</span>
+    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+    <p>Assumer, construire et persévérer après sa décision.</p>
+    <p>Galates 6:7-9 ; Proverbes 16:3 ; Philippiens 3:13-14</p>
+   </div>
+  </article>
+ </div>
 
-  <div class="program-grid">
+ <div class="quote">
+  « Une seule décision peut changer plusieurs années de ta vie.
+  Ne décide donc pas seulement selon ce que tu ressens aujourd'hui ;
+  décide aussi en pensant à ce que tu veux devenir demain. »
+ </div>
 
-    <article class="program-day">
-      <div class="day-header">
-        LUNDI 23 NOVEMBRE
-      </div>
-      <div class="day-content">
-        <div class="hour">14H GMT</div>
-        <h3>Lévitique 13 et 14</h3>
-        <p>
-          La lèpre, le diagnostic
-          et le processus de restauration.
-        </p>
-
-        <div class="separator"></div>
-
-        <div class="hour">23H GMT — PARTIE 1/3</div>
-        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-        <p>Apprendre à discerner avant de décider.</p>
-        <p>Proverbes 3:5-6 ; Jacques 1:5 ; Luc 14:28</p>
-      </div>
-    </article>
-
-    <article class="program-day">
-      <div class="day-header">
-        MERCREDI 25 NOVEMBRE
-      </div>
-      <div class="day-content">
-        <div class="hour">14H GMT</div>
-        <h3>Lévitique 15 et 16</h3>
-        <p>
-          Purification, expiation et restauration
-          de la communion avec Dieu.
-        </p>
-
-        <div class="separator"></div>
-
-        <div class="hour">23H GMT — PARTIE 2/3</div>
-        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-        <p>Les erreurs à éviter avant une grande décision.</p>
-        <p>Proverbes 15:22 ; Proverbes 19:2 ; 1 Corinthiens 15:33</p>
-      </div>
-    </article>
-
-    <article class="program-day">
-      <div class="day-header">
-        VENDREDI 27 NOVEMBRE
-      </div>
-      <div class="day-content">
-        <div class="hour">14H GMT</div>
-        <h3>Lévitique 17 et 18</h3>
-        <p>
-          La valeur de la vie, la sainteté
-          et les limites établies par Dieu.
-        </p>
-
-        <div class="separator"></div>
-
-        <div class="hour">23H GMT — PARTIE 3/3</div>
-        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-        <p>Assumer, construire et persévérer après sa décision.</p>
-        <p>Galates 6:7-9 ; Proverbes 16:3 ; Philippiens 3:13-14</p>
-      </div>
-    </article>
-
-  </div>
-
-  <div class="thought">
-    « Une seule décision peut changer plusieurs années
-    de ta vie. Ne décide donc pas seulement selon ce que
-    tu ressens aujourd'hui ; décide aussi en pensant
-    à ce que tu veux devenir demain. »
-  </div>
-
-  <div class="actions">
-    <a href="#biblique" class="btn">
-      Commentaires bibliques
-    </a>
-    <a href="#thematique" class="btn gold">
-      Enseignements de 23h
-    </a>
-  </div>
+ <div class="actions">
+  <a class="btn" href="#bibliotheque" data-filter-link="14">
+   Commentaires bibliques
+  </a>
+  <a class="btn gold" href="#bibliotheque" data-filter-link="23">
+   Enseignements de 23h
+  </a>
+ </div>
 </section>
 
-<!-- DERNIÈRES PUBLICATIONS -->
+<!-- NOUVEAUTÉS -->
 
-<section class="card" id="recents">
-  <h2>Derniers enseignements</h2>
-  <div class="gold-line"></div>
-  <p class="subtitle">
-    Retrouvez les quatre dernières publications,
-    classées de la plus récente à la plus ancienne.
-  </p>
-  <p class="status" id="statut-recents">Chargement…</p>
-  <div id="liste-recents" class="teaching-grid"></div>
+<section class="panel" id="nouveautes">
+ <h2>Derniers enseignements</h2>
+ <div class="gold-line"></div>
+ <p class="muted small">
+  Les quatre dernières publications.
+ </p>
+ <p id="statutRecents" class="empty">Chargement…</p>
+ <div id="listeRecents" class="library-list"></div>
 </section>
 
-<!-- RECHERCHE -->
+<!-- BIBLIOTHÈQUE -->
 
-<section class="card">
-  <h2>Bibliothèque spirituelle</h2>
-  <div class="gold-line"></div>
-  <p class="subtitle">
-    Recherchez un enseignement par titre,
-    passage biblique ou contenu.
-  </p>
-  <input
-    id="recherche"
-    class="search"
-    type="search"
-    placeholder="Rechercher un enseignement…"
-    aria-label="Rechercher dans les enseignements"
-  >
-</section>
+<section class="panel" id="bibliotheque">
+ <div class="overline" style="color:#a57b33">
+  BIBLIOTHÈQUE SPIRITUELLE
+ </div>
+ <h2>Tous les enseignements</h2>
+ <div class="gold-line"></div>
 
-<!-- 14H GMT -->
+ <p class="muted small">
+  Retrouvez les commentaires bibliques et les enseignements
+  de la vie chrétienne.
+ </p>
 
-<section class="card" id="biblique">
-  <p class="small-title" style="color:#a7782d">
-    PARCOURS BIBLIQUE COMMENTÉ
-  </p>
-  <h2>14h GMT — Commentaires bibliques</h2>
-  <div class="gold-line"></div>
-  <p class="status" id="statut-14">Chargement…</p>
-  <div id="liste-14" class="teaching-grid"></div>
-</section>
+ <input
+  id="recherche"
+  class="search"
+  type="search"
+  placeholder="Rechercher un enseignement…"
+  aria-label="Rechercher un enseignement"
+ >
 
-<!-- 23H GMT -->
+ <div class="filters" aria-label="Catégories">
+  <button class="filter active" data-filter="tous" aria-pressed="true">
+   Tous
+  </button>
+  <button class="filter" data-filter="14" aria-pressed="false">
+   14h · Bible
+  </button>
+  <button class="filter" data-filter="23" aria-pressed="false">
+   23h · Vie chrétienne
+  </button>
+ </div>
 
-<section class="card" id="thematique">
-  <p class="small-title" style="color:#a7782d">
-    ENSEIGNEMENTS POUR LA VIE
-  </p>
-  <h2>23h GMT — Enseignements thématiques</h2>
-  <div class="gold-line"></div>
-  <p class="status" id="statut-23">Chargement…</p>
-  <div id="liste-23" class="teaching-grid"></div>
+ <p id="statutBibliotheque" class="empty">
+  Chargement des enseignements…
+ </p>
+ <div id="listeBibliotheque"></div>
 </section>
 
 <!-- AUDIOS -->
 
-<section class="card" id="audios">
-  <h2>Lectures bibliques audio</h2>
-  <div class="gold-line"></div>
-  <p class="subtitle">
-    Écoutez les chapitres bibliques disponibles
-    dans votre bibliothèque.
-  </p>
-  <div id="liste-audios" class="audio-grid"></div>
-  <p id="statut-audios" class="status"></p>
+<section class="panel" id="audios">
+ <h2>Lectures bibliques audio</h2>
+ <div class="gold-line"></div>
+ <p class="muted small">
+  Écoutez les chapitres disponibles.
+ </p>
+ <div id="listeAudios" class="audio-grid"></div>
+ <p id="statutAudios" class="empty"></p>
 </section>
 
 <!-- COMMUNAUTÉ -->
 
-<section class="card" style="text-align:center">
-  <h2>Notre communauté</h2>
-  <p>
-    Rejoignez-nous pour recevoir les enseignements
-    et grandir ensemble dans la connaissance
-    de la Parole de Dieu.
-  </p>
-  <a
-    class="btn green"
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4"
-  >
-    Rejoindre notre communauté WhatsApp
-  </a>
+<section class="panel center">
+ <h2>Notre communauté</h2>
+ <p>
+  Rejoignez notre groupe WhatsApp pour recevoir
+  les enseignements et grandir ensemble dans la foi.
+ </p>
+ <a
+  class="btn green"
+  href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4"
+  target="_blank"
+  rel="noopener noreferrer"
+ >
+  Rejoindre la communauté WhatsApp
+ </a>
 </section>
 
 <!-- INSTALLATION -->
 
-<section class="card" id="installation" style="text-align:center">
-  <h2>Installer Paroles et Lumière</h2>
-  <p>
-    Accédez à l'application depuis
-    votre téléphone Android ou iPhone.
-  </p>
-  <button class="btn" id="boutonInstaller">
-    Installer l'application
-  </button>
-  <p class="status" id="aideInstallation" hidden></p>
+<section class="panel center" id="installation">
+ <h2>Installer Paroles et Lumière</h2>
+ <p>Accédez à l'application depuis votre téléphone.</p>
+ <button class="btn" id="boutonInstaller">
+  Installer l'application
+ </button>
+ <p id="aideInstallation" class="empty" hidden></p>
 </section>
 
-<!-- PRÉSENTATION -->
+<!-- BIENVENUE -->
 
-<section class="card" style="text-align:center">
-  <h2>Bienvenue sur Paroles et Lumière</h2>
-  <div class="gold-line" style="margin:12px auto 20px"></div>
+<section class="panel center">
+ <h2>Bienvenue sur Paroles et Lumière</h2>
+ <div class="gold-line" style="margin:12px auto"></div>
 
-  <img
-    class="welcome-photo"
-    src="./IMG_20261028_044943_995.jpg"
-    alt="Pasteur Gilles Landry LOGON et son épouse"
-    loading="lazy"
-  >
+ <img
+  class="welcome-photo"
+  src="./IMG_20261028_044943_995.jpg"
+  alt="Pasteur Gilles Landry LOGON et son épouse"
+  loading="lazy"
+ >
 
-  <p>
-    Paroles et Lumière est un espace chrétien
-    consacré à l'enseignement biblique,
-    à la méditation et à l'édification spirituelle.
-  </p>
+ <p>
+  Paroles et Lumière est une plateforme chrétienne
+  consacrée à l'enseignement biblique,
+  à la méditation et à l'édification spirituelle.
+ </p>
 
-  <p>
-    Notre mission est de vous aider à lire,
-    comprendre et mettre en pratique
-    la Parole de Dieu au quotidien.
-  </p>
+ <p>
+  Notre mission est de vous aider à lire,
+  comprendre et mettre en pratique la Parole de Dieu.
+ </p>
 
-  <strong>Pasteur Gilles Landry LOGON et son épouse</strong>
+ <strong>Pasteur Gilles Landry LOGON et son épouse</strong>
 </section>
 
 </main>
 
 <footer>
-  <strong>PAROLES ET LUMIÈRE</strong>
-  <p>Lire • Comprendre • Grandir • Impacter</p>
-  <p>© 2026 — Tous droits réservés</p>
+ <strong>PAROLES ET LUMIÈRE</strong>
+ <p>Lire • Comprendre • Grandir • Impacter</p>
+ <p>© 2026 — Tous droits réservés</p>
 </footer>
 
+<!-- MODE LECTURE PLEIN ÉCRAN -->
+
+<div id="reader" class="reader" role="dialog"
+ aria-modal="true" aria-label="Lecture de l'enseignement" hidden>
+
+ <div class="reader-bar">
+  <button id="fermerLecture" class="btn light">
+   ← Retour
+  </button>
+
+  <div class="reader-tools">
+   <button id="reduireTexte" aria-label="Réduire le texte">
+    A−
+   </button>
+   <button id="agrandirTexte" aria-label="Agrandir le texte">
+    A+
+   </button>
+   <button id="partagerLecture" aria-label="Partager sur WhatsApp">
+    Partager
+   </button>
+  </div>
+ </div>
+
+ <div class="reader-progress">
+  <div id="progressionLecture"></div>
+ </div>
+
+ <article class="reader-content">
+  <div class="reader-label" id="readerLabel"></div>
+  <h1 id="readerTitre"></h1>
+  <p class="reader-info" id="readerInfo"></p>
+
+  <div class="reader-toc" id="readerSommaire" hidden>
+   <strong>Sommaire de l'enseignement</strong>
+   <div id="readerLiens"></div>
+  </div>
+
+  <div id="readerTexte" class="reader-text"></div>
+
+  <div class="reader-bottom">
+   <button id="lecturePrecedente" class="btn light">
+    ← Précédent
+   </button>
+   <button id="lectureSuivante" class="btn">
+    Suivant →
+   </button>
+   <button id="retourBibliotheque" class="btn gold">
+    Retour à la bibliothèque
+   </button>
+  </div>
+ </article>
+</div>
+
 <script>
-/* =========================================
+/* =====================================
    CONFIGURATION SUPABASE
-========================================= */
+===================================== */
 
 const SUPABASE_URL =
-  "https://xczqlgazsyplaigfnnmq.supabase.co";
+ "https://xczqlgazsyplaigfnnmq.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_0wXQkcUKWw8IXxkmzUz53Q_dsV1F_we";
+ "sb_publishable_0wXQkcUKWw8IXxkmzUz53Q_dsV1F_we";
 
 const APP_URL =
-  "https://inspirationgospel2022-afk.github.io/paroles-et-lumiere/";
+ "https://inspirationgospel2022-afk.github.io/paroles-et-lumiere/";
 
 const db = window.supabase
-  ? window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    )
-  : null;
+ ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
+ : null;
 
-let enseignements = [];
+let enseignements=[];
+let filtreActif="tous";
+let lectureActive=null;
+let listeNavigation=[];
+let tailleTexte=18;
+let ancienFocus=null;
+let dernierePosition=0;
 
-/* =========================================
+/* =====================================
    UTILITAIRES
-========================================= */
+===================================== */
 
 function dateFR(value){
-  if(!value) return "";
-  const parts=String(value).slice(0,10).split("-");
-  if(parts.length!==3) return String(value);
-  return parts[2]+"/"+parts[1]+"/"+parts[0];
+ if(!value)return "";
+ const p=String(value).slice(0,10).split("-");
+ if(p.length!==3)return String(value);
+ return p[2]+"/"+p[1]+"/"+p[0];
 }
 
 function categorie(item){
-  const titre=(item.titre||"").toLowerCase();
-  const passage=(item.passage_biblique||"").toLowerCase();
+ const titre=(item.titre||"").toLowerCase();
+ const passage=(item.passage_biblique||"").toLowerCase();
 
-  if(
-    /commentaire biblique|parcours biblique|étude biblique|etude biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
-    || (
-      /lévitique|levitique|exode/.test(passage)
-      && /commentaire|étude|etude/.test(titre)
-    )
-  ){
-    return "14";
-  }
-  return "23";
+ if(
+  /commentaire biblique|parcours biblique|étude biblique|etude biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
+  || (
+   /lévitique|levitique|exode/.test(passage)
+   && /commentaire|étude|etude/.test(titre)
+  )
+ )return "14";
+
+ return "23";
 }
 
-/* =========================================
-   CARTE D'ENSEIGNEMENT
-========================================= */
+function nettoyerRecherche(texte){
+ return String(texte||"")
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g,"")
+  .toLowerCase();
+}
+
+function labelDate(item){
+ return dateFR(item.date_publication);
+}
+
+/* =====================================
+   CARTES COMPACTES
+===================================== */
 
 function creerCarte(item){
-  const article=document.createElement("article");
-  article.className="teaching";
+ const carte=document.createElement("article");
+ carte.className="lesson";
 
-  const tag=document.createElement("span");
-  tag.className="tag";
-  tag.textContent=categorie(item)==="14"
-    ? "COMMENTAIRE BIBLIQUE"
-    : "ENSEIGNEMENT";
+ const top=document.createElement("div");
+ top.className="lesson-top";
 
+ const date=document.createElement("span");
+ date.className="lesson-date";
+ date.textContent=labelDate(item);
+
+ const heure=document.createElement("span");
+ heure.className="lesson-hour";
+ heure.textContent=categorie(item)+"h GMT";
+
+ top.append(date,heure);
+
+ const titre=document.createElement("h3");
+ titre.textContent=item.titre||"Enseignement";
+
+ const passage=document.createElement("p");
+ passage.className="passage";
+ passage.textContent=item.passage_biblique||"";
+
+ const meta=document.createElement("p");
+ meta.className="meta";
+ meta.textContent=(item.nombre_lectures||0)+" lectures";
+
+ const bouton=document.createElement("button");
+ bouton.className="btn";
+ bouton.textContent="Lire l'enseignement";
+
+ bouton.addEventListener("click",()=>{
+  ouvrirLecture(item);
+ });
+
+ carte.append(top,titre,passage,meta,bouton);
+ return carte;
+}
+
+/* =====================================
+   FILTRES ET BIBLIOTHÈQUE
+===================================== */
+
+function listeFiltree(){
+ const recherche=nettoyerRecherche(
+  document.getElementById("recherche").value.trim()
+ );
+
+ return enseignements.filter(item=>{
+  if(
+   filtreActif!=="tous"
+   && categorie(item)!==filtreActif
+  )return false;
+
+  const texte=nettoyerRecherche([
+   item.titre,
+   item.passage_biblique,
+   item.contenu
+  ].join(" "));
+
+  return !recherche || texte.includes(recherche);
+ });
+}
+
+function afficherBibliotheque(){
+ const conteneur=document.getElementById("listeBibliotheque");
+ const statut=document.getElementById("statutBibliotheque");
+
+ conteneur.replaceChildren();
+
+ const items=listeFiltree();
+
+ statut.textContent=items.length
+  ? items.length+" enseignement(s) disponible(s)"
+  : "Aucun enseignement trouvé.";
+
+ if(!items.length)return;
+
+ const groupes=new Map();
+
+ items.forEach(item=>{
+  let groupe;
+
+  if(categorie(item)==="14"){
+   const titre=(item.titre||"").toLowerCase();
+   const passage=(item.passage_biblique||"").toLowerCase();
+
+   if(/lévitique|levitique/.test(titre+" "+passage)){
+    groupe="Commentaires bibliques — Lévitique";
+   }else if(/exode/.test(titre+" "+passage)){
+    groupe="Commentaires bibliques — Exode";
+   }else if(/genèse|genese/.test(titre+" "+passage)){
+    groupe="Commentaires bibliques — Genèse";
+   }else{
+    groupe="Autres commentaires bibliques";
+   }
+  }else{
+   groupe="Enseignements de 23h — Vie chrétienne";
+  }
+
+  if(!groupes.has(groupe)){
+   groupes.set(groupe,[]);
+  }
+
+  groupes.get(groupe).push(item);
+ });
+
+ groupes.forEach((elements,nom)=>{
   const titre=document.createElement("h3");
-  titre.textContent=item.titre||"Enseignement";
+  titre.className="group-title";
+  titre.textContent=nom;
 
-  const passage=document.createElement("p");
-  passage.className="passage";
-  passage.textContent=item.passage_biblique||"";
+  const liste=document.createElement("div");
+  liste.className="library-list";
 
-  const meta=document.createElement("p");
-  meta.className="meta";
-
-  function actualiserMeta(){
-    meta.textContent=
-      dateFR(item.date_publication)
-      +" • "+categorie(item)+"h GMT"
-      +" • "+(item.nombre_lectures||0)+" lectures";
-  }
-  actualiserMeta();
-
-  const actions=document.createElement("div");
-  actions.className="actions";
-
-  const lire=document.createElement("button");
-  lire.className="btn";
-  lire.textContent="Lire l'enseignement";
-
-  const partager=document.createElement("button");
-  partager.className="btn green";
-  partager.textContent="Partager sur WhatsApp";
-
-  const contenu=document.createElement("div");
-  contenu.className="full-text";
-  contenu.hidden=true;
-  contenu.textContent=item.contenu
-    ||"Aucun texte complet disponible pour cet enseignement.";
-
-  lire.addEventListener("click",async()=>{
-    contenu.hidden=!contenu.hidden;
-    lire.textContent=contenu.hidden
-      ?"Lire l'enseignement"
-      :"Fermer";
-
-    if(
-      !contenu.hidden
-      && !item._compte
-      && db
-      && item.id
-    ){
-      item._compte=true;
-      try{
-        const {data,error}=await db.rpc(
-          "incrementer_lecture",
-          {p_id:item.id}
-        );
-        if(!error){
-          if(typeof data==="number"){
-            item.nombre_lectures=data;
-          }else{
-            item.nombre_lectures=
-              Number(item.nombre_lectures||0)+1;
-          }
-          actualiserMeta();
-        }
-      }catch(error){
-        console.warn("Compteur :",error);
-      }
-    }
+  elements.forEach(item=>{
+   liste.appendChild(creerCarte(item));
   });
 
-  partager.addEventListener("click",()=>{
-    const texte=
-      "PAROLES ET LUMIÈRE\n\n"
-      +(item.titre||"")+"\n"
-      +(item.passage_biblique||"")+"\n\n"
-      +APP_URL;
-
-    window.open(
-      "https://wa.me/?text="+encodeURIComponent(texte),
-      "_blank",
-      "noopener,noreferrer"
-    );
-  });
-
-  actions.append(lire,partager);
-  article.append(tag,titre,passage,meta,actions,contenu);
-
-  return article;
+  conteneur.append(titre,liste);
+ });
 }
 
-/* =========================================
-   AFFICHAGE ET RECHERCHE
-========================================= */
+function afficherRecents(){
+ const conteneur=document.getElementById("listeRecents");
+ conteneur.replaceChildren();
 
-function afficherEnseignements(){
-  const recherche=document.getElementById("recherche")
-    .value.trim().toLocaleLowerCase("fr");
+ const recents=enseignements.slice(0,4);
 
-  const recents=document.getElementById("liste-recents");
-  const liste14=document.getElementById("liste-14");
-  const liste23=document.getElementById("liste-23");
+ document.getElementById("statutRecents").textContent=
+  recents.length ? "" : "Aucune publication disponible.";
 
-  recents.replaceChildren();
-  liste14.replaceChildren();
-  liste23.replaceChildren();
-
-  enseignements.slice(0,4).forEach(item=>{
-    recents.appendChild(creerCarte(item));
-  });
-
-  let total14=0;
-  let total23=0;
-
-  enseignements.forEach(item=>{
-    const texte=[
-      item.titre,
-      item.passage_biblique,
-      item.contenu
-    ].join(" ").toLocaleLowerCase("fr");
-
-    if(recherche && !texte.includes(recherche)){
-      return;
-    }
-
-    if(categorie(item)==="14"){
-      liste14.appendChild(creerCarte(item));
-      total14++;
-    }else{
-      liste23.appendChild(creerCarte(item));
-      total23++;
-    }
-  });
-
-  document.getElementById("statut-recents").textContent=
-    enseignements.length
-      ? ""
-      : "Aucun enseignement publié.";
-
-  document.getElementById("statut-14").textContent=
-    total14 ? "" : "Aucun enseignement trouvé.";
-
-  document.getElementById("statut-23").textContent=
-    total23 ? "" : "Aucun enseignement trouvé.";
+ recents.forEach(item=>{
+  conteneur.appendChild(creerCarte(item));
+ });
 }
 
-/* =========================================
-   CHARGEMENT SUPABASE
-========================================= */
+function choisirFiltre(filtre){
+ filtreActif=filtre;
 
-async function chargerEnseignements(){
-  if(!db){
-    for(const id of [
-      "statut-recents","statut-14","statut-23"
-    ]){
-      document.getElementById(id).textContent=
-        "Connexion Supabase indisponible.";
-    }
-    return;
-  }
+ document.querySelectorAll("[data-filter]").forEach(btn=>{
+  const actif=btn.dataset.filter===filtre;
+  btn.classList.toggle("active",actif);
+  btn.setAttribute("aria-pressed",String(actif));
+ });
 
-  try{
-    const {data,error}=await db
-      .from("enseignements")
-      .select(
-        "id,titre,passage_biblique,contenu,date_publication,nombre_lectures"
-      )
-      .order("date_publication",{ascending:false})
-      .limit(1000);
-
-    if(error) throw error;
-
-    enseignements=(data||[]).sort((a,b)=>{
-      const d=String(b.date_publication||"")
-        .localeCompare(String(a.date_publication||""));
-      if(d!==0) return d;
-      return String(b.id||"")
-        .localeCompare(String(a.id||""));
-    });
-
-    afficherEnseignements();
-
-  }catch(error){
-    console.error(error);
-
-    for(const id of [
-      "statut-recents","statut-14","statut-23"
-    ]){
-      document.getElementById(id).textContent=
-        "Erreur de chargement. Vérifiez Supabase.";
-    }
-  }
+ afficherBibliotheque();
 }
+
+document.querySelectorAll("[data-filter]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  choisirFiltre(btn.dataset.filter);
+ });
+});
+
+document.querySelectorAll("[data-filter-link]").forEach(lien=>{
+ lien.addEventListener("click",()=>{
+  choisirFiltre(lien.dataset.filterLink);
+ });
+});
 
 document.getElementById("recherche")
-  .addEventListener("input",afficherEnseignements);
+ .addEventListener("input",afficherBibliotheque);
+
+/* =====================================
+   MODE LECTURE
+===================================== */
+
+const reader=document.getElementById("reader");
+const readerTexte=document.getElementById("readerTexte");
+
+function estTitreDeSection(ligne){
+ const t=ligne.trim();
+
+ return (
+  /^(INTRODUCTION|CONCLUSION|PRIÈRE|PRIERE|APPLICATION|ENSEIGNEMENT PRATIQUE|RÉSUMÉ|RESUME|EXHORTATION|POINTS À RETENIR)$/i.test(t)
+  ||
+  /^[1-9][0-9]?\s*[\.\)\-:]\s+\S/.test(t)
+ );
+}
+
+function afficherContenu(item){
+ readerTexte.replaceChildren();
+
+ const sommaire=document.getElementById("readerSommaire");
+ const liens=document.getElementById("readerLiens");
+
+ liens.replaceChildren();
+
+ const contenu=String(item.contenu||"")
+  .replace(/\r\n/g,"\n")
+  .trim();
+
+ if(!contenu){
+  const p=document.createElement("p");
+  p.textContent="Le texte complet n'est pas encore disponible.";
+  readerTexte.appendChild(p);
+  sommaire.hidden=true;
+  return;
+ }
+
+ const blocs=contenu.split(/\n\s*\n/);
+ let compteur=0;
+
+ blocs.forEach(bloc=>{
+  const lignes=bloc.split("\n");
+  const premiere=lignes[0].trim();
+
+  if(estTitreDeSection(premiere)){
+   const h=document.createElement("h2");
+   h.textContent=premiere;
+   h.id="lecture-section-"+(++compteur);
+   readerTexte.appendChild(h);
+
+   const lien=document.createElement("a");
+   lien.href="#"+h.id;
+   lien.textContent=premiere;
+
+   lien.addEventListener("click",event=>{
+    event.preventDefault();
+    h.scrollIntoView({
+     behavior:"smooth",
+     block:"start"
+    });
+   });
+
+   liens.appendChild(lien);
+
+   const suite=lignes.slice(1).join("\n").trim();
+   if(suite){
+    const p=document.createElement("p");
+    p.textContent=suite;
+    readerTexte.appendChild(p);
+   }
+  }else{
+   const p=document.createElement("p");
+   p.textContent=bloc.trim();
+   readerTexte.appendChild(p);
+  }
+ });
+
+ sommaire.hidden=compteur===0;
+}
+
+async function compterLecture(item){
+ if(!db || !item.id || item._compte)return;
+
+ item._compte=true;
+
+ try{
+  const {data,error}=await db.rpc(
+   "incrementer_lecture",
+   {p_id:item.id}
+  );
+
+  if(!error){
+   item.nombre_lectures=
+    typeof data==="number"
+     ? data
+     : Number(item.nombre_lectures||0)+1;
+
+   afficherRecents();
+   afficherBibliotheque();
+  }
+ }catch(err){
+  console.warn("Compteur de lecture :",err);
+ }
+}
+
+function ouvrirLecture(item,conserverNavigation=false){
+ if(!conserverNavigation){
+  listeNavigation=listeFiltree();
+
+  if(!listeNavigation.some(e=>String(e.id)===String(item.id))){
+   listeNavigation=enseignements.slice();
+  }
+
+  ancienFocus=document.activeElement;
+  dernierePosition=window.scrollY;
+ }
+
+ lectureActive=item;
+
+ document.getElementById("readerLabel").textContent=
+  categorie(item)==="14"
+   ? "COMMENTAIRE BIBLIQUE • 14H GMT"
+   : "ENSEIGNEMENT • 23H GMT";
+
+ document.getElementById("readerTitre").textContent=
+  item.titre||"Enseignement";
+
+ document.getElementById("readerInfo").textContent=
+  [
+   dateFR(item.date_publication),
+   item.passage_biblique,
+   "Pasteur Gilles Landry LOGON"
+  ].filter(Boolean).join(" • ");
+
+ afficherContenu(item);
+
+ readerTexte.style.fontSize=tailleTexte+"px";
+
+ const index=listeNavigation.findIndex(
+  e=>String(e.id)===String(item.id)
+ );
+
+ document.getElementById("lecturePrecedente").disabled=
+  index<=0;
+
+ document.getElementById("lectureSuivante").disabled=
+  index<0 || index>=listeNavigation.length-1;
+
+ reader.hidden=false;
+ document.body.classList.add("reading");
+
+ reader.scrollTop=0;
+ document.getElementById("progressionLecture").style.width="0%";
+ document.getElementById("fermerLecture").focus();
+
+ compterLecture(item);
+}
+
+function fermerLecture(){
+ reader.hidden=true;
+ document.body.classList.remove("reading");
+ lectureActive=null;
+ window.scrollTo(0,dernierePosition);
+
+ if(ancienFocus && typeof ancienFocus.focus==="function"){
+  ancienFocus.focus({preventScroll:true});
+ }
+}
+
+document.getElementById("fermerLecture")
+ .addEventListener("click",fermerLecture);
+
+document.getElementById("retourBibliotheque")
+ .addEventListener("click",()=>{
+  fermerLecture();
+  document.getElementById("bibliotheque")
+   .scrollIntoView({behavior:"smooth"});
+ });
+
+function naviguerLecture(direction){
+ if(!lectureActive)return;
+
+ const index=listeNavigation.findIndex(
+  e=>String(e.id)===String(lectureActive.id)
+ );
+
+ const prochain=listeNavigation[index+direction];
+
+ if(prochain){
+  ouvrirLecture(prochain,true);
+ }
+}
+
+document.getElementById("lecturePrecedente")
+ .addEventListener("click",()=>naviguerLecture(-1));
+
+document.getElementById("lectureSuivante")
+ .addEventListener("click",()=>naviguerLecture(1));
+
+document.getElementById("agrandirTexte")
+ .addEventListener("click",()=>{
+  tailleTexte=Math.min(26,tailleTexte+2);
+  readerTexte.style.fontSize=tailleTexte+"px";
+ });
+
+document.getElementById("reduireTexte")
+ .addEventListener("click",()=>{
+  tailleTexte=Math.max(14,tailleTexte-2);
+  readerTexte.style.fontSize=tailleTexte+"px";
+ });
+
+document.getElementById("partagerLecture")
+ .addEventListener("click",()=>{
+  if(!lectureActive)return;
+
+  const texte=
+   "PAROLES ET LUMIÈRE\n\n"
+   +(lectureActive.titre||"")+"\n"
+   +(lectureActive.passage_biblique||"")+"\n\n"
+   +APP_URL;
+
+  window.open(
+   "https://wa.me/?text="+encodeURIComponent(texte),
+   "_blank",
+   "noopener,noreferrer"
+  );
+ });
+
+reader.addEventListener("scroll",()=>{
+ const total=reader.scrollHeight-reader.clientHeight;
+
+ const pourcentage=total>0
+  ? Math.min(100,reader.scrollTop/total*100)
+  : 100;
+
+ document.getElementById("progressionLecture")
+  .style.width=pourcentage+"%";
+},{passive:true});
+
+document.addEventListener("keydown",event=>{
+ if(reader.hidden)return;
+
+ if(event.key==="Escape"){
+  fermerLecture();
+ }
+
+ if(event.key==="Tab"){
+  const elements=Array.from(
+   reader.querySelectorAll(
+    'button:not([disabled]),a[href]'
+   )
+  ).filter(el=>el.getClientRects().length>0);
+
+  if(!elements.length)return;
+
+  const premier=elements[0];
+  const dernier=elements[elements.length-1];
+
+  if(event.shiftKey && document.activeElement===premier){
+   event.preventDefault();
+   dernier.focus();
+  }else if(!event.shiftKey && document.activeElement===dernier){
+   event.preventDefault();
+   premier.focus();
+  }
+ }
+});
+
+/* =====================================
+   CHARGEMENT SUPABASE
+===================================== */
+
+async function chargerEnseignements(){
+ if(!db){
+  document.getElementById("statutRecents").textContent=
+   "Connexion Supabase indisponible.";
+
+  document.getElementById("statutBibliotheque").textContent=
+   "Connexion Supabase indisponible.";
+  return;
+ }
+
+ try{
+  const {data,error}=await db
+   .from("enseignements")
+   .select("id,titre,passage_biblique,contenu,date_publication,nombre_lectures")
+   .order("date_publication",{ascending:false})
+   .limit(1000);
+
+  if(error)throw error;
+
+  enseignements=(data||[]).sort((a,b)=>{
+   const d=String(b.date_publication||"")
+    .localeCompare(String(a.date_publication||""));
+
+   if(d!==0)return d;
+
+   return String(b.id||"")
+    .localeCompare(String(a.id||""));
+  });
+
+  afficherRecents();
+  afficherBibliotheque();
+
+ }catch(err){
+  console.error(err);
+
+  document.getElementById("statutRecents").textContent=
+   "Erreur de chargement des enseignements.";
+
+  document.getElementById("statutBibliotheque").textContent=
+   "Erreur de chargement. Vérifiez Supabase.";
+ }
+}
 
 chargerEnseignements();
 
-/* =========================================
-   LECTURES AUDIO
-========================================= */
+/* =====================================
+   AUDIOS EXODE ET LÉVITIQUE
+===================================== */
 
-const audioContainer=document.getElementById("liste-audios");
-const statutAudios=document.getElementById("statut-audios");
+const audioContainer=document.getElementById("listeAudios");
 
-function ajouterTitreAudio(texte){
-  const titre=document.createElement("h3");
-  titre.className="audio-title";
-  titre.textContent=texte;
-  audioContainer.appendChild(titre);
+function titreAudio(texte){
+ const h=document.createElement("h3");
+ h.className="audio-title";
+ h.textContent=texte;
+ audioContainer.appendChild(h);
 }
 
 function ajouterAudio(titre,url){
-  const box=document.createElement("div");
-  box.className="audio-item";
+ const box=document.createElement("div");
+ box.className="audio-item";
 
-  const nom=document.createElement("strong");
-  nom.textContent=titre;
+ const nom=document.createElement("strong");
+ nom.textContent=titre;
 
-  const audio=document.createElement("audio");
-  audio.controls=true;
-  audio.preload="none";
-  audio.src=url;
+ const audio=document.createElement("audio");
+ audio.controls=true;
+ audio.preload="none";
+ audio.src=url;
 
-  box.append(nom,audio);
-  audioContainer.appendChild(box);
+ box.append(nom,audio);
+ audioContainer.appendChild(box);
 }
 
-/* ANCIENS AUDIOS : EXODE 31 À 36 */
-
-ajouterTitreAudio("Exode 31 à 36");
+titreAudio("Exode 31 à 36");
 
 for(let n=31;n<=36;n++){
-  ajouterAudio(
-    "Exode "+n,
-    SUPABASE_URL+
-    "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%20"+n
-  );
+ ajouterAudio(
+  "Exode "+n,
+  SUPABASE_URL+
+  "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%20"+n
+ );
 }
 
-/* NOUVEAUX AUDIOS : LÉVITIQUE 7 À 12 */
+async function chargerLevitique(){
+ const disponibles=[];
 
-async function chargerAudiosLevitique(){
-  const disponibles=[];
+ for(let n=7;n<=12;n++){
+  const url=SUPABASE_URL+
+   "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Levitique-"+
+   n+".mp3";
 
-  for(let n=7;n<=12;n++){
-    const url=SUPABASE_URL+
-      "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Levitique-"+
-      n+".mp3";
+  try{
+   const rep=await fetch(url,{method:"HEAD"});
 
-    try{
-      const reponse=await fetch(url,{method:"HEAD"});
-      if(reponse.ok){
-        disponibles.push({titre:"Lévitique "+n,url});
-      }
-    }catch(error){
-      console.warn("Audio Lévitique non vérifié :",n);
-    }
+   if(rep.ok){
+    disponibles.push({titre:"Lévitique "+n,url});
+   }
+  }catch(err){
+   console.warn("Audio non vérifié :",n);
   }
+ }
 
-  if(disponibles.length){
-    ajouterTitreAudio("Lévitique 7 à 12");
-    disponibles.forEach(item=>{
-      ajouterAudio(item.titre,item.url);
-    });
-  }else{
-    statutAudios.textContent=
-      "Les audios de Lévitique 7 à 12 apparaîtront après leur importation dans Supabase.";
-  }
+ if(disponibles.length){
+  titreAudio("Lévitique 7 à 12");
+
+  disponibles.forEach(item=>{
+   ajouterAudio(item.titre,item.url);
+  });
+ }else{
+  document.getElementById("statutAudios").textContent=
+   "Les audios de Lévitique seront affichés lorsqu'ils seront disponibles dans Supabase.";
+ }
 }
 
-chargerAudiosLevitique();
+chargerLevitique();
 
-/* =========================================
+/* =====================================
    INSTALLATION PWA
-========================================= */
+===================================== */
 
 let invitationInstallation=null;
 
 window.addEventListener("beforeinstallprompt",event=>{
-  event.preventDefault();
-  invitationInstallation=event;
+ event.preventDefault();
+ invitationInstallation=event;
 });
 
 document.getElementById("boutonInstaller")
-  .addEventListener("click",async()=>{
-    if(invitationInstallation){
-      await invitationInstallation.prompt();
-      invitationInstallation=null;
-      return;
-    }
+ .addEventListener("click",async()=>{
+  if(invitationInstallation){
+   await invitationInstallation.prompt();
+   invitationInstallation=null;
+   return;
+  }
 
-    const aide=document.getElementById("aideInstallation");
-    aide.hidden=false;
+  const aide=document.getElementById("aideInstallation");
+  aide.hidden=false;
 
-    if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){
-      aide.textContent=
-        "Sur iPhone : ouvrez le site dans Safari, puis Partager > Sur l'écran d'accueil > Ajouter.";
-    }else{
-      aide.textContent=
-        "Sur Android : ouvrez le site dans Chrome, puis menu ⋮ > Installer l'application ou Ajouter à l'écran d'accueil.";
-    }
-  });
-
-/* =========================================
-   SERVICE WORKER
-========================================= */
+  if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){
+   aide.textContent=
+    "Sur iPhone : ouvrez Safari, puis Partager > Sur l'écran d'accueil > Ajouter.";
+  }else{
+   aide.textContent=
+    "Sur Android : ouvrez Chrome, puis menu ⋮ > Installer l'application ou Ajouter à l'écran d'accueil.";
+  }
+ });
 
 if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>{
-    navigator.serviceWorker
-      .register("./sw.js")
-      .catch(console.warn);
-  });
+ window.addEventListener("load",()=>{
+  navigator.serviceWorker
+   .register("./sw.js")
+   .catch(console.warn);
+ });
 }
 </script>
 
