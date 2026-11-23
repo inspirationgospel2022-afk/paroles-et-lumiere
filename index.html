@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#081e3d">
-<meta name="description" content="Paroles et Lumière - Enseignements bibliques et édification spirituelle.">
+<meta name="description" content="Paroles et Lumière - Enseignements bibliques, méditations et lectures audio.">
 <title>Paroles et Lumière</title>
 <link rel="manifest" href="./manifest.webmanifest">
 
@@ -16,6 +16,7 @@ function gtag(){dataLayer.push(arguments)}
 gtag("js",new Date());
 gtag("config","G-CMYCB66BJ0");
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -23,6 +24,7 @@ gtag("config","G-CMYCB66BJ0");
   --navy:#081e3d;
   --blue:#123b6d;
   --gold:#c79a42;
+  --burgundy:#8c2542;
   --white:#ffffff;
   --bg:#f4f6fa;
   --text:#1d2c40;
@@ -58,7 +60,7 @@ a{text-decoration:none}
 .hero p{color:#e0e8f3;margin:5px 0}
 .small-title{
   font-size:12px;
-  letter-spacing:3px;
+  letter-spacing:2px;
   color:#eacb85;
   font-weight:bold;
 }
@@ -72,7 +74,6 @@ nav{
   gap:8px;
   overflow-x:auto;
   padding:12px;
-  justify-content:safe center;
 }
 nav a{
   flex-shrink:0;
@@ -95,6 +96,7 @@ section.card{
   border-radius:18px;
   border:1px solid var(--border);
   box-shadow:0 6px 25px rgba(0,0,0,.035);
+  scroll-margin-top:78px;
 }
 h2{
   color:var(--navy);
@@ -129,6 +131,7 @@ h3{color:var(--navy);line-height:1.35}
   display:inline-block;
   font-size:14px;
   font-weight:bold;
+  text-align:center;
 }
 .btn.gold{background:#a7782d}
 .btn.green{background:#15804b}
@@ -179,6 +182,15 @@ h3{color:var(--navy);line-height:1.35}
   height:1px;
   background:var(--border);
   margin:13px 0;
+}
+.thought{
+  margin-top:20px;
+  padding:16px;
+  border-left:4px solid var(--gold);
+  background:#fbf4e7;
+  border-radius:0 10px 10px 0;
+  font-family:Georgia,serif;
+  font-style:italic;
 }
 .search{
   display:block;
@@ -233,6 +245,12 @@ h3{color:var(--navy);line-height:1.35}
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
 }
+.audio-title{
+  grid-column:1/-1;
+  color:var(--navy);
+  font-size:18px;
+  margin:12px 0 0;
+}
 .audio-item{
   background:#f8fafc;
   padding:14px;
@@ -266,7 +284,6 @@ footer{
   .teaching-grid,
   .audio-grid{grid-template-columns:1fr}
   section.card{padding:17px}
-  nav{justify-content:flex-start}
   .hero{padding:30px 15px}
   .teaching{padding:15px}
 }
@@ -297,25 +314,31 @@ footer{
 
 <main>
 
+<!-- PROGRAMME DU 23 AU 27 NOVEMBRE -->
+
 <section class="card" id="programme">
   <p class="small-title" style="color:#a7782d">
-    DU 16 AU 20 NOVEMBRE 2026
+    DU 23 AU 27 NOVEMBRE 2026
   </p>
+
   <h2>Programme de la semaine</h2>
   <div class="gold-line"></div>
 
   <p class="subtitle">
-    Lundi, mercredi et vendredi — 14h et 23h GMT
+    Lundi 23 • Mercredi 25 • Vendredi 27 novembre
+    — 14h et 23h GMT
   </p>
 
   <img
-    src="./programme-16-20-novembre-2026.png"
-    alt="Programme officiel Paroles et Lumière du 16 au 20 novembre 2026"
+    src="./programme-23-27-novembre-2026.jpg"
+    alt="Programme officiel du 23 au 27 novembre 2026"
     class="poster"
-    onerror="this.style.display='none';document.getElementById('posterInfo').hidden=false;"
+    onerror="this.hidden=true;document.getElementById('posterInfo').hidden=false"
   >
+
   <p id="posterInfo" class="status" hidden>
-    Ajoutez l'affiche programme-16-20-novembre-2026.png
+    Affiche indisponible. Ajoutez le fichier
+    programme-23-27-novembre-2026.jpg
     à la racine du dépôt GitHub.
   </p>
 
@@ -323,66 +346,74 @@ footer{
 
     <article class="program-day">
       <div class="day-header">
-        LUNDI 16 NOVEMBRE
+        LUNDI 23 NOVEMBRE
       </div>
       <div class="day-content">
         <div class="hour">14H GMT</div>
-        <h3>Lévitique 7 et 8</h3>
+        <h3>Lévitique 13 et 14</h3>
         <p>
-          Les règles des sacrifices et la consécration
-          des sacrificateurs.
+          La lèpre, le diagnostic
+          et le processus de restauration.
         </p>
+
         <div class="separator"></div>
+
         <div class="hour">23H GMT — PARTIE 1/3</div>
-        <h3>Du mariage rêvé à la réalité de la vie à deux</h3>
-        <p>
-          Genèse 2:24 ; Matthieu 7:24-25 ; Amos 3:3
-        </p>
+        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+        <p>Apprendre à discerner avant de décider.</p>
+        <p>Proverbes 3:5-6 ; Jacques 1:5 ; Luc 14:28</p>
       </div>
     </article>
 
     <article class="program-day">
       <div class="day-header">
-        MERCREDI 18 NOVEMBRE
+        MERCREDI 25 NOVEMBRE
       </div>
       <div class="day-content">
         <div class="hour">14H GMT</div>
-        <h3>Lévitique 9 et 10</h3>
+        <h3>Lévitique 15 et 16</h3>
         <p>
-          La gloire de Dieu, le service sacerdotal
-          et le danger de servir Dieu selon ses propres règles.
+          Purification, expiation et restauration
+          de la communion avec Dieu.
         </p>
+
         <div class="separator"></div>
+
         <div class="hour">23H GMT — PARTIE 2/3</div>
-        <h3>Les responsabilités, les conflits et les ajustements du foyer</h3>
-        <p>
-          Éphésiens 4:26-32 ; Colossiens 3:13-14 ;
-          Genèse 2:24
-        </p>
+        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+        <p>Les erreurs à éviter avant une grande décision.</p>
+        <p>Proverbes 15:22 ; Proverbes 19:2 ; 1 Corinthiens 15:33</p>
       </div>
     </article>
 
     <article class="program-day">
       <div class="day-header">
-        VENDREDI 20 NOVEMBRE
+        VENDREDI 27 NOVEMBRE
       </div>
       <div class="day-content">
         <div class="hour">14H GMT</div>
-        <h3>Lévitique 11 et 12</h3>
+        <h3>Lévitique 17 et 18</h3>
         <p>
-          La pureté, la distinction et la sainteté
-          dans la vie quotidienne.
+          La valeur de la vie, la sainteté
+          et les limites établies par Dieu.
         </p>
+
         <div class="separator"></div>
+
         <div class="hour">23H GMT — PARTIE 3/3</div>
-        <h3>Faire durer le mariage et construire un foyer solide</h3>
-        <p>
-          Psaume 127:1 ; Ecclésiaste 4:9-12 ;
-          Josué 24:15
-        </p>
+        <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
+        <p>Assumer, construire et persévérer après sa décision.</p>
+        <p>Galates 6:7-9 ; Proverbes 16:3 ; Philippiens 3:13-14</p>
       </div>
     </article>
 
+  </div>
+
+  <div class="thought">
+    « Une seule décision peut changer plusieurs années
+    de ta vie. Ne décide donc pas seulement selon ce que
+    tu ressens aujourd'hui ; décide aussi en pensant
+    à ce que tu veux devenir demain. »
   </div>
 
   <div class="actions">
@@ -395,23 +426,27 @@ footer{
   </div>
 </section>
 
+<!-- DERNIÈRES PUBLICATIONS -->
+
 <section class="card" id="recents">
   <h2>Derniers enseignements</h2>
   <div class="gold-line"></div>
   <p class="subtitle">
-    Retrouvez les quatre dernières publications.
+    Retrouvez les quatre dernières publications,
+    classées de la plus récente à la plus ancienne.
   </p>
-  <p class="status" id="statut-recents">
-    Chargement…
-  </p>
+  <p class="status" id="statut-recents">Chargement…</p>
   <div id="liste-recents" class="teaching-grid"></div>
 </section>
+
+<!-- RECHERCHE -->
 
 <section class="card">
   <h2>Bibliothèque spirituelle</h2>
   <div class="gold-line"></div>
   <p class="subtitle">
-    Recherchez un enseignement par titre ou passage biblique.
+    Recherchez un enseignement par titre,
+    passage biblique ou contenu.
   </p>
   <input
     id="recherche"
@@ -422,15 +457,19 @@ footer{
   >
 </section>
 
+<!-- 14H GMT -->
+
 <section class="card" id="biblique">
   <p class="small-title" style="color:#a7782d">
-    ÉTUDE DE LA PAROLE
+    PARCOURS BIBLIQUE COMMENTÉ
   </p>
   <h2>14h GMT — Commentaires bibliques</h2>
   <div class="gold-line"></div>
   <p class="status" id="statut-14">Chargement…</p>
   <div id="liste-14" class="teaching-grid"></div>
 </section>
+
+<!-- 23H GMT -->
 
 <section class="card" id="thematique">
   <p class="small-title" style="color:#a7782d">
@@ -442,14 +481,20 @@ footer{
   <div id="liste-23" class="teaching-grid"></div>
 </section>
 
+<!-- AUDIOS -->
+
 <section class="card" id="audios">
   <h2>Lectures bibliques audio</h2>
   <div class="gold-line"></div>
   <p class="subtitle">
-    Réécoutez les lectures du livre de l'Exode.
+    Écoutez les chapitres bibliques disponibles
+    dans votre bibliothèque.
   </p>
   <div id="liste-audios" class="audio-grid"></div>
+  <p id="statut-audios" class="status"></p>
 </section>
+
+<!-- COMMUNAUTÉ -->
 
 <section class="card" style="text-align:center">
   <h2>Notre communauté</h2>
@@ -468,10 +513,12 @@ footer{
   </a>
 </section>
 
+<!-- INSTALLATION -->
+
 <section class="card" id="installation" style="text-align:center">
   <h2>Installer Paroles et Lumière</h2>
   <p>
-    Accédez facilement à l'application depuis
+    Accédez à l'application depuis
     votre téléphone Android ou iPhone.
   </p>
   <button class="btn" id="boutonInstaller">
@@ -479,6 +526,8 @@ footer{
   </button>
   <p class="status" id="aideInstallation" hidden></p>
 </section>
+
+<!-- PRÉSENTATION -->
 
 <section class="card" style="text-align:center">
   <h2>Bienvenue sur Paroles et Lumière</h2>
@@ -515,6 +564,10 @@ footer{
 </footer>
 
 <script>
+/* =========================================
+   CONFIGURATION SUPABASE
+========================================= */
+
 const SUPABASE_URL =
   "https://xczqlgazsyplaigfnnmq.supabase.co";
 
@@ -533,11 +586,15 @@ const db = window.supabase
 
 let enseignements = [];
 
+/* =========================================
+   UTILITAIRES
+========================================= */
+
 function dateFR(value){
   if(!value) return "";
   const parts=String(value).slice(0,10).split("-");
   if(parts.length!==3) return String(value);
-  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  return parts[2]+"/"+parts[1]+"/"+parts[0];
 }
 
 function categorie(item){
@@ -545,7 +602,7 @@ function categorie(item){
   const passage=(item.passage_biblique||"").toLowerCase();
 
   if(
-    /commentaire biblique|parcours biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
+    /commentaire biblique|parcours biblique|étude biblique|etude biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
     || (
       /lévitique|levitique|exode/.test(passage)
       && /commentaire|étude|etude/.test(titre)
@@ -555,6 +612,10 @@ function categorie(item){
   }
   return "23";
 }
+
+/* =========================================
+   CARTE D'ENSEIGNEMENT
+========================================= */
 
 function creerCarte(item){
   const article=document.createElement("article");
@@ -593,15 +654,13 @@ function creerCarte(item){
 
   const partager=document.createElement("button");
   partager.className="btn green";
-  partager.textContent="Partager";
+  partager.textContent="Partager sur WhatsApp";
 
   const contenu=document.createElement("div");
   contenu.className="full-text";
   contenu.hidden=true;
   contenu.textContent=item.contenu
     ||"Aucun texte complet disponible pour cet enseignement.";
-
-  let lectureComptee=false;
 
   lire.addEventListener("click",async()=>{
     contenu.hidden=!contenu.hidden;
@@ -611,11 +670,11 @@ function creerCarte(item){
 
     if(
       !contenu.hidden
-      && !lectureComptee
+      && !item._compte
       && db
       && item.id
     ){
-      lectureComptee=true;
+      item._compte=true;
       try{
         const {data,error}=await db.rpc(
           "incrementer_lecture",
@@ -651,12 +710,14 @@ function creerCarte(item){
   });
 
   actions.append(lire,partager);
-  article.append(
-    tag,titre,passage,meta,actions,contenu
-  );
+  article.append(tag,titre,passage,meta,actions,contenu);
 
   return article;
 }
+
+/* =========================================
+   AFFICHAGE ET RECHERCHE
+========================================= */
 
 function afficherEnseignements(){
   const recherche=document.getElementById("recherche")
@@ -670,8 +731,6 @@ function afficherEnseignements(){
   liste14.replaceChildren();
   liste23.replaceChildren();
 
-  // Les nouveautés affichent les 4 publications
-  // les plus récentes, indépendamment de la recherche.
   enseignements.slice(0,4).forEach(item=>{
     recents.appendChild(creerCarte(item));
   });
@@ -682,7 +741,8 @@ function afficherEnseignements(){
   enseignements.forEach(item=>{
     const texte=[
       item.titre,
-      item.passage_biblique
+      item.passage_biblique,
+      item.contenu
     ].join(" ").toLocaleLowerCase("fr");
 
     if(recherche && !texte.includes(recherche)){
@@ -709,6 +769,10 @@ function afficherEnseignements(){
   document.getElementById("statut-23").textContent=
     total23 ? "" : "Aucun enseignement trouvé.";
 }
+
+/* =========================================
+   CHARGEMENT SUPABASE
+========================================= */
 
 async function chargerEnseignements(){
   if(!db){
@@ -759,28 +823,85 @@ document.getElementById("recherche")
 
 chargerEnseignements();
 
-// Lectures audio Exode 31 à 36
-const audioContainer=document.getElementById("liste-audios");
+/* =========================================
+   LECTURES AUDIO
+========================================= */
 
-for(let n=31;n<=36;n++){
+const audioContainer=document.getElementById("liste-audios");
+const statutAudios=document.getElementById("statut-audios");
+
+function ajouterTitreAudio(texte){
+  const titre=document.createElement("h3");
+  titre.className="audio-title";
+  titre.textContent=texte;
+  audioContainer.appendChild(titre);
+}
+
+function ajouterAudio(titre,url){
   const box=document.createElement("div");
   box.className="audio-item";
 
-  const titre=document.createElement("strong");
-  titre.textContent="Exode "+n;
+  const nom=document.createElement("strong");
+  nom.textContent=titre;
 
   const audio=document.createElement("audio");
   audio.controls=true;
   audio.preload="none";
+  audio.src=url;
 
-  audio.src=SUPABASE_URL+
-    "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%20"+n;
-
-  box.append(titre,audio);
+  box.append(nom,audio);
   audioContainer.appendChild(box);
 }
 
-// Installation PWA
+/* ANCIENS AUDIOS : EXODE 31 À 36 */
+
+ajouterTitreAudio("Exode 31 à 36");
+
+for(let n=31;n<=36;n++){
+  ajouterAudio(
+    "Exode "+n,
+    SUPABASE_URL+
+    "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Exode%20"+n
+  );
+}
+
+/* NOUVEAUX AUDIOS : LÉVITIQUE 7 À 12 */
+
+async function chargerAudiosLevitique(){
+  const disponibles=[];
+
+  for(let n=7;n<=12;n++){
+    const url=SUPABASE_URL+
+      "/storage/v1/object/public/audios-enseignements/lectures-bibliques/Levitique-"+
+      n+".mp3";
+
+    try{
+      const reponse=await fetch(url,{method:"HEAD"});
+      if(reponse.ok){
+        disponibles.push({titre:"Lévitique "+n,url});
+      }
+    }catch(error){
+      console.warn("Audio Lévitique non vérifié :",n);
+    }
+  }
+
+  if(disponibles.length){
+    ajouterTitreAudio("Lévitique 7 à 12");
+    disponibles.forEach(item=>{
+      ajouterAudio(item.titre,item.url);
+    });
+  }else{
+    statutAudios.textContent=
+      "Les audios de Lévitique 7 à 12 apparaîtront après leur importation dans Supabase.";
+  }
+}
+
+chargerAudiosLevitique();
+
+/* =========================================
+   INSTALLATION PWA
+========================================= */
+
 let invitationInstallation=null;
 
 window.addEventListener("beforeinstallprompt",event=>{
@@ -807,6 +928,10 @@ document.getElementById("boutonInstaller")
         "Sur Android : ouvrez le site dans Chrome, puis menu ⋮ > Installer l'application ou Ajouter à l'écran d'accueil.";
     }
   });
+
+/* =========================================
+   SERVICE WORKER
+========================================= */
 
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
