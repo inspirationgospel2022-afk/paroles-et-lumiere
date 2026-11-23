@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#081e3d">
-<meta name="description" content="Paroles et Lumière - Bibliothèque chrétienne, enseignements bibliques et lectures audio.">
+<meta name="description" content="Paroles et Lumière - Enseignements bibliques et édification spirituelle.">
 <title>Paroles et Lumière</title>
 <link rel="manifest" href="./manifest.webmanifest">
 
@@ -21,12 +21,13 @@ gtag("config","G-CMYCB66BJ0");
 <style>
 :root{
  --navy:#081e3d;
- --blue:#16416e;
- --gold:#bd9141;
- --bg:#f4f6fa;
- --text:#213047;
- --muted:#68778b;
- --border:#e2e8f0;
+ --blue:#173d68;
+ --gold:#bf9649;
+ --bg:#f4f6f9;
+ --white:#fff;
+ --text:#203149;
+ --muted:#6a788a;
+ --line:#e4e9f0;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -34,7 +35,8 @@ body{
  margin:0;
  background:var(--bg);
  color:var(--text);
- font:15px/1.65 Arial,Helvetica,sans-serif;
+ font-family:Arial,Helvetica,sans-serif;
+ line-height:1.6;
 }
 button,input{font:inherit}
 button{cursor:pointer}
@@ -42,64 +44,69 @@ a{text-decoration:none;color:inherit}
 [hidden]{display:none!important}
 button:focus-visible,a:focus-visible,input:focus-visible{
  outline:3px solid var(--gold);
- outline-offset:3px;
+ outline-offset:2px;
 }
-.hero{
- background:linear-gradient(135deg,#06162e,#16416e);
- color:#fff;
+header{
+ background:linear-gradient(135deg,#06162e,#153d6d);
+ color:white;
  text-align:center;
- padding:36px 16px;
- border-bottom:4px solid var(--gold);
+ padding:28px 15px 25px;
+ border-bottom:3px solid var(--gold);
 }
-.hero h1{
- font:700 clamp(29px,6vw,48px)/1.15 Georgia,serif;
- margin:10px 0;
+header h1{
+ font:700 clamp(27px,6vw,42px)/1.2 Georgia,serif;
+ margin:6px 0;
 }
-.hero p{margin:5px;color:#e2e9f3}
-.overline{
- font-size:11px;
- font-weight:800;
+header p{margin:4px;color:#dfe7f1;font-size:13px}
+.eyebrow{
+ font-size:10px;
  letter-spacing:2px;
- color:#e7c783;
- text-transform:uppercase;
+ font-weight:800;
+ color:#e7c987;
 }
 nav{
+ background:white;
+ border-bottom:1px solid var(--line);
+ display:flex;
+ justify-content:space-around;
+ gap:4px;
+ padding:8px;
  position:sticky;
  top:0;
- z-index:20;
- background:white;
- border-bottom:1px solid var(--border);
- display:flex;
- gap:8px;
- overflow-x:auto;
- padding:11px 13px;
- scrollbar-width:thin;
+ z-index:30;
 }
-nav a{
- flex-shrink:0;
- border-radius:25px;
- background:#f0f3f8;
- color:var(--navy);
- padding:9px 14px;
- font-size:13px;
+.nav-btn{
+ border:0;
+ background:transparent;
+ color:#617186;
+ border-radius:9px;
+ padding:9px 8px;
+ font-size:12px;
  font-weight:bold;
+ flex:1;
+}
+.nav-btn.active{
+ background:#edf2f8;
+ color:var(--navy);
 }
 main{
- max-width:1080px;
+ max-width:950px;
  margin:auto;
- padding:18px 13px 40px;
+ padding:17px 13px 35px;
+ min-height:55vh;
 }
-section.panel{
+.page{display:none}
+.page.active{display:block}
+.panel{
  background:white;
- border:1px solid var(--border);
- border-radius:18px;
- padding:clamp(17px,3vw,27px);
- margin-bottom:19px;
- box-shadow:0 7px 24px #081e3d08;
- scroll-margin-top:80px;
+ border:1px solid var(--line);
+ border-radius:17px;
+ padding:20px;
+ margin-bottom:16px;
+ box-shadow:0 6px 22px #081e3d08;
 }
 h2{
- font:700 clamp(23px,4vw,31px)/1.25 Georgia,serif;
+ font:700 clamp(23px,4vw,29px)/1.3 Georgia,serif;
  color:var(--navy);
  margin:0 0 10px;
 }
@@ -107,529 +114,496 @@ h3{color:var(--navy)}
 .muted{color:var(--muted)}
 .small{font-size:13px}
 .gold-line{
- width:65px;
+ width:57px;
  height:3px;
  background:var(--gold);
  margin:12px 0 19px;
 }
 .btn{
- border:0;
- border-radius:10px;
  background:var(--navy);
  color:white;
+ border:0;
+ border-radius:9px;
  padding:11px 15px;
  font-size:13px;
- font-weight:700;
+ font-weight:bold;
  display:inline-block;
  text-align:center;
 }
-.btn.gold{background:#a57b33}
-.btn.green{background:#16804d}
-.btn.light{background:#edf2f8;color:var(--navy)}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
-.poster{
- width:100%;
- max-width:900px;
- height:auto;
- display:block;
- margin:18px auto;
- border-radius:12px;
- border:1px solid var(--border);
-}
-.program-grid{
- display:grid;
- grid-template-columns:repeat(3,minmax(0,1fr));
- gap:12px;
-}
-.program-day{
- border:1px solid var(--border);
- border-radius:13px;
- overflow:hidden;
- background:#fbfcfe;
-}
-.day-head{
- background:var(--navy);
+.btn.light{background:#eef2f7;color:var(--navy)}
+.btn.gold{background:#a77c32}
+.btn.green{background:#16814f}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+
+/* ACCUEIL */
+
+.welcome{
+ background:linear-gradient(135deg,#081e3d,#173d68);
  color:white;
- text-align:center;
- padding:12px;
- font-size:14px;
+ border-radius:15px;
+ padding:24px 20px;
+ margin-bottom:16px;
+}
+.welcome h2{color:white;margin:9px 0}
+.welcome p{font-size:13px;color:#e1e9f3;margin:0}
+.tiles{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:11px;
+ margin-bottom:16px;
+}
+.tile{
+ border:1px solid var(--line);
+ background:white;
+ border-radius:13px;
+ padding:17px 14px;
+ text-align:left;
+ min-height:125px;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ box-shadow:0 4px 15px #081e3d06;
+}
+.tile .number{
+ color:var(--gold);
+ font:700 24px Georgia,serif;
+}
+.tile strong{
+ display:block;
+ color:var(--navy);
+ font-size:15px;
+ line-height:1.35;
+}
+.tile span:last-child{
+ color:var(--muted);
+ font-size:12px;
+}
+.latest{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:13px;
+ padding:17px;
+}
+.latest h3{margin:7px 0;font-size:17px}
+.latest-label{
+ font-size:11px;
  font-weight:bold;
+ color:#a17834;
+ letter-spacing:1px;
 }
-.day-body{padding:15px}
-.day-body h3{font-size:15px;margin:5px 0}
-.day-body p{font-size:13px;margin:5px 0 11px}
-.hour{color:#946a2c;font-size:12px;font-weight:800}
-.separator{height:1px;background:var(--border);margin:13px 0}
-.quote{
- margin-top:18px;
- background:#faf3e5;
- border-left:4px solid var(--gold);
+
+/* PROGRAMME */
+
+.poster{
+ display:block;
+ width:100%;
+ max-width:800px;
+ height:auto;
+ margin:15px auto;
+ border-radius:11px;
+}
+.day{
+ border:1px solid var(--line);
+ border-radius:12px;
  padding:15px;
- border-radius:0 10px 10px 0;
- font:italic 15px/1.7 Georgia,serif;
+ margin-bottom:10px;
 }
+.day h3{font-size:15px;margin:0 0 9px}
+.day p{font-size:13px;margin:5px 0}
+.hour{font-size:11px;font-weight:bold;color:#a17834}
+.divider{border-top:1px solid var(--line);margin:12px 0}
+
+/* BIBLIOTHÈQUES */
+
 .search{
  width:100%;
  border:1px solid #cbd5e1;
- border-radius:11px;
- padding:14px;
- margin:10px 0 15px;
+ border-radius:10px;
+ padding:13px;
+ margin:10px 0 16px;
  outline-color:var(--gold);
 }
-.filters{
- display:flex;
- gap:8px;
- overflow-x:auto;
- padding-bottom:8px;
- margin:8px 0 15px;
-}
-.filter{
- border:1px solid var(--border);
- background:#f4f6fa;
+.group{
+ margin:20px 0 10px;
  color:var(--navy);
- border-radius:25px;
- padding:9px 13px;
- white-space:nowrap;
- font-size:12px;
- font-weight:bold;
-}
-.filter.active{
- background:var(--navy);
- color:#fff;
- border-color:var(--navy);
-}
-.group-title{
  font-size:15px;
- font-weight:bold;
- color:var(--navy);
- margin:23px 0 10px;
- padding-bottom:7px;
- border-bottom:1px solid var(--border);
+ border-bottom:1px solid var(--line);
+ padding-bottom:8px;
 }
-.library-list{display:grid;gap:10px}
+.lesson-list{display:grid;gap:8px}
 .lesson{
- border:1px solid var(--border);
- border-radius:13px;
- padding:15px;
- background:#fff;
-}
-.lesson-top{
+ border:1px solid var(--line);
+ background:white;
+ border-radius:11px;
+ padding:13px;
  display:flex;
  align-items:center;
  justify-content:space-between;
- gap:8px;
-}
-.lesson-date{
- color:var(--muted);
- font-size:11px;
- font-weight:bold;
-}
-.lesson-hour{
- background:#f8efdc;
- color:#896020;
- font-size:11px;
- font-weight:bold;
- padding:4px 8px;
- border-radius:6px;
- white-space:nowrap;
-}
-.lesson h3{
- font-size:16px;
- margin:9px 0 5px;
- line-height:1.4;
-}
-.lesson .passage{
- font-size:12px;
- color:#916d35;
- margin:5px 0;
-}
-.lesson .meta{
- color:var(--muted);
- font-size:12px;
- margin:6px 0;
-}
-.lesson .btn{
- margin-top:8px;
-}
-.empty{
- color:var(--muted);
- font-size:13px;
-}
-.audio-grid{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
  gap:12px;
+ text-align:left;
+ width:100%;
 }
-.audio-title{
- grid-column:1/-1;
+.lesson strong{
+ display:block;
+ font-size:14px;
+ line-height:1.45;
  color:var(--navy);
- margin:10px 0 0;
- font-size:17px;
 }
-.audio-item{
- border:1px solid var(--border);
- border-radius:12px;
- padding:14px;
- background:#f8fafc;
+.lesson small{
+ display:block;
+ color:var(--muted);
+ font-size:11px;
+ margin-top:5px;
 }
-.audio-item strong{
+.lesson-arrow{
+ font-size:22px;
+ color:var(--gold);
+ flex-shrink:0;
+}
+.status{font-size:13px;color:var(--muted)}
+.back{
+ border:0;
+ background:transparent;
+ color:var(--blue);
+ font-weight:bold;
+ padding:0 0 15px;
+}
+
+/* AUDIOS */
+
+.audio-list{display:grid;gap:11px}
+.audio-card{
+ border:1px solid var(--line);
+ border-radius:11px;
+ padding:13px;
+ background:#fafbfd;
+}
+.audio-card strong{
  display:block;
  color:var(--navy);
  margin-bottom:8px;
 }
 audio{width:100%}
-.welcome-photo{
- width:100%;
- max-width:360px;
- border-radius:13px;
- margin:17px auto;
- display:block;
-}
-.center{text-align:center}
-footer{
- background:var(--navy);
- color:#e0e8f3;
- text-align:center;
- padding:27px 15px;
- font-size:13px;
-}
 
-/* MODE LECTURE */
+/* LECTEUR */
 
 .reader{
  position:fixed;
  inset:0;
  z-index:100;
- background:#f9fafc;
+ background:#fafbfc;
  overflow-y:auto;
  overscroll-behavior:contain;
 }
 body.reading{overflow:hidden}
-.reader-bar{
+.reader-top{
  position:sticky;
  top:0;
  z-index:5;
- background:#fff;
- border-bottom:1px solid var(--border);
- padding:10px 13px;
+ background:white;
+ border-bottom:1px solid var(--line);
+ padding:10px 12px;
  display:flex;
  align-items:center;
  justify-content:space-between;
  gap:8px;
 }
-.reader-bar .btn{padding:9px 11px}
-.reader-tools{display:flex;gap:5px}
-.reader-tools button{
- background:#edf2f8;
+.reader-top button{
  border:0;
  border-radius:8px;
- padding:8px 12px;
+ padding:9px 11px;
+ background:#edf2f8;
+ color:var(--navy);
  font-weight:bold;
- color:var(--navy);
-}
-.reader-content{
- max-width:780px;
- margin:auto;
- padding:25px 19px 55px;
-}
-.reader-label{
- font-size:11px;
- font-weight:800;
- color:#a47a34;
- letter-spacing:1.5px;
-}
-.reader-content h1{
- font:700 clamp(25px,5vw,38px)/1.3 Georgia,serif;
- color:var(--navy);
- margin:13px 0;
-}
-.reader-info{
  font-size:13px;
- color:var(--muted);
- border-bottom:1px solid var(--border);
- padding-bottom:18px;
 }
-.reader-text{
- font:400 18px/1.9 Georgia,serif;
- color:#243044;
+.reader-tools{display:flex;gap:5px}
+.progress{height:3px;background:#e5eaf1}
+.progress div{
+ height:100%;
+ width:0;
+ background:var(--gold);
+}
+.reader-inner{
+ max-width:760px;
+ margin:auto;
+ padding:25px 19px 60px;
+}
+.reader-inner h1{
+ font:700 clamp(25px,5vw,36px)/1.35 Georgia,serif;
+ color:var(--navy);
+ margin:12px 0;
+}
+.reader-meta{
+ color:var(--muted);
+ font-size:13px;
+ padding-bottom:17px;
+ border-bottom:1px solid var(--line);
+}
+.reader-body{
+ font:18px/1.85 Georgia,serif;
+ white-space:normal;
  overflow-wrap:anywhere;
 }
-.reader-text p{margin:0 0 19px}
-.reader-text h2{
- font:700 1.12em/1.5 Georgia,serif;
- margin:29px 0 12px;
- padding-bottom:7px;
- border-bottom:1px solid #e6e1d6;
+.reader-body p{
+ margin:0 0 19px;
+ white-space:pre-wrap;
 }
-.reader-text .reader-heading{
- font-weight:bold;
- color:var(--navy);
+.reader-body h2{
+ font-size:1.13em;
+ margin:28px 0 12px;
+ border-bottom:1px solid var(--line);
+ padding-bottom:8px;
 }
-.reader-toc{
- background:#fff;
- border:1px solid var(--border);
+.toc{
+ background:white;
+ border:1px solid var(--line);
  border-radius:12px;
- padding:15px;
- margin:20px 0;
+ padding:14px;
+ margin:18px 0;
 }
-.reader-toc strong{color:var(--navy)}
-.reader-toc a{
+.toc a{
  display:block;
- color:#24517d;
  padding:7px 0;
- border-bottom:1px solid #edf0f4;
+ border-bottom:1px solid var(--line);
  font-size:13px;
+ color:var(--blue);
 }
 .reader-bottom{
+ border-top:1px solid var(--line);
+ padding-top:20px;
+ margin-top:30px;
  display:flex;
  flex-wrap:wrap;
  gap:8px;
- margin-top:30px;
- padding-top:20px;
- border-top:1px solid var(--border);
 }
-.reader-bottom button{flex:1;min-width:130px}
-.reader-progress{
- height:3px;
- background:#e4eaf1;
+.reader-bottom button{flex:1;min-width:120px}
+.center{text-align:center}
+.photo{
+ display:block;
+ width:100%;
+ max-width:350px;
+ margin:15px auto;
+ border-radius:12px;
 }
-.reader-progress div{
- height:100%;
- background:var(--gold);
- width:0%;
- transition:width .1s;
+footer{
+ background:var(--navy);
+ color:#dce5ef;
+ text-align:center;
+ padding:23px 15px;
+ font-size:12px;
 }
-@media(max-width:720px){
- .program-grid,.audio-grid{grid-template-columns:1fr}
- .hero{padding:30px 14px}
- .reader-content{padding:22px 17px 45px}
+@media(max-width:400px){
+ .nav-btn{font-size:11px;padding:9px 4px}
+ .tile{padding:13px;min-height:112px}
+ .tile strong{font-size:13px}
+ .panel{padding:16px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero">
- <div class="overline">
-  LIRE • COMPRENDRE • GRANDIR • IMPACTER
- </div>
+<header>
+ <div class="eyebrow">LIRE • COMPRENDRE • GRANDIR • IMPACTER</div>
  <h1>PAROLES ET LUMIÈRE</h1>
  <p>La Parole de Dieu pour éclairer nos vies</p>
- <p>Avec le Pasteur Gilles Landry LOGON</p>
+ <p>Pasteur Gilles Landry LOGON</p>
 </header>
 
 <nav aria-label="Navigation principale">
- <a href="#programme">Programme</a>
- <a href="#nouveautes">Nouveautés</a>
- <a href="#bibliotheque">Bibliothèque</a>
- <a href="#audios">Audios</a>
- <a href="#installation">Installer</a>
+ <button class="nav-btn active" data-page="accueil">Accueil</button>
+ <button class="nav-btn" data-page="programme">Programme</button>
+ <button class="nav-btn" data-page="biblique">14h</button>
+ <button class="nav-btn" data-page="thematique">23h</button>
+ <button class="nav-btn" data-page="audios">Audios</button>
 </nav>
 
 <main>
 
+<!-- ACCUEIL -->
+
+<section class="page active" id="page-accueil">
+ <div class="welcome">
+  <div class="eyebrow">PAROLES ET LUMIÈRE</div>
+  <h2>Bienvenue dans votre espace spirituel</h2>
+  <p>Choisissez une rubrique pour commencer votre lecture.</p>
+ </div>
+
+ <div class="tiles">
+  <button class="tile" data-open="programme">
+   <span class="number">01</span>
+   <strong>Programme</strong>
+   <span>Cette semaine</span>
+  </button>
+  <button class="tile" data-open="biblique">
+   <span class="number">02</span>
+   <strong>Commentaires bibliques</strong>
+   <span>Enseignements de 14h</span>
+  </button>
+  <button class="tile" data-open="thematique">
+   <span class="number">03</span>
+   <strong>Vie chrétienne</strong>
+   <span>Enseignements de 23h</span>
+  </button>
+  <button class="tile" data-open="audios">
+   <span class="number">04</span>
+   <strong>Lectures audio</strong>
+   <span>Écouter la Bible</span>
+  </button>
+ </div>
+
+ <div class="latest">
+  <div class="latest-label">DERNIÈRE PUBLICATION</div>
+  <div id="dernierePublication" class="status">
+   Chargement…
+  </div>
+ </div>
+
+ <div class="panel" style="margin-top:16px">
+  <h2 style="font-size:21px">Notre communauté</h2>
+  <p class="small muted">
+   Recevez les enseignements et partagez la Parole de Dieu.
+  </p>
+  <a class="btn green"
+   href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4"
+   target="_blank" rel="noopener noreferrer">
+   Rejoindre WhatsApp
+  </a>
+ </div>
+
+ <div class="panel center">
+  <h2 style="font-size:21px">Installer l'application</h2>
+  <button class="btn" id="installer">Installer</button>
+  <p id="aideInstallation" class="status" hidden></p>
+ </div>
+</section>
+
 <!-- PROGRAMME -->
 
-<section class="panel" id="programme">
- <div class="overline" style="color:#a57b33">
-  DU 23 AU 27 NOVEMBRE 2026
- </div>
- <h2>Programme de la semaine</h2>
- <div class="gold-line"></div>
- <p class="muted small">
-  Lundi 23 • Mercredi 25 • Vendredi 27
-  — 14h et 23h GMT
- </p>
+<section class="page" id="page-programme">
+ <div class="panel">
+  <h2>Programme de la semaine</h2>
+  <p class="muted small">Du 23 au 27 novembre 2026</p>
+  <div class="gold-line"></div>
 
- <img
-  class="poster"
-  src="./programme-23-27-novembre-2026.jpg"
-  alt="Programme officiel du 23 au 27 novembre 2026"
-  onerror="this.hidden=true;document.getElementById('posterInfo').hidden=false"
- >
- <p id="posterInfo" class="empty" hidden>
-  Ajoutez programme-23-27-novembre-2026.jpg
-  à la racine de votre dépôt GitHub.
- </p>
+  <img
+   class="poster"
+   src="./programme-23-27-novembre-2026.jpg"
+   alt="Programme officiel du 23 au 27 novembre 2026"
+   onerror="this.hidden=true"
+  >
 
- <div class="program-grid">
-  <article class="program-day">
-   <div class="day-head">LUNDI 23 NOVEMBRE</div>
-   <div class="day-body">
-    <span class="hour">14H GMT</span>
-    <h3>Lévitique 13 et 14</h3>
-    <p>La lèpre, le diagnostic et le processus de restauration.</p>
-    <div class="separator"></div>
-    <span class="hour">23H GMT — PARTIE 1/3</span>
-    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-    <p>Apprendre à discerner avant de décider.</p>
-    <p>Proverbes 3:5-6 ; Jacques 1:5 ; Luc 14:28</p>
-   </div>
-  </article>
+  <div class="day">
+   <h3>Lundi 23 novembre</h3>
+   <span class="hour">14H GMT</span>
+   <p><strong>Lévitique 13 et 14</strong></p>
+   <p>La lèpre, le diagnostic et le processus de restauration.</p>
+   <div class="divider"></div>
+   <span class="hour">23H GMT — PARTIE 1</span>
+   <p><strong>Comment prendre de bonnes décisions pour son avenir ?</strong></p>
+   <p>Apprendre à discerner avant de décider.</p>
+  </div>
 
-  <article class="program-day">
-   <div class="day-head">MERCREDI 25 NOVEMBRE</div>
-   <div class="day-body">
-    <span class="hour">14H GMT</span>
-    <h3>Lévitique 15 et 16</h3>
-    <p>Purification, expiation et restauration de la communion avec Dieu.</p>
-    <div class="separator"></div>
-    <span class="hour">23H GMT — PARTIE 2/3</span>
-    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-    <p>Les erreurs à éviter avant une grande décision.</p>
-    <p>Proverbes 15:22 ; Proverbes 19:2 ; 1 Corinthiens 15:33</p>
-   </div>
-  </article>
+  <div class="day">
+   <h3>Mercredi 25 novembre</h3>
+   <span class="hour">14H GMT</span>
+   <p><strong>Lévitique 15 et 16</strong></p>
+   <p>Purification, expiation et restauration de la communion avec Dieu.</p>
+   <div class="divider"></div>
+   <span class="hour">23H GMT — PARTIE 2</span>
+   <p><strong>Comment prendre de bonnes décisions pour son avenir ?</strong></p>
+   <p>Les erreurs à éviter avant une grande décision.</p>
+  </div>
 
-  <article class="program-day">
-   <div class="day-head">VENDREDI 27 NOVEMBRE</div>
-   <div class="day-body">
-    <span class="hour">14H GMT</span>
-    <h3>Lévitique 17 et 18</h3>
-    <p>La valeur de la vie, la sainteté et les limites établies par Dieu.</p>
-    <div class="separator"></div>
-    <span class="hour">23H GMT — PARTIE 3/3</span>
-    <h3>Comment prendre de bonnes décisions pour son avenir ?</h3>
-    <p>Assumer, construire et persévérer après sa décision.</p>
-    <p>Galates 6:7-9 ; Proverbes 16:3 ; Philippiens 3:13-14</p>
-   </div>
-  </article>
- </div>
+  <div class="day">
+   <h3>Vendredi 27 novembre</h3>
+   <span class="hour">14H GMT</span>
+   <p><strong>Lévitique 17 et 18</strong></p>
+   <p>La valeur de la vie, la sainteté et les limites établies par Dieu.</p>
+   <div class="divider"></div>
+   <span class="hour">23H GMT — PARTIE 3</span>
+   <p><strong>Comment prendre de bonnes décisions pour son avenir ?</strong></p>
+   <p>Assumer, construire et persévérer après sa décision.</p>
+  </div>
 
- <div class="quote">
-  « Une seule décision peut changer plusieurs années de ta vie.
-  Ne décide donc pas seulement selon ce que tu ressens aujourd'hui ;
-  décide aussi en pensant à ce que tu veux devenir demain. »
- </div>
-
- <div class="actions">
-  <a class="btn" href="#bibliotheque" data-filter-link="14">
-   Commentaires bibliques
-  </a>
-  <a class="btn gold" href="#bibliotheque" data-filter-link="23">
-   Enseignements de 23h
-  </a>
+  <div class="actions">
+   <button class="btn" data-open="biblique">Lire à 14h</button>
+   <button class="btn gold" data-open="thematique">Lire à 23h</button>
+  </div>
  </div>
 </section>
 
-<!-- NOUVEAUTÉS -->
+<!-- COMMENTAIRES BIBLIQUES -->
 
-<section class="panel" id="nouveautes">
- <h2>Derniers enseignements</h2>
- <div class="gold-line"></div>
- <p class="muted small">
-  Les quatre dernières publications.
- </p>
- <p id="statutRecents" class="empty">Chargement…</p>
- <div id="listeRecents" class="library-list"></div>
+<section class="page" id="page-biblique">
+ <div class="panel" id="vueBiblique">
+  <h2>Commentaires bibliques</h2>
+  <p class="muted small">Choisissez un livre de la Bible.</p>
+  <div class="gold-line"></div>
+  <div id="livresBibliques" class="lesson-list"></div>
+ </div>
+
+ <div class="panel" id="vueLivre" hidden>
+  <button class="back" id="retourLivres">← Tous les livres</button>
+  <h2 id="titreLivre"></h2>
+  <p class="muted small">Sélectionnez un enseignement.</p>
+  <input class="search" id="rechercheLivre"
+   type="search" placeholder="Rechercher un chapitre…">
+  <div id="listeLivre" class="lesson-list"></div>
+ </div>
 </section>
 
-<!-- BIBLIOTHÈQUE -->
+<!-- ENSEIGNEMENTS 23H -->
 
-<section class="panel" id="bibliotheque">
- <div class="overline" style="color:#a57b33">
-  BIBLIOTHÈQUE SPIRITUELLE
- </div>
- <h2>Tous les enseignements</h2>
- <div class="gold-line"></div>
-
- <p class="muted small">
-  Retrouvez les commentaires bibliques et les enseignements
-  de la vie chrétienne.
- </p>
-
- <input
-  id="recherche"
-  class="search"
-  type="search"
-  placeholder="Rechercher un enseignement…"
-  aria-label="Rechercher un enseignement"
- >
-
- <div class="filters" aria-label="Catégories">
-  <button class="filter active" data-filter="tous" aria-pressed="true">
-   Tous
-  </button>
-  <button class="filter" data-filter="14" aria-pressed="false">
-   14h · Bible
-  </button>
-  <button class="filter" data-filter="23" aria-pressed="false">
-   23h · Vie chrétienne
-  </button>
+<section class="page" id="page-thematique">
+ <div class="panel" id="vueThemes">
+  <h2>Enseignements de 23h</h2>
+  <p class="muted small">Choisissez une série ou un thème.</p>
+  <div class="gold-line"></div>
+  <input class="search" id="rechercheThemes"
+   type="search" placeholder="Rechercher un thème…">
+  <div id="listeThemes" class="lesson-list"></div>
  </div>
 
- <p id="statutBibliotheque" class="empty">
-  Chargement des enseignements…
- </p>
- <div id="listeBibliotheque"></div>
+ <div class="panel" id="vueSerie" hidden>
+  <button class="back" id="retourThemes">← Tous les thèmes</button>
+  <h2 id="titreSerie"></h2>
+  <p class="muted small">Choisissez la partie à lire.</p>
+  <div id="listeSerie" class="lesson-list"></div>
+ </div>
 </section>
 
 <!-- AUDIOS -->
 
-<section class="panel" id="audios">
- <h2>Lectures bibliques audio</h2>
- <div class="gold-line"></div>
- <p class="muted small">
-  Écoutez les chapitres disponibles.
- </p>
- <div id="listeAudios" class="audio-grid"></div>
- <p id="statutAudios" class="empty"></p>
+<section class="page" id="page-audios">
+ <div class="panel">
+  <h2>Lectures bibliques audio</h2>
+  <p class="muted small">
+   Retrouvez les lectures disponibles dans Supabase.
+  </p>
+  <div class="gold-line"></div>
+  <div id="listeAudios" class="audio-list"></div>
+  <p id="statutAudios" class="status"></p>
+ </div>
 </section>
 
-<!-- COMMUNAUTÉ -->
+<!-- PRÉSENTATION -->
 
-<section class="panel center">
- <h2>Notre communauté</h2>
- <p>
-  Rejoignez notre groupe WhatsApp pour recevoir
-  les enseignements et grandir ensemble dans la foi.
- </p>
- <a
-  class="btn green"
-  href="https://chat.whatsapp.com/BzJIjtHT6r2AOxTexDCCMG?s=cl&amp;p=a&amp;mlu=4&amp;ilr=4"
-  target="_blank"
-  rel="noopener noreferrer"
- >
-  Rejoindre la communauté WhatsApp
- </a>
-</section>
-
-<!-- INSTALLATION -->
-
-<section class="panel center" id="installation">
- <h2>Installer Paroles et Lumière</h2>
- <p>Accédez à l'application depuis votre téléphone.</p>
- <button class="btn" id="boutonInstaller">
-  Installer l'application
- </button>
- <p id="aideInstallation" class="empty" hidden></p>
-</section>
-
-<!-- BIENVENUE -->
-
-<section class="panel center">
- <h2>Bienvenue sur Paroles et Lumière</h2>
- <div class="gold-line" style="margin:12px auto"></div>
-
- <img
-  class="welcome-photo"
-  src="./IMG_20261028_044943_995.jpg"
-  alt="Pasteur Gilles Landry LOGON et son épouse"
-  loading="lazy"
- >
-
- <p>
-  Paroles et Lumière est une plateforme chrétienne
-  consacrée à l'enseignement biblique,
-  à la méditation et à l'édification spirituelle.
- </p>
-
- <p>
-  Notre mission est de vous aider à lire,
-  comprendre et mettre en pratique la Parole de Dieu.
- </p>
-
- <strong>Pasteur Gilles Landry LOGON et son épouse</strong>
+<section class="page" id="page-apropos">
+ <div class="panel center">
+  <h2>À propos de Paroles et Lumière</h2>
+  <img class="photo"
+   src="./IMG_20261028_044943_995.jpg"
+   alt="Pasteur Gilles Landry LOGON et son épouse">
+  <p>
+   Paroles et Lumière est une plateforme chrétienne
+   consacrée à l'enseignement biblique,
+   à la méditation et à l'édification spirituelle.
+  </p>
+  <strong>Pasteur Gilles Landry LOGON et son épouse</strong>
+ </div>
 </section>
 
 </main>
@@ -637,376 +611,604 @@ body.reading{overflow:hidden}
 <footer>
  <strong>PAROLES ET LUMIÈRE</strong>
  <p>Lire • Comprendre • Grandir • Impacter</p>
+ <button class="btn light" data-open="apropos">À propos</button>
  <p>© 2026 — Tous droits réservés</p>
 </footer>
 
-<!-- MODE LECTURE PLEIN ÉCRAN -->
+<!-- LECTEUR PLEIN ÉCRAN -->
 
-<div id="reader" class="reader" role="dialog"
- aria-modal="true" aria-label="Lecture de l'enseignement" hidden>
+<div id="lecteur" class="reader" role="dialog"
+ aria-modal="true" aria-label="Lecture d'un enseignement" hidden>
 
- <div class="reader-bar">
-  <button id="fermerLecture" class="btn light">
-   ← Retour
-  </button>
-
+ <div class="reader-top">
+  <button id="fermerLecteur">← Retour</button>
   <div class="reader-tools">
-   <button id="reduireTexte" aria-label="Réduire le texte">
-    A−
-   </button>
-   <button id="agrandirTexte" aria-label="Agrandir le texte">
-    A+
-   </button>
-   <button id="partagerLecture" aria-label="Partager sur WhatsApp">
-    Partager
-   </button>
+   <button id="texteMoins">A−</button>
+   <button id="textePlus">A+</button>
+   <button id="partager">Partager</button>
   </div>
  </div>
 
- <div class="reader-progress">
-  <div id="progressionLecture"></div>
- </div>
+ <div class="progress"><div id="progression"></div></div>
 
- <article class="reader-content">
-  <div class="reader-label" id="readerLabel"></div>
-  <h1 id="readerTitre"></h1>
-  <p class="reader-info" id="readerInfo"></p>
+ <article class="reader-inner">
+  <div class="eyebrow" id="lecteurCategorie"
+   style="color:#a77c32"></div>
+  <h1 id="lecteurTitre"></h1>
+  <p id="lecteurMeta" class="reader-meta"></p>
 
-  <div class="reader-toc" id="readerSommaire" hidden>
-   <strong>Sommaire de l'enseignement</strong>
-   <div id="readerLiens"></div>
+  <div id="sommaire" class="toc" hidden>
+   <strong>Sommaire</strong>
+   <div id="liensSommaire"></div>
   </div>
 
-  <div id="readerTexte" class="reader-text"></div>
+  <div id="lecteurContenu" class="reader-body"></div>
 
   <div class="reader-bottom">
-   <button id="lecturePrecedente" class="btn light">
-    ← Précédent
-   </button>
-   <button id="lectureSuivante" class="btn">
-    Suivant →
-   </button>
-   <button id="retourBibliotheque" class="btn gold">
-    Retour à la bibliothèque
-   </button>
+   <button id="precedent" class="btn light">← Précédent</button>
+   <button id="suivant" class="btn">Suivant →</button>
+   <button id="retourListe" class="btn gold">Retour à la liste</button>
   </div>
  </article>
 </div>
 
 <script>
-/* =====================================
-   CONFIGURATION SUPABASE
-===================================== */
+/* CONFIGURATION */
 
-const SUPABASE_URL =
+const SUPABASE_URL=
  "https://xczqlgazsyplaigfnnmq.supabase.co";
 
-const SUPABASE_KEY =
+const SUPABASE_KEY=
  "sb_publishable_0wXQkcUKWw8IXxkmzUz53Q_dsV1F_we";
 
-const APP_URL =
+const APP_URL=
  "https://inspirationgospel2022-afk.github.io/paroles-et-lumiere/";
 
-const db = window.supabase
+const db=window.supabase
  ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
  : null;
 
 let enseignements=[];
-let filtreActif="tous";
+let pageActive="accueil";
+let livreActif="";
+let serieActive="";
 let lectureActive=null;
-let listeNavigation=[];
-let tailleTexte=18;
-let ancienFocus=null;
-let dernierePosition=0;
+let navigationLecture=[];
+let taillePolice=18;
+let focusAvantLecture=null;
 
-/* =====================================
-   UTILITAIRES
-===================================== */
+/* UTILITAIRES */
 
 function dateFR(value){
  if(!value)return "";
  const p=String(value).slice(0,10).split("-");
- if(p.length!==3)return String(value);
- return p[2]+"/"+p[1]+"/"+p[0];
+ return p.length===3
+  ? p[2]+"/"+p[1]+"/"+p[0]
+  : String(value);
 }
 
-function categorie(item){
- const titre=(item.titre||"").toLowerCase();
- const passage=(item.passage_biblique||"").toLowerCase();
-
- if(
-  /commentaire biblique|parcours biblique|étude biblique|etude biblique|lévitique|levitique|exode|genèse|genese/.test(titre)
-  || (
-   /lévitique|levitique|exode/.test(passage)
-   && /commentaire|étude|etude/.test(titre)
-  )
- )return "14";
-
- return "23";
-}
-
-function nettoyerRecherche(texte){
+function normaliser(texte){
  return String(texte||"")
   .normalize("NFD")
   .replace(/[\u0300-\u036f]/g,"")
   .toLowerCase();
 }
 
-function labelDate(item){
- return dateFR(item.date_publication);
-}
-
-/* =====================================
-   CARTES COMPACTES
-===================================== */
-
-function creerCarte(item){
- const carte=document.createElement("article");
- carte.className="lesson";
-
- const top=document.createElement("div");
- top.className="lesson-top";
-
- const date=document.createElement("span");
- date.className="lesson-date";
- date.textContent=labelDate(item);
-
- const heure=document.createElement("span");
- heure.className="lesson-hour";
- heure.textContent=categorie(item)+"h GMT";
-
- top.append(date,heure);
-
- const titre=document.createElement("h3");
- titre.textContent=item.titre||"Enseignement";
-
- const passage=document.createElement("p");
- passage.className="passage";
- passage.textContent=item.passage_biblique||"";
-
- const meta=document.createElement("p");
- meta.className="meta";
- meta.textContent=(item.nombre_lectures||0)+" lectures";
-
- const bouton=document.createElement("button");
- bouton.className="btn";
- bouton.textContent="Lire l'enseignement";
-
- bouton.addEventListener("click",()=>{
-  ouvrirLecture(item);
- });
-
- carte.append(top,titre,passage,meta,bouton);
- return carte;
-}
-
-/* =====================================
-   FILTRES ET BIBLIOTHÈQUE
-===================================== */
-
-function listeFiltree(){
- const recherche=nettoyerRecherche(
-  document.getElementById("recherche").value.trim()
- );
-
- return enseignements.filter(item=>{
-  if(
-   filtreActif!=="tous"
-   && categorie(item)!==filtreActif
-  )return false;
-
-  const texte=nettoyerRecherche([
-   item.titre,
-   item.passage_biblique,
-   item.contenu
-  ].join(" "));
-
-  return !recherche || texte.includes(recherche);
- });
-}
-
-function afficherBibliotheque(){
- const conteneur=document.getElementById("listeBibliotheque");
- const statut=document.getElementById("statutBibliotheque");
-
- conteneur.replaceChildren();
-
- const items=listeFiltree();
-
- statut.textContent=items.length
-  ? items.length+" enseignement(s) disponible(s)"
-  : "Aucun enseignement trouvé.";
-
- if(!items.length)return;
-
- const groupes=new Map();
-
- items.forEach(item=>{
-  let groupe;
-
-  if(categorie(item)==="14"){
-   const titre=(item.titre||"").toLowerCase();
-   const passage=(item.passage_biblique||"").toLowerCase();
-
-   if(/lévitique|levitique/.test(titre+" "+passage)){
-    groupe="Commentaires bibliques — Lévitique";
-   }else if(/exode/.test(titre+" "+passage)){
-    groupe="Commentaires bibliques — Exode";
-   }else if(/genèse|genese/.test(titre+" "+passage)){
-    groupe="Commentaires bibliques — Genèse";
-   }else{
-    groupe="Autres commentaires bibliques";
-   }
-  }else{
-   groupe="Enseignements de 23h — Vie chrétienne";
-  }
-
-  if(!groupes.has(groupe)){
-   groupes.set(groupe,[]);
-  }
-
-  groupes.get(groupe).push(item);
- });
-
- groupes.forEach((elements,nom)=>{
-  const titre=document.createElement("h3");
-  titre.className="group-title";
-  titre.textContent=nom;
-
-  const liste=document.createElement("div");
-  liste.className="library-list";
-
-  elements.forEach(item=>{
-   liste.appendChild(creerCarte(item));
-  });
-
-  conteneur.append(titre,liste);
- });
-}
-
-function afficherRecents(){
- const conteneur=document.getElementById("listeRecents");
- conteneur.replaceChildren();
-
- const recents=enseignements.slice(0,4);
-
- document.getElementById("statutRecents").textContent=
-  recents.length ? "" : "Aucune publication disponible.";
-
- recents.forEach(item=>{
-  conteneur.appendChild(creerCarte(item));
- });
-}
-
-function choisirFiltre(filtre){
- filtreActif=filtre;
-
- document.querySelectorAll("[data-filter]").forEach(btn=>{
-  const actif=btn.dataset.filter===filtre;
-  btn.classList.toggle("active",actif);
-  btn.setAttribute("aria-pressed",String(actif));
- });
-
- afficherBibliotheque();
-}
-
-document.querySelectorAll("[data-filter]").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  choisirFiltre(btn.dataset.filter);
- });
-});
-
-document.querySelectorAll("[data-filter-link]").forEach(lien=>{
- lien.addEventListener("click",()=>{
-  choisirFiltre(lien.dataset.filterLink);
- });
-});
-
-document.getElementById("recherche")
- .addEventListener("input",afficherBibliotheque);
-
-/* =====================================
-   MODE LECTURE
-===================================== */
-
-const reader=document.getElementById("reader");
-const readerTexte=document.getElementById("readerTexte");
-
-function estTitreDeSection(ligne){
- const t=ligne.trim();
+function estBiblique(item){
+ const titre=normaliser(item.titre);
+ const passage=normaliser(item.passage_biblique);
 
  return (
-  /^(INTRODUCTION|CONCLUSION|PRIÈRE|PRIERE|APPLICATION|ENSEIGNEMENT PRATIQUE|RÉSUMÉ|RESUME|EXHORTATION|POINTS À RETENIR)$/i.test(t)
-  ||
-  /^[1-9][0-9]?\s*[\.\)\-:]\s+\S/.test(t)
+  /commentaire biblique|parcours biblique|etude biblique|levitique|exode|genese/.test(titre)
+  || (
+   /levitique|exode/.test(passage)
+   && /commentaire|etude/.test(titre)
+  )
  );
 }
 
-function afficherContenu(item){
- readerTexte.replaceChildren();
+function livreDe(item){
+ const texte=normaliser(
+  (item.titre||"")+" "+(item.passage_biblique||"")
+ );
 
- const sommaire=document.getElementById("readerSommaire");
- const liens=document.getElementById("readerLiens");
+ if(texte.includes("levitique"))return "Lévitique";
+ if(texte.includes("exode"))return "Exode";
+ if(texte.includes("genese"))return "Genèse";
+ if(texte.includes("nombres"))return "Nombres";
+ if(texte.includes("deuteronome"))return "Deutéronome";
 
- liens.replaceChildren();
+ return "Autres études bibliques";
+}
 
- const contenu=String(item.contenu||"")
-  .replace(/\r\n/g,"\n")
+function nomSerie(item){
+ const titre=String(item.titre||"").trim();
+
+ const sansPartie=titre
+  .replace(/\s*[-–—:]\s*partie\s*\d+\s*(?:\/\s*\d+)?\s*.*$/i,"")
+  .replace(/\s*\(\s*partie\s*\d+\s*\)\s*$/i,"")
   .trim();
 
- if(!contenu){
-  const p=document.createElement("p");
-  p.textContent="Le texte complet n'est pas encore disponible.";
-  readerTexte.appendChild(p);
-  sommaire.hidden=true;
+ return sansPartie||"Autres enseignements";
+}
+
+/* NAVIGATION PRINCIPALE */
+
+function ouvrirPage(nom){
+ pageActive=nom;
+
+ document.querySelectorAll(".page").forEach(page=>{
+  page.classList.toggle(
+   "active",
+   page.id==="page-"+nom
+  );
+ });
+
+ document.querySelectorAll(".nav-btn").forEach(btn=>{
+  const actif=btn.dataset.page===nom;
+  btn.classList.toggle("active",actif);
+  btn.setAttribute("aria-current",actif?"page":"false");
+ });
+
+ window.scrollTo({top:0,behavior:"instant"});
+}
+
+document.querySelectorAll("[data-page]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  ouvrirPage(btn.dataset.page);
+ });
+});
+
+document.querySelectorAll("[data-open]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  ouvrirPage(btn.dataset.open);
+ });
+});
+
+/* LISTES COMPACTES */
+
+function ligne(titre,description,action){
+ const btn=document.createElement("button");
+ btn.className="lesson";
+ btn.type="button";
+
+ const texte=document.createElement("span");
+ const strong=document.createElement("strong");
+ strong.textContent=titre;
+
+ const small=document.createElement("small");
+ small.textContent=description||"";
+
+ const fleche=document.createElement("span");
+ fleche.className="lesson-arrow";
+ fleche.textContent="›";
+ fleche.setAttribute("aria-hidden","true");
+
+ texte.append(strong,small);
+ btn.append(texte,fleche);
+ btn.addEventListener("click",action);
+
+ return btn;
+}
+
+function ligneEnseignement(item){
+ const titre=String(item.titre||"Enseignement")
+  .replace(/^commentaire biblique\s*:\s*/i,"");
+
+ return ligne(
+  titre,
+  dateFR(item.date_publication)
+   +" • "+(item.passage_biblique||"")
+   +" • "+(item.nombre_lectures||0)+" lectures",
+  ()=>ouvrirLecture(item)
+ );
+}
+
+/* ACCUEIL */
+
+function afficherAccueil(){
+ const zone=document.getElementById("dernierePublication");
+ zone.replaceChildren();
+
+ if(!enseignements.length){
+  zone.textContent="Aucun enseignement publié.";
   return;
  }
 
- const blocs=contenu.split(/\n\s*\n/);
- let compteur=0;
+ const item=enseignements[0];
+
+ const titre=document.createElement("h3");
+ titre.textContent=item.titre;
+
+ const date=document.createElement("p");
+ date.className="small muted";
+ date.textContent=dateFR(item.date_publication);
+
+ const btn=document.createElement("button");
+ btn.className="btn";
+ btn.textContent="Lire la publication";
+ btn.addEventListener("click",()=>ouvrirLecture(item));
+
+ zone.append(titre,date,btn);
+}
+
+/* LIVRES BIBLIQUES */
+
+function afficherLivres(){
+ const zone=document.getElementById("livresBibliques");
+ zone.replaceChildren();
+
+ const groupes=new Map();
+
+ enseignements.filter(estBiblique).forEach(item=>{
+  const livre=livreDe(item);
+  if(!groupes.has(livre))groupes.set(livre,[]);
+  groupes.get(livre).push(item);
+ });
+
+ const ordre=[
+  "Genèse","Exode","Lévitique","Nombres",
+  "Deutéronome","Autres études bibliques"
+ ];
+
+ const livres=Array.from(groupes.keys()).sort(
+  (a,b)=>ordre.indexOf(a)-ordre.indexOf(b)
+ );
+
+ livres.forEach(livre=>{
+  zone.appendChild(ligne(
+   livre,
+   groupes.get(livre).length+" enseignement(s)",
+   ()=>ouvrirLivre(livre)
+  ));
+ });
+
+ if(!livres.length){
+  zone.textContent="Aucun commentaire biblique disponible.";
+ }
+}
+
+function ouvrirLivre(livre){
+ livreActif=livre;
+
+ document.getElementById("vueBiblique").hidden=true;
+ document.getElementById("vueLivre").hidden=false;
+ document.getElementById("titreLivre").textContent=livre;
+ document.getElementById("rechercheLivre").value="";
+
+ afficherChapitre();
+ window.scrollTo(0,0);
+}
+
+function afficherChapitre(){
+ const zone=document.getElementById("listeLivre");
+ zone.replaceChildren();
+
+ const recherche=normaliser(
+  document.getElementById("rechercheLivre").value
+ );
+
+ const items=enseignements.filter(item=>
+  estBiblique(item)
+  && livreDe(item)===livreActif
+  && normaliser(
+   (item.titre||"")+" "+(item.passage_biblique||"")
+  ).includes(recherche)
+ );
+
+ items.forEach(item=>{
+  zone.appendChild(ligneEnseignement(item));
+ });
+
+ if(!items.length){
+  zone.textContent="Aucun enseignement trouvé.";
+ }
+}
+
+document.getElementById("rechercheLivre")
+ .addEventListener("input",afficherChapitre);
+
+document.getElementById("retourLivres")
+ .addEventListener("click",()=>{
+  document.getElementById("vueLivre").hidden=true;
+  document.getElementById("vueBiblique").hidden=false;
+ });
+
+/* SÉRIES DE 23H */
+
+function afficherThemes(){
+ const zone=document.getElementById("listeThemes");
+ zone.replaceChildren();
+
+ const recherche=normaliser(
+  document.getElementById("rechercheThemes").value
+ );
+
+ const groupes=new Map();
+
+ enseignements.filter(item=>!estBiblique(item))
+  .forEach(item=>{
+   const nom=nomSerie(item);
+   if(!groupes.has(nom))groupes.set(nom,[]);
+   groupes.get(nom).push(item);
+  });
+
+ groupes.forEach((items,nom)=>{
+  if(!normaliser(
+   nom+" "+items.map(i=>i.titre).join(" ")
+  ).includes(recherche))return;
+
+  zone.appendChild(ligne(
+   nom,
+   items.length+" enseignement(s)",
+   ()=>ouvrirSerie(nom)
+  ));
+ });
+
+ if(!zone.children.length){
+  zone.textContent="Aucun thème trouvé.";
+ }
+}
+
+function ouvrirSerie(nom){
+ serieActive=nom;
+
+ document.getElementById("vueThemes").hidden=true;
+ document.getElementById("vueSerie").hidden=false;
+ document.getElementById("titreSerie").textContent=nom;
+
+ const zone=document.getElementById("listeSerie");
+ zone.replaceChildren();
+
+ const items=enseignements
+  .filter(item=>
+   !estBiblique(item)
+   && nomSerie(item)===nom
+  )
+  .sort((a,b)=>
+   String(a.date_publication||"")
+    .localeCompare(String(b.date_publication||""))
+  );
+
+ items.forEach(item=>{
+  zone.appendChild(ligneEnseignement(item));
+ });
+
+ window.scrollTo(0,0);
+}
+
+document.getElementById("rechercheThemes")
+ .addEventListener("input",afficherThemes);
+
+document.getElementById("retourThemes")
+ .addEventListener("click",()=>{
+  document.getElementById("vueSerie").hidden=true;
+  document.getElementById("vueThemes").hidden=false;
+ });
+
+/* LECTEUR PROFESSIONNEL */
+
+const lecteur=document.getElementById("lecteur");
+const contenu=document.getElementById("lecteurContenu");
+
+function estSection(texte){
+ return /^(INTRODUCTION|CONCLUSION|PRIÈRE|PRIERE|APPLICATION|RÉSUMÉ|RESUME|[1-9][0-9]?\s*[.):\-]\s+.+)$/i.test(texte.trim());
+}
+
+function formaterEnseignement(texte){
+ contenu.replaceChildren();
+
+ const liens=document.getElementById("liensSommaire");
+ liens.replaceChildren();
+
+ const blocs=String(texte||"")
+  .replace(/\r\n/g,"\n")
+  .trim()
+  .split(/\n\s*\n/);
+
+ let nombre=0;
 
  blocs.forEach(bloc=>{
+  if(!bloc.trim())return;
+
   const lignes=bloc.split("\n");
   const premiere=lignes[0].trim();
 
-  if(estTitreDeSection(premiere)){
+  if(estSection(premiere)){
    const h=document.createElement("h2");
    h.textContent=premiere;
-   h.id="lecture-section-"+(++compteur);
-   readerTexte.appendChild(h);
+   h.id="section-"+(++nombre);
+   contenu.appendChild(h);
 
-   const lien=document.createElement("a");
-   lien.href="#"+h.id;
-   lien.textContent=premiere;
+   const a=document.createElement("a");
+   a.href="#"+h.id;
+   a.textContent=premiere;
 
-   lien.addEventListener("click",event=>{
+   a.addEventListener("click",event=>{
     event.preventDefault();
-    h.scrollIntoView({
-     behavior:"smooth",
-     block:"start"
-    });
+    h.scrollIntoView({behavior:"smooth"});
    });
 
-   liens.appendChild(lien);
+   liens.appendChild(a);
 
    const suite=lignes.slice(1).join("\n").trim();
    if(suite){
     const p=document.createElement("p");
     p.textContent=suite;
-    readerTexte.appendChild(p);
+    contenu.appendChild(p);
    }
   }else{
    const p=document.createElement("p");
    p.textContent=bloc.trim();
-   readerTexte.appendChild(p);
+   contenu.appendChild(p);
   }
  });
 
- sommaire.hidden=compteur===0;
+ document.getElementById("sommaire").hidden=nombre===0;
 }
 
+function listeCourante(){
+ if(pageActive==="biblique"){
+  return enseignements.filter(item=>
+   estBiblique(item)
+   && livreDe(item)===livreActif
+  );
+ }
+
+ if(pageActive==="thematique"){
+  return enseignements.filter(item=>
+   !estBiblique(item)
+   && nomSerie(item)===serieActive
+  ).sort((a,b)=>
+   String(a.date_publication||"")
+    .localeCompare(String(b.date_publication||""))
+  );
+ }
+
+ return enseignements.slice();
+}
+
+function ouvrirLecture(item,garderListe=false){
+ if(!garderListe){
+  navigationLecture=listeCourante();
+  focusAvantLecture=document.activeElement;
+ }
+
+ lectureActive=item;
+
+ document.getElementById("lecteurCategorie").textContent=
+  estBiblique(item)
+   ? "COMMENTAIRE BIBLIQUE • 14H GMT"
+   : "ENSEIGNEMENT • 23H GMT";
+
+ document.getElementById("lecteurTitre").textContent=
+  item.titre||"Enseignement";
+
+ document.getElementById("lecteurMeta").textContent=
+  dateFR(item.date_publication)
+  +" • "+(item.passage_biblique||"")
+  +" • Pasteur Gilles Landry LOGON";
+
+ formaterEnseignement(item.contenu);
+ contenu.style.fontSize=taillePolice+"px";
+
+ const index=navigationLecture.findIndex(
+  i=>String(i.id)===String(item.id)
+ );
+
+ document.getElementById("precedent").disabled=index<=0;
+ document.getElementById("suivant").disabled=
+  index<0||index>=navigationLecture.length-1;
+
+ lecteur.hidden=false;
+ document.body.classList.add("reading");
+ lecteur.scrollTop=0;
+
+ document.getElementById("progression").style.width="0%";
+ document.getElementById("fermerLecteur").focus();
+
+ compterLecture(item);
+}
+
+function fermerLecture(){
+ lecteur.hidden=true;
+ document.body.classList.remove("reading");
+ lectureActive=null;
+
+ if(focusAvantLecture&&focusAvantLecture.isConnected){
+  focusAvantLecture.focus({preventScroll:true});
+ }
+}
+
+document.getElementById("fermerLecteur")
+ .addEventListener("click",fermerLecture);
+
+document.getElementById("retourListe")
+ .addEventListener("click",fermerLecture);
+
+function changerLecture(sens){
+ if(!lectureActive)return;
+
+ const index=navigationLecture.findIndex(
+  i=>String(i.id)===String(lectureActive.id)
+ );
+
+ const suivant=navigationLecture[index+sens];
+ if(suivant)ouvrirLecture(suivant,true);
+}
+
+document.getElementById("precedent")
+ .addEventListener("click",()=>changerLecture(-1));
+
+document.getElementById("suivant")
+ .addEventListener("click",()=>changerLecture(1));
+
+document.getElementById("textePlus")
+ .addEventListener("click",()=>{
+  taillePolice=Math.min(26,taillePolice+2);
+  contenu.style.fontSize=taillePolice+"px";
+ });
+
+document.getElementById("texteMoins")
+ .addEventListener("click",()=>{
+  taillePolice=Math.max(14,taillePolice-2);
+  contenu.style.fontSize=taillePolice+"px";
+ });
+
+document.getElementById("partager")
+ .addEventListener("click",()=>{
+  if(!lectureActive)return;
+
+  const texte=
+   "PAROLES ET LUMIÈRE\n\n"
+   +lectureActive.titre+"\n"
+   +(lectureActive.passage_biblique||"")+"\n\n"
+   +APP_URL;
+
+  window.open(
+   "https://wa.me/?text="+encodeURIComponent(texte),
+   "_blank","noopener,noreferrer"
+  );
+ });
+
+lecteur.addEventListener("scroll",()=>{
+ const max=lecteur.scrollHeight-lecteur.clientHeight;
+ const pourcentage=max>0?lecteur.scrollTop/max*100:100;
+ document.getElementById("progression").style.width=
+  Math.min(100,pourcentage)+"%";
+},{passive:true});
+
+document.addEventListener("keydown",event=>{
+ if(lecteur.hidden)return;
+
+ if(event.key==="Escape"){
+  fermerLecture();
+ }
+
+ if(event.key==="Tab"){
+  const elements=Array.from(
+   lecteur.querySelectorAll("button:not([disabled]),a[href]")
+  ).filter(el=>el.getClientRects().length>0);
+
+  if(!elements.length)return;
+
+  const premier=elements[0];
+  const dernier=elements[elements.length-1];
+
+  if(event.shiftKey&&document.activeElement===premier){
+   event.preventDefault();
+   dernier.focus();
+  }else if(!event.shiftKey&&document.activeElement===dernier){
+   event.preventDefault();
+   premier.focus();
+  }
+ }
+});
+
+/* COMPTEUR DE LECTURES */
+
 async function compterLecture(item){
- if(!db || !item.id || item._compte)return;
+ if(!db||!item.id||item._compte)return;
 
  item._compte=true;
 
@@ -1022,187 +1224,26 @@ async function compterLecture(item){
      ? data
      : Number(item.nombre_lectures||0)+1;
 
-   afficherRecents();
-   afficherBibliotheque();
+   afficherAccueil();
+   afficherLivres();
+   afficherThemes();
+
+   if(livreActif)afficherChapitre();
+   if(serieActive&&
+      !document.getElementById("vueSerie").hidden){
+    ouvrirSerie(serieActive);
+   }
   }
  }catch(err){
-  console.warn("Compteur de lecture :",err);
+  console.warn("Compteur :",err);
  }
 }
 
-function ouvrirLecture(item,conserverNavigation=false){
- if(!conserverNavigation){
-  listeNavigation=listeFiltree();
-
-  if(!listeNavigation.some(e=>String(e.id)===String(item.id))){
-   listeNavigation=enseignements.slice();
-  }
-
-  ancienFocus=document.activeElement;
-  dernierePosition=window.scrollY;
- }
-
- lectureActive=item;
-
- document.getElementById("readerLabel").textContent=
-  categorie(item)==="14"
-   ? "COMMENTAIRE BIBLIQUE • 14H GMT"
-   : "ENSEIGNEMENT • 23H GMT";
-
- document.getElementById("readerTitre").textContent=
-  item.titre||"Enseignement";
-
- document.getElementById("readerInfo").textContent=
-  [
-   dateFR(item.date_publication),
-   item.passage_biblique,
-   "Pasteur Gilles Landry LOGON"
-  ].filter(Boolean).join(" • ");
-
- afficherContenu(item);
-
- readerTexte.style.fontSize=tailleTexte+"px";
-
- const index=listeNavigation.findIndex(
-  e=>String(e.id)===String(item.id)
- );
-
- document.getElementById("lecturePrecedente").disabled=
-  index<=0;
-
- document.getElementById("lectureSuivante").disabled=
-  index<0 || index>=listeNavigation.length-1;
-
- reader.hidden=false;
- document.body.classList.add("reading");
-
- reader.scrollTop=0;
- document.getElementById("progressionLecture").style.width="0%";
- document.getElementById("fermerLecture").focus();
-
- compterLecture(item);
-}
-
-function fermerLecture(){
- reader.hidden=true;
- document.body.classList.remove("reading");
- lectureActive=null;
- window.scrollTo(0,dernierePosition);
-
- if(ancienFocus && typeof ancienFocus.focus==="function"){
-  ancienFocus.focus({preventScroll:true});
- }
-}
-
-document.getElementById("fermerLecture")
- .addEventListener("click",fermerLecture);
-
-document.getElementById("retourBibliotheque")
- .addEventListener("click",()=>{
-  fermerLecture();
-  document.getElementById("bibliotheque")
-   .scrollIntoView({behavior:"smooth"});
- });
-
-function naviguerLecture(direction){
- if(!lectureActive)return;
-
- const index=listeNavigation.findIndex(
-  e=>String(e.id)===String(lectureActive.id)
- );
-
- const prochain=listeNavigation[index+direction];
-
- if(prochain){
-  ouvrirLecture(prochain,true);
- }
-}
-
-document.getElementById("lecturePrecedente")
- .addEventListener("click",()=>naviguerLecture(-1));
-
-document.getElementById("lectureSuivante")
- .addEventListener("click",()=>naviguerLecture(1));
-
-document.getElementById("agrandirTexte")
- .addEventListener("click",()=>{
-  tailleTexte=Math.min(26,tailleTexte+2);
-  readerTexte.style.fontSize=tailleTexte+"px";
- });
-
-document.getElementById("reduireTexte")
- .addEventListener("click",()=>{
-  tailleTexte=Math.max(14,tailleTexte-2);
-  readerTexte.style.fontSize=tailleTexte+"px";
- });
-
-document.getElementById("partagerLecture")
- .addEventListener("click",()=>{
-  if(!lectureActive)return;
-
-  const texte=
-   "PAROLES ET LUMIÈRE\n\n"
-   +(lectureActive.titre||"")+"\n"
-   +(lectureActive.passage_biblique||"")+"\n\n"
-   +APP_URL;
-
-  window.open(
-   "https://wa.me/?text="+encodeURIComponent(texte),
-   "_blank",
-   "noopener,noreferrer"
-  );
- });
-
-reader.addEventListener("scroll",()=>{
- const total=reader.scrollHeight-reader.clientHeight;
-
- const pourcentage=total>0
-  ? Math.min(100,reader.scrollTop/total*100)
-  : 100;
-
- document.getElementById("progressionLecture")
-  .style.width=pourcentage+"%";
-},{passive:true});
-
-document.addEventListener("keydown",event=>{
- if(reader.hidden)return;
-
- if(event.key==="Escape"){
-  fermerLecture();
- }
-
- if(event.key==="Tab"){
-  const elements=Array.from(
-   reader.querySelectorAll(
-    'button:not([disabled]),a[href]'
-   )
-  ).filter(el=>el.getClientRects().length>0);
-
-  if(!elements.length)return;
-
-  const premier=elements[0];
-  const dernier=elements[elements.length-1];
-
-  if(event.shiftKey && document.activeElement===premier){
-   event.preventDefault();
-   dernier.focus();
-  }else if(!event.shiftKey && document.activeElement===dernier){
-   event.preventDefault();
-   premier.focus();
-  }
- }
-});
-
-/* =====================================
-   CHARGEMENT SUPABASE
-===================================== */
+/* CHARGEMENT DES PUBLICATIONS */
 
 async function chargerEnseignements(){
  if(!db){
-  document.getElementById("statutRecents").textContent=
-   "Connexion Supabase indisponible.";
-
-  document.getElementById("statutBibliotheque").textContent=
+  document.getElementById("dernierePublication").textContent=
    "Connexion Supabase indisponible.";
   return;
  }
@@ -1220,58 +1261,42 @@ async function chargerEnseignements(){
    const d=String(b.date_publication||"")
     .localeCompare(String(a.date_publication||""));
 
-   if(d!==0)return d;
-
-   return String(b.id||"")
+   return d!==0?d:String(b.id||"")
     .localeCompare(String(a.id||""));
   });
 
-  afficherRecents();
-  afficherBibliotheque();
+  afficherAccueil();
+  afficherLivres();
+  afficherThemes();
 
  }catch(err){
   console.error(err);
-
-  document.getElementById("statutRecents").textContent=
-   "Erreur de chargement des enseignements.";
-
-  document.getElementById("statutBibliotheque").textContent=
-   "Erreur de chargement. Vérifiez Supabase.";
+  document.getElementById("dernierePublication").textContent=
+   "Impossible de charger les enseignements.";
  }
 }
 
 chargerEnseignements();
 
-/* =====================================
-   AUDIOS EXODE ET LÉVITIQUE
-===================================== */
+/* LECTURES AUDIO */
 
-const audioContainer=document.getElementById("listeAudios");
+const zoneAudios=document.getElementById("listeAudios");
 
-function titreAudio(texte){
- const h=document.createElement("h3");
- h.className="audio-title";
- h.textContent=texte;
- audioContainer.appendChild(h);
-}
+function ajouterAudio(nom,url){
+ const carte=document.createElement("div");
+ carte.className="audio-card";
 
-function ajouterAudio(titre,url){
- const box=document.createElement("div");
- box.className="audio-item";
-
- const nom=document.createElement("strong");
- nom.textContent=titre;
+ const titre=document.createElement("strong");
+ titre.textContent=nom;
 
  const audio=document.createElement("audio");
  audio.controls=true;
  audio.preload="none";
  audio.src=url;
 
- box.append(nom,audio);
- audioContainer.appendChild(box);
+ carte.append(titre,audio);
+ zoneAudios.appendChild(carte);
 }
-
-titreAudio("Exode 31 à 36");
 
 for(let n=31;n<=36;n++){
  ajouterAudio(
@@ -1282,7 +1307,7 @@ for(let n=31;n<=36;n++){
 }
 
 async function chargerLevitique(){
- const disponibles=[];
+ let total=0;
 
  for(let n=7;n<=12;n++){
   const url=SUPABASE_URL+
@@ -1291,32 +1316,24 @@ async function chargerLevitique(){
 
   try{
    const rep=await fetch(url,{method:"HEAD"});
-
    if(rep.ok){
-    disponibles.push({titre:"Lévitique "+n,url});
+    ajouterAudio("Lévitique "+n,url);
+    total++;
    }
   }catch(err){
-   console.warn("Audio non vérifié :",n);
+   console.warn(err);
   }
  }
 
- if(disponibles.length){
-  titreAudio("Lévitique 7 à 12");
-
-  disponibles.forEach(item=>{
-   ajouterAudio(item.titre,item.url);
-  });
- }else{
+ if(!total){
   document.getElementById("statutAudios").textContent=
-   "Les audios de Lévitique seront affichés lorsqu'ils seront disponibles dans Supabase.";
+   "Les audios de Lévitique seront affichés après leur ajout dans Supabase.";
  }
 }
 
 chargerLevitique();
 
-/* =====================================
-   INSTALLATION PWA
-===================================== */
+/* INSTALLATION */
 
 let invitationInstallation=null;
 
@@ -1325,7 +1342,7 @@ window.addEventListener("beforeinstallprompt",event=>{
  invitationInstallation=event;
 });
 
-document.getElementById("boutonInstaller")
+document.getElementById("installer")
  .addEventListener("click",async()=>{
   if(invitationInstallation){
    await invitationInstallation.prompt();
@@ -1336,13 +1353,9 @@ document.getElementById("boutonInstaller")
   const aide=document.getElementById("aideInstallation");
   aide.hidden=false;
 
-  if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){
-   aide.textContent=
-    "Sur iPhone : ouvrez Safari, puis Partager > Sur l'écran d'accueil > Ajouter.";
-  }else{
-   aide.textContent=
-    "Sur Android : ouvrez Chrome, puis menu ⋮ > Installer l'application ou Ajouter à l'écran d'accueil.";
-  }
+  aide.textContent=/iPhone|iPad|iPod/i.test(navigator.userAgent)
+   ? "Sur iPhone : Safari > Partager > Sur l'écran d'accueil."
+   : "Sur Android : Chrome > menu ⋮ > Installer l'application.";
  });
 
 if("serviceWorker" in navigator){
@@ -1353,6 +1366,5 @@ if("serviceWorker" in navigator){
  });
 }
 </script>
-
 </body>
 </html>
